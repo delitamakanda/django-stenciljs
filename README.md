@@ -12,5 +12,5 @@ ng new app
 ```
 
 ```bash
-cd frontend && ng serve
+cd frontend && ng serve or npm run start
 ```
