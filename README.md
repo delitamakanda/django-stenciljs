@@ -1,2 +1,16 @@
-# django-stenciljs
-Experimental app in stenciljs (library for web component)
+# django-stenciljs-angular
+Experimental app in stenciljs-angular (library for web component)
+
+
+## Frontend
+
+```bash
+npm -g install @angular/cli
+ng --version
+
+ng new app
+```
+
+```bash
+cd frontend && ng serve
+```
