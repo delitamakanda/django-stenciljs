@@ -5,3 +5,6 @@
 * https://www.techiediaries.com/angular-material-tutorial-example/
 * https://www.techiediaries.com/django-vuejs-api-views/
 * https://www.youtube.com/watch?v=FFvphHyD9Mg
+* https://angular.io/guide/quickstart
+* https://alligator.io/angular/angular-google-maps/
+* https://angular.io/tutorial/toh-pt1
