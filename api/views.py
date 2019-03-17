@@ -1,15 +1,10 @@
 from django.shortcuts import render
-from django.contrib.auth.models import User, Group
 from rest_framework import viewsets
 
-from api.serializers import UserSerializer, GroupSerializer
+from api.models import UserAccount
+from api.serializers import UserAccountSerializer
 
 # Create your views here.
-class UserViewSet(viewsets.ModelViewSet):
-    queryset = User.objects.all().order_by('-date_joined')
-    serializer_class = UserSerializer
-
-
-class GroupViewSet(viewsets.ModelViewSet):
-    queryset = Group.objects.all()
-    serializer_class = GroupSerializer
+class UserAccountViewSet(viewsets.ModelViewSet):
+    queryset = UserAccount.objects.all().order_by('-date_joined')
+    serializer_class = UserAccountSerializer
