@@ -9,3 +9,4 @@
 * https://alligator.io/angular/angular-google-maps/
 * https://angular.io/tutorial/toh-pt1
 * https://www.vertabelo.com/blog/technical-articles/a-dating-app-data-model
+* https://denys.dev/2018-03-18/simple-i18n-support-for-your-angular-apps/
