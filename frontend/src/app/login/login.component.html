@@ -1,4 +1,5 @@
 <div class="container">
+    <h1>Welcome to {{ 'title' | translate }}!</h1>
     <mat-form-field>
       <input type="email" matInput placeholder="Username or Email" [(ngModel)]="login.emailOrUsername" [formControl]="emailFormControl" [errorStateMatcher]="matcher">
       <mat-hint>Errors appear instantly!</mat-hint>

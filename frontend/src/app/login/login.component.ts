@@ -1,6 +1,7 @@
 import { Component, OnInit } from '@angular/core';
 import {FormControl, FormGroupDirective, NgForm, Validators} from '@angular/forms';
 import {ErrorStateMatcher} from '@angular/material/core';
+import { TranslateService } from '../services/translate/translate.service';
 
 @Component({
   selector: 'app-login',
@@ -21,7 +22,9 @@ export class LoginComponent implements OnInit, ErrorStateMatcher {
         Validators.email,
     ]);
 
-    constructor() { }
+    constructor(private translate: TranslateService) {
+        console.log(translate.data);
+    }
 
     ngOnInit() {
         this.login = {
@@ -31,7 +34,7 @@ export class LoginComponent implements OnInit, ErrorStateMatcher {
     }
 
     loginAccount() {
-        
+
     }
 
 }
