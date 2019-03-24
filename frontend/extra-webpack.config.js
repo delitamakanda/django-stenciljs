@@ -16,7 +16,7 @@ module.exports = {
         "historyApiFallback":  true,
         "publicPath":  "http://127.0.0.1:4200/",
         "headers": {
-            'Access-Control-Allow-Origin':  '\\*'
+            'Access-Control-Allow-Origin':  '*'
         }
     },
     plugins:[
