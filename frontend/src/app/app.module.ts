@@ -7,13 +7,16 @@ import { HttpClientModule } from '@angular/common/http';
 
 
 import { MaterialModule } from './material.module';
+import { UserService } from './services/user/user.service';
 import { TranslateService } from './services/translate/translate.service';
+import { TranslatePipe } from './pipes/translate/translate.pipe';
 
 import { AppRoutingModule } from './app-routing.module';
 import { AppComponent } from './app.component';
 import { RegisterComponent } from './register/register.component';
 import { LoginComponent } from './login/login.component';
-import { TranslatePipe } from './pipes/translate/translate.pipe';
+import { LandingComponent } from './landing/landing.component';
+import { DashboardComponent } from './dashboard/dashboard.component';
 
 export function setupTranslateFactory (service: TranslateService): Function {
     return () => service.use('fr');
@@ -24,7 +27,9 @@ export function setupTranslateFactory (service: TranslateService): Function {
     AppComponent,
     RegisterComponent,
     LoginComponent,
-    TranslatePipe
+    TranslatePipe,
+    LandingComponent,
+    DashboardComponent
   ],
   imports: [
     BrowserModule,
@@ -36,6 +41,7 @@ export function setupTranslateFactory (service: TranslateService): Function {
     AppRoutingModule
   ],
   providers: [
+      UserService,
       TranslateService,
       {
           provide: APP_INITIALIZER,
