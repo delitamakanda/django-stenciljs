@@ -10,3 +10,8 @@
 * https://angular.io/tutorial/toh-pt1
 * https://www.vertabelo.com/blog/technical-articles/a-dating-app-data-model
 * https://denys.dev/2018-03-18/simple-i18n-support-for-your-angular-apps/
+* https://stackoverflow.com/questions/40381265/django-session-authentication-with-angular-2
+* https://www.metaltoad.com/blog/angular-api-calls-django-authentication-jwt
+
+
+* https://dribbble.com/shots/2939825-Air-Travel-App/attachments/610646

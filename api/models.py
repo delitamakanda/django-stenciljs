@@ -46,6 +46,10 @@ class UserPhoto(models.Model):
     time_added = models.DateTimeField(auto_now_add=True)
     active = models.BooleanField(default=True)
 
+    def __str__(self):
+        return self.user_account.username
+
+
 class UserAccount(AbstractUser):
     gender = models.ForeignKey(Gender, null=True)
     details = models.TextField()
@@ -63,6 +67,9 @@ class Conversation(models.Model):
     time_started = models.DateTimeField()
     time_closed = models.DateTimeField(null=True)
 
+    def __str__(self):
+        return "%s : %s - %s" % (self.user_account, self.time_started, self.time_closed)
+
 
 class Participant(models.Model):
     conversation = models.ForeignKey(Conversation)
@@ -70,11 +77,17 @@ class Participant(models.Model):
     time_joined = models.DateTimeField()
     time_left = models.DateTimeField(null=True)
 
+    def __str__(self):
+        return "%s : %s - %s" % (self.user_account, self.conversation, self.time_joined)
+
 
 class Message(models.Model):
     participant = models.ForeignKey(Participant)
     message_text = models.TextField()
     timestamp = models.DateTimeField()
+
+    def __str__(self):
+        return "%s : %s - %s" % (self.participant, self.message_text, self.timestamp)
 
 
 
@@ -87,7 +100,13 @@ class Grade(models.Model):
     user_account_received = models.ForeignKey(settings.AUTH_USER_MODEL, null=True, related_name='grade_received')
     grade = models.IntegerField()
 
+    def __str__(self):
+        return "%s : %s" % (self.user_account_given, self.user_account_received)
+
 
 class BlockUser(models.Model):
     user_account = models.ForeignKey(settings.AUTH_USER_MODEL, null=True, related_name='rel_to_from')
     user_account_blocked = models.ForeignKey(settings.AUTH_USER_MODEL, null=True, related_name='rel_to_set')
+
+    def __str__(self):
+        return "%s : %s" % (self.user_account, self.user_account_blocked)

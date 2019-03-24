@@ -37,11 +37,14 @@ class UserAccountSerializer(serializers.ModelSerializer):
 
     class Meta:
         model = UserAccount
-        fields = ('id', 'username', 'email', 'password', 'is_staff','gender', 'details', 'confirmation_code', 'confirmation_time', 'popularity',)
+        fields = ('id', 'username', 'email', 'is_staff','gender', 'details', 'confirmation_code', 'confirmation_time', 'popularity',)
         extra_kwargs = {'password': { 'write_only': True, 'required': True }}
 
     def create(self, validated_data):
         user = UserAccount.objects.create(**validated_data)
+        user.set_password(validated_data['password'])
+        user.is_active = True
+        user.save()
         return user
 
 
