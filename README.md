@@ -1,5 +1,5 @@
-# django-stenciljs-angular
-Experimental app in stenciljs-angular (library for web component)
+# django-angular
+Experimental app in angular
 
 
 ## Frontend
