@@ -1,3 +1,5 @@
 {
-  "title": "My i18n Application (ua)"
+  "title": "My i18n Application (ua)",
+  "loginLabel": "Login",
+  "registerLabel": "Register"
 }

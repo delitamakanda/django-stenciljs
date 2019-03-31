@@ -1,7 +1,9 @@
 <!--The content below is only a placeholder and can be replaced.-->
-<div>
-    <h1>{{ 'title' | translate }}!</h1>
-    <button (click)="setLang('fr')">Language: fr</button>
-    <button (click)="setLang('en')">Language: EN</button>
+<div class="app-container">
+    <div class="language-switching">
+        <!---<h1>{{ 'title' | translate }}!</h1>-->
+        <button mat-mini-fab (click)="setLang('fr')">FR</button>
+        <button mat-mini-fab (click)="setLang('en')">EN</button>
+    </div>
+    <router-outlet></router-outlet>
 </div>
-<router-outlet></router-outlet>
