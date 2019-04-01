@@ -1,5 +1,5 @@
 from django.shortcuts import render
-from rest_framework import viewsets
+from rest_framework import viewsets, permissions
 
 from api.models import Gender, RelationshipType
 from api.models import InterestedInGender, InterestedInRelation
@@ -36,6 +36,7 @@ class InterestedInRelationViewSet(viewsets.ModelViewSet):
 class UserAccountViewSet(viewsets.ModelViewSet):
     queryset = UserAccount.objects.all().order_by('-date_joined')
     serializer_class = UserAccountSerializer
+    permission_classes = (permissions.AllowAny, )
 
 
 class UserPhotoViewSet(viewsets.ModelViewSet):

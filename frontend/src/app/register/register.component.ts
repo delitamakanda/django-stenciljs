@@ -29,17 +29,20 @@ export class RegisterComponent implements OnInit, ErrorStateMatcher {
         this.register = {
             username: '',
             password: '',
-            email: ''
+            email: '',
+            confirmation_code: 'toto', // // TODO: faire le backend
+            details: 'toto'
         };
     }
 
     createAccount() {
-        this.userService.registerUser(this.register).subscribe(
+        /*this.userService.registerUser(this.register).subscribe(
             response => {
                 alert('User ' + this.register.username + ' has been created!')
             },
             error => console.log('error' , error)
-        )
+        )*/
+        this.userService.registerUser(this.register);
     }
 
 }
