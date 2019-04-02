@@ -13,11 +13,14 @@ module.exports = {
         extensions: [ '.ts', '.js' ]
     },
     devServer: {
+		"proxy": {
+			"**": "http://localhost:8000
+		},
         "historyApiFallback":  true,
         "publicPath":  "http://127.0.0.1:4200/",
         "headers": {
             'Access-Control-Allow-Origin':  '*'
-        }
+        },
     },
     plugins:[
         new BundleTracker({filename: '../webpack-stats.json'})
