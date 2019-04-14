@@ -17,4 +17,6 @@ router.register(r'block-user', views.BlockUserViewSet)
 
 urlpatterns = [
     url(r'^', include(router.urls)),
+    url(r'^register-user', views.CreateUserView.as_view()),
+    url(r'^login-user', views.LoginUserView.as_view()),
 ]
