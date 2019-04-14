@@ -12,6 +12,7 @@
 * https://denys.dev/2018-03-18/simple-i18n-support-for-your-angular-apps/
 * https://stackoverflow.com/questions/40381265/django-session-authentication-with-angular-2
 * https://www.metaltoad.com/blog/angular-api-calls-django-authentication-jwt
+* http://jasonwatmore.com/post/2018/05/23/angular-6-jwt-authentication-example-tutorial
 
 
 * https://dribbble.com/shots/2939825-Air-Travel-App/attachments/610646
