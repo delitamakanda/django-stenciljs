@@ -13,10 +13,10 @@ import { TranslatePipe } from './pipes/translate/translate.pipe';
 
 import { AppRoutingModule } from './app-routing.module';
 import { AppComponent } from './app.component';
-import { RegisterComponent } from './register/register.component';
-import { LoginComponent } from './login/login.component';
-import { LandingComponent } from './landing/landing.component';
-import { DashboardComponent } from './dashboard/dashboard.component';
+import { RegisterComponent } from './components/register/register.component';
+import { LoginComponent } from './components/login/login.component';
+import { LandingComponent } from './components/landing/landing.component';
+import { DashboardComponent } from './components/dashboard/dashboard.component';
 
 export function setupTranslateFactory (service: TranslateService): Function {
     return () => service.use('fr');

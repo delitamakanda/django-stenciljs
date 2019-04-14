@@ -1,8 +1,8 @@
 import { Component, OnInit } from '@angular/core';
 import {FormControl, FormGroupDirective, NgForm, Validators} from '@angular/forms';
 import {ErrorStateMatcher} from '@angular/material/core';
-import { UserService } from '../services/user/user.service';
-import { TranslateService } from '../services/translate/translate.service';
+import { UserService } from '../../services/user/user.service';
+import { TranslateService } from '../../services/translate/translate.service';
 
 @Component({
   selector: 'app-login',
