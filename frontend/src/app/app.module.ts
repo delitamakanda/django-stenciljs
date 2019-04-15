@@ -8,6 +8,7 @@ import { HttpClientModule } from '@angular/common/http';
 
 import { MaterialModule } from './material.module';
 import { UserService } from './services/user/user.service';
+import { AuthService } from './services/auth/auth.service';
 import { TranslateService } from './services/translate/translate.service';
 import { TranslatePipe } from './pipes/translate/translate.pipe';
 
@@ -17,6 +18,8 @@ import { RegisterComponent } from './components/register/register.component';
 import { LoginComponent } from './components/login/login.component';
 import { LandingComponent } from './components/landing/landing.component';
 import { DashboardComponent } from './components/dashboard/dashboard.component';
+
+import { CookieService } from 'angular2-cookie/core';
 
 export function setupTranslateFactory (service: TranslateService): Function {
     return () => service.use('fr');
@@ -42,6 +45,8 @@ export function setupTranslateFactory (service: TranslateService): Function {
   ],
   providers: [
       UserService,
+      AuthService,
+      CookieService,
       TranslateService,
       {
           provide: APP_INITIALIZER,

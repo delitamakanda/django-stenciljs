@@ -1,8 +1,13 @@
 import { Component, OnInit } from '@angular/core';
 import {FormControl, FormGroupDirective, NgForm, Validators} from '@angular/forms';
 import {ErrorStateMatcher} from '@angular/material/core';
-import { UserService } from '../../services/user/user.service';
 import { TranslateService } from '../../services/translate/translate.service';
+
+import { AuthService } from '../../services/auth/auth.service';
+import { UserService } from '../../services/user/user.service';
+
+import { User } from '../../models/user';
+import { CookieService } from 'angular2-cookie/core';
 
 @Component({
   selector: 'app-login',
@@ -23,7 +28,12 @@ export class LoginComponent implements OnInit, ErrorStateMatcher {
         Validators.email,
     ]);
 
-    constructor(private translate: TranslateService, private userService: UserService) { }
+    constructor(
+        private translate: TranslateService,
+        private userService: UserService,
+        private authService: AuthService,
+        public cookieService: CookieService
+    ) { }
 
     ngOnInit() {
         this.user = {
@@ -34,5 +44,9 @@ export class LoginComponent implements OnInit, ErrorStateMatcher {
 
     login() {
         this.userService.login({'username': this.user.emailOrUsername, 'password': this.user.password});
+    }
+
+    signin () {
+        this.authService.login(this.user);
     }
 }

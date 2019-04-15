@@ -90,6 +90,7 @@ class BlockUserViewSet(viewsets.ModelViewSet):
 # https://github.com/pyaf/djangular
 class CreateUserView(CreateAPIView):
     serializer_class = UserAccount
+    permission_classes = (permissions.AllowAny,)
 
     def post(self, request, *args, **kwargs):
         serializer = self.get_serializer(data=request.data)
@@ -111,9 +112,10 @@ class CreateUserView(CreateAPIView):
 
 
 class LoginUserView(APIView):
+    permission_classes = (permissions.AllowAny,)
 
     def post(self, request, *args, **kwargs):
-        username = request.data.get('username')
+        username = request.data.get('emailOrUsername')
         password = request.data.get('password')
 
         user = authenticate(username=username, password=password)

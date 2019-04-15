@@ -4,7 +4,7 @@
       <mat-error *ngIf="emailFormControl.hasError('email') && !emailFormControl.hasError('required')">
         Please enter a valid email address or username
       </mat-error>
-      <mat-error *ngFor="let error of userService.errors.username">{{ error }}</mat-error>
+      <!--<mat-error *ngFor="let error of userService.errors.username">{{ error }}</mat-error>-->
       <mat-error *ngIf="emailFormControl.hasError('required')">
         Email is <strong>required</strong>
       </mat-error>
@@ -13,8 +13,8 @@
   <mat-form-field>
     <input type="password" matInput placeholder="Password" [(ngModel)]="user.password" [type]="hide ? 'password' : 'text'">
     <mat-icon matSuffix (click)="hide = !hide">{{hide ? 'visibility_off' : 'visibility'}}</mat-icon>
-    <mat-error *ngFor="let error of userService.errors.password">{{ error }}</mat-error>
+    <!--<mat-error *ngFor="let error of userService.errors.password">{{ error }}</mat-error>-->
   </mat-form-field>
 
-  <button (click)="login()" mat-button>Login</button>
+  <button (click)="signin()" mat-button>Login</button>
 </div>
