@@ -17,15 +17,19 @@ from django.conf.urls import url, include
 from django.views.generic import TemplateView
 from django.contrib import admin
 from django.views.decorators.cache import never_cache
-from rest_framework_jwt.views import (obtain_jwt_token,
-                                    verify_jwt_token,
-                                    refresh_jwt_token)
+
+from django.conf import settings
+from django.conf.urls.static import static
+
+from rest_framework.documentation import include_docs_urls
 
 urlpatterns = [
     url(r'^admin/', admin.site.urls),
+    url(r'^api/docs/', include_docs_urls(title='Lov3r APIs')),
     url(r'^api/', include('api.urls', namespace='api_dating')),
-    url(r'^api/token-auth/', obtain_jwt_token),
-    url(r'^api/token-verify/', verify_jwt_token),
-    url(r'^api/token-refresh/', refresh_jwt_token),
     url(r'^$', never_cache(TemplateView.as_view(template_name='frontend/index.html')), name='index'),
 ]
+
+if settings.DEBUG:
+    urlpatterns = urlpatterns + static(settings.STATIC_URL, document_root=settings.STATIC_ROOT)
+    urlpatterns = urlpatterns + static(settings.MEDIA_URL, document_root=settings.MEDIA_ROOT)
