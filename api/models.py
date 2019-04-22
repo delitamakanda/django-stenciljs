@@ -39,6 +39,19 @@ class InterestedInRelation(models.Model):
         return "%s : %s" % (self.relationship_type, self.user_account)
 
 
+def upload_user_photo_image(instance, filename):
+    return "photo/{user_account}/{filename}".format(user_account=instance.user_account, filename=filename)
+
+class UserPhotoQuerySet(models.QuerySet):
+    pass
+
+
+class UserPhotoManager(models.Manager):
+
+    def get_queryset(self):
+        return UserPhotoQuerySet(self.model, using=self._db)
+
+
 class UserPhoto(models.Model):
     user_account = models.ForeignKey(settings.AUTH_USER_MODEL, null=True)
     link = models.TextField()
@@ -46,8 +59,18 @@ class UserPhoto(models.Model):
     time_added = models.DateTimeField(auto_now_add=True)
     active = models.BooleanField(default=True)
 
+    objects = UserPhotoManager()
+
     def __str__(self):
         return self.user_account.username
+
+    class Meta:
+        verbose_name = 'User photo'
+        verbose_name_plural = 'Users photos'
+
+    @property
+    def owner(self):
+        return self.user_account
 
 
 class UserAccount(AbstractUser):

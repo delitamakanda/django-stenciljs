@@ -1,9 +1,22 @@
+import datetime
+
+from django.utils import timezone
+
 from rest_framework import serializers
+from rest_framework_jwt.settings import api_settings
+from rest_framework.reverse import reverse as api_reverse
+
 from api.models import UserAccount, UserPhoto
 from api.models import Gender, RelationshipType
 from api.models import InterestedInGender, InterestedInRelation
 from api.models import Conversation, Participant, Message
 from api.models import Grade, BlockUser
+
+jwt_payload_handler             = api_settings.JWT_PAYLOAD_HANDLER
+jwt_encode_handler              = api_settings.JWT_ENCODE_HANDLER
+jwt_response_payload_handler    = api_settings.JWT_RESPONSE_PAYLOAD_HANDLER
+expire_delta                    = api_settings.JWT_REFRESH_EXPIRATION_DELTA
+
 
 class GenderSerializer(serializers.ModelSerializer):
 
@@ -40,9 +53,15 @@ class UserAccountSerializer(serializers.ModelSerializer):
         fields = ('id', 'username', 'password', 'email', 'is_staff','gender', 'details', 'confirmation_code', 'confirmation_time', 'popularity',)
         extra_kwargs = {'password': { 'write_only': True, 'required': True }}
 
+    def get_displayName(self, obj):
+        return obj.username
+
     def create(self, validated_data):
-        user = UserAccount.objects.create(**validated_data)
-        user.set_password(validated_data['password'])
+        user = UserAccount(
+            username=validated_data.get('username'),
+            email=validated_data.get('email')
+        )
+        user.set_password(validated_data.get('password'))
         user.is_active = True
         user.save()
         return user

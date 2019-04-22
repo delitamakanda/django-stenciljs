@@ -1,10 +1,10 @@
 import jwt
 import json
 
-from django.shortcuts import render, HttpResponse
+from django.shortcuts import render, HttpResponse, get_object_or_404
 from django.contrib.auth import authenticate
 
-from rest_framework import viewsets, permissions, status
+from rest_framework import viewsets, permissions, status, generics, pagination, mixins
 from rest_framework.authentication import SessionAuthentication, BasicAuthentication
 from rest_framework.response import Response
 from rest_framework.views import APIView
@@ -24,12 +24,68 @@ from api.serializers import GenderSerializer, RelationshipTypeSerializer, Intere
 from api.serializers import ConversationSerializer, ParticipantSerializer, MessageSerializer
 from api.serializers import GradeSerializer, BlockUserSerializer
 
+from api.permissions import AnonPermissionOnly
+from api.permissions import IsOwnerOrReadOnly
+
 from dating.settings import SECRET_KEY
 
 jwt_payload_handler = api_settings.JWT_PAYLOAD_HANDLER
 jwt_encode_handler = api_settings.JWT_ENCODE_HANDLER
 
 # Create your views here.
+class UserPhotoAPIDetailView(mixins.UpdateModelMixin, mixins.DestroyModelMixin, generics.RetrieveAPIView):
+    permission_classes = [permissions.IsAuthenticatedOrReadOnly, IsOwnerOrReadOnly]
+    serializer_class = UserPhotoSerializer
+    queryset = UserPhoto.objects.all()
+    lookup_field = 'id'
+
+    def put(self, request, *args, **kwargs):
+        return self.update(request, *args, **kwargs)
+
+    def patch(self, request, *args, **kwargs):
+        return self.update(request, *args, **kwargs)
+
+    def delete(self, request, *args, **kwargs):
+        return self.destroy(request, *args, **kwargs)
+
+class UserPhotoAPIView(mixins.CreateModelMixin,generics.ListAPIView):
+    permission_classes = [permissions.IsAuthenticatedOrReadOnly]
+    serializer_class = UserPhotoSerializer
+    passed_id = None
+    search_fields = ('user_account__username', 'details', 'user_account__email')
+    ordering_fields = ('user_account__username', 'time_added')
+    queryset = UserPhoto.objects.all()
+
+    def post(self, request, *args, **kwargs):
+        return self.create(request, *args, **kwargs)
+
+    def perform_create(self, serializer):
+        serializer.save(user_account=self.request.user)
+
+
+class UserAccountDetailAPIView(generics.RetrieveAPIView):
+    queryset            = UserAccount.objects.filter(is_active=True)
+    serializer_class    = UserAccountSerializer
+    lookup_field        = 'username'
+
+    def get_serializer_context(self):
+        return {'request': self.request}
+
+
+class UserPhotoAPIView(UserPhotoAPIView):
+    serializer_class = UserPhotoSerializer
+
+    def get_queryset(self, *args, **kwargs):
+        username = self.kwargs.get("username", None)
+
+        if username is None:
+            return UserPhoto.objects.none()
+        return UserPhoto.objects.filter(user_account__username=username)
+
+    def post(self, request, *args, **kwargs):
+        return Response({"detail": "Not allowed here"}, status=400)
+
+
 class GenderViewSet(viewsets.ModelViewSet):
     queryset = Gender.objects.all()
     serializer_class = GenderSerializer
