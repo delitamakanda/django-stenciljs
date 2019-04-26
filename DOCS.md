@@ -1,5 +1,6 @@
 ## resources
 
+* https://chrisbartos.com/articles/uploading-images-drf/?ck_subscriber_id=182833071
 * https://djangosnippets.org/snippets/2526/
 * https://www.techiediaries.com/django-angular-tutorial/
 * https://www.techiediaries.com/angular-tutorial/
