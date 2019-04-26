@@ -1,5 +1,6 @@
 ## resources
 
+* https://djangosnippets.org/snippets/2526/
 * https://www.techiediaries.com/django-angular-tutorial/
 * https://www.techiediaries.com/angular-tutorial/
 * https://www.techiediaries.com/angular-material-tutorial-example/
