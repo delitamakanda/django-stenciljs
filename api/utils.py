@@ -9,10 +9,10 @@ expire_delta = api_settings.JWT_REFRESH_EXPIRATION_DELTA
 
 def jwt_response_payload_handler(token, user=None, request=None):
     return {
-        # 'id': user.id,
-        # 'token': token,
-        # 'username': user.username,
-        # 'displayName': user.username,
-        # 'expires': timezone.now() + expire_delta - datetime.timedelta(seconds=200),
-        # 'uri': api_reverse("api-user:detail", kwargs={"username": user.username}, request=request)
+        'id': user.id,
+        'token': token,
+        'username': user.username,
+        'displayName': user.username,
+        'expires': timezone.now() + expire_delta - datetime.timedelta(seconds=200),
+        'uri': api_reverse("api_dating:user-detail", kwargs={"username": user.username}, request=request)
     }

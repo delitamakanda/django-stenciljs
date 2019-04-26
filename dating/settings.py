@@ -164,5 +164,5 @@ JWT_AUTH = {
     'JWT_ALLOW_REFRESH': True,
     'JWT_EXPIRATION_DELTA': datetime.timedelta(days=7),
     'JWT_AUTH_HEADER_PREFIX': 'JWT',
-    # 'JWT_AUTH_COOKIE': None
+    'JWT_AUTH_COOKIE': None
 }

@@ -54,8 +54,9 @@ class UserPhotoManager(models.Manager):
 
 class UserPhoto(models.Model):
     user_account = models.ForeignKey(settings.AUTH_USER_MODEL, null=True)
-    link = models.TextField()
-    details = models.TextField(null=True)
+    link = models.TextField(blank=True, null=True)
+    file = models.ImageField(upload_to=upload_user_photo_image, blank=True, null=True)
+    details = models.TextField(blank=True, null=True)
     time_added = models.DateTimeField(auto_now_add=True)
     active = models.BooleanField(default=True)
 
