@@ -3,14 +3,10 @@
 @import '~@angular/material/prebuilt-themes/indigo-pink.css';
 
 .container {
-    max-width: 450px;
-    width: 100%;
-    margin: 0 auto;
-}
-
-
-@media (max-width: 450px) {
-    .container {
-        max-width: 320px;
-    }
+    text-align: center;
+    display: flex;
+    flex-direction: column;
+    height: 100vh;
+    padding: 56px 16px 0 16px;
+    justify-content: flex-start;
 }

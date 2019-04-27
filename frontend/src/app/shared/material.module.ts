@@ -27,12 +27,27 @@ import {
     MatSnackBarModule,
     MatTableModule,
     MatSortModule,
+    MatNativeDateModule,
     MatPaginatorModule } from '@angular/material';
+// Icons
 import { MatIconModule } from "@angular/material/icon";
+// Layout
+import { MatDividerModule } from '@angular/material/divider';
+import { MatTreeModule } from '@angular/material/tree';
+// Buttons & Indicators
+import { MatBadgeModule } from '@angular/material/badge';
+// Popups & Modals
+import { MatBottomSheetModule } from '@angular/material/bottom-sheet';
 import { NgModule } from '@angular/core';
+// UI
+import { LayoutModule } from '@angular/cdk/layout';
 
 @NgModule({
     imports: [
+        MatDividerModule,
+        MatTreeModule,
+        MatBadgeModule,
+        MatBottomSheetModule,
         MatCheckboxModule,
         MatButtonModule,
         MatInputModule,
@@ -62,9 +77,15 @@ import { NgModule } from '@angular/core';
         MatTableModule,
         MatSortModule,
         MatPaginatorModule,
-        MatIconModule
+        MatIconModule,
+        MatNativeDateModule,
+        LayoutModule
     ],
     exports: [
+        MatDividerModule,
+        MatTreeModule,
+        MatBadgeModule,
+        MatBottomSheetModule,
         MatCheckboxModule,
         MatButtonModule,
         MatInputModule,
@@ -94,7 +115,9 @@ import { NgModule } from '@angular/core';
         MatTableModule,
         MatSortModule,
         MatPaginatorModule,
-        MatIconModule
+        MatIconModule,
+        MatNativeDateModule,
+        LayoutModule
     ]
 })
 export class MaterialModule { }

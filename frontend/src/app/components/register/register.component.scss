@@ -1,8 +1,8 @@
-.container {
-  display: flex;
-  flex-direction: column;
-}
+$size: 60px;
 
-.container > * {
-  width: 100%;
+mat-icon {
+    font-size: $size;
+    height: $size;
+    width: $size;
+    line-height: $size;
 }

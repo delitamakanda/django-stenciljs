@@ -7,7 +7,8 @@ import { AuthService } from '../../services/auth/auth.service';
 import { UserService } from '../../services/user/user.service';
 
 import { User } from '../../models/user';
-import { CookieService } from 'angular2-cookie/core';
+// import { CookieService } from 'angular2-cookie/core';
+import { CookieService } from 'ngx-cookie-service';
 
 @Component({
   selector: 'app-login',

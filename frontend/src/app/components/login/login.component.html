@@ -1,4 +1,7 @@
 <div class="container">
+    <p>
+        <mat-icon svgIcon="love" aria-hidden="false"></mat-icon>
+    </p>
     <mat-form-field>
       <input type="email" matInput placeholder="Username or Email" [(ngModel)]="user.emailOrUsername" [formControl]="emailFormControl" [errorStateMatcher]="matcher">
       <mat-error *ngIf="emailFormControl.hasError('email') && !emailFormControl.hasError('required')">
@@ -16,5 +19,5 @@
     <!--<mat-error *ngFor="let error of userService.errors.password">{{ error }}</mat-error>-->
   </mat-form-field>
 
-  <button (click)="signin()" mat-button>Login</button>
+  <button (click)="signin()" mat-raised-button>Login</button>
 </div>
