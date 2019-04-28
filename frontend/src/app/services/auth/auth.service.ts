@@ -51,8 +51,9 @@ export class AuthService {
     }
     performLogout(msg?:string){
         this.cookieService.delete('jwttoken', '/')
-        this.router.navigate(['/'])
+        this.router.navigate(['/']);
         // this.deleteUsername()
+        // window.location.reload();
     }
 
     getNextUrl(){
@@ -90,8 +91,10 @@ export class AuthService {
         const nextUrl = this.getNextUrl()
         if (nextUrl){
             this.router.navigate([nextUrl])
+            // window.location.reload();
         } else {
-            this.router.navigate(['/'])
+            this.router.navigate(['/dashboard'])
+            // window.location.reload();
         }
     }
     /*

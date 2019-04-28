@@ -1,6 +1,7 @@
 import { Component, OnInit, EventEmitter, Output } from '@angular/core';
 import { Router } from '@angular/router';
 import { AuthService } from '../../services/auth/auth.service';
+import { TranslateService } from '../../services/translate/translate.service';
 
 @Component({
   selector: 'app-navigation-bar',
@@ -12,6 +13,7 @@ export class NavigationBarComponent implements OnInit {
     @Output() toggleSidenav = new EventEmitter<void>();
 
     constructor(
+        private translate: TranslateService,
         private authService: AuthService,
         private router: Router
     ) { }
@@ -19,7 +21,7 @@ export class NavigationBarComponent implements OnInit {
     ngOnInit() { }
 
     public logout() {
-        this.authService.performLogout();
+        this.authService.performLogout("logout message");
         this.router.navigate(['/logout']);
     }
 

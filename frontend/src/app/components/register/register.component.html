@@ -2,7 +2,11 @@
     <p>
         <mat-icon svgIcon="love" aria-hidden="false"></mat-icon>
     </p>
-    <mat-form-field>
+    <p>
+		<button mat-raised-button routerLink='/login'>{{ 'loginLabel' | translate }}</button>
+	</p>
+
+    <!--<mat-form-field>
         <input type="text" matInput placeholder="Username" [(ngModel)]="register.username">
     </mat-form-field>
 
@@ -22,5 +26,5 @@
         </mat-error>
     </mat-form-field>
 
-    <button (click)="createAccount()" mat-raised-button>Register</button>
+    <button (click)="createAccount()" mat-raised-button>Register</button>-->
 </div>

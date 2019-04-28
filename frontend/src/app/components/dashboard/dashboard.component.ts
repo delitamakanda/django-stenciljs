@@ -15,7 +15,7 @@ export class DashboardComponent implements OnInit, OnDestroy {
     listRelationship: any;
     results = [];
     userData: User;
-    tokenExists = false;
+    tokenExists: boolean;
 
     constructor(
         private translate: TranslateService,

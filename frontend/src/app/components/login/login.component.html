@@ -50,6 +50,10 @@
             <button type="button" mat-raised-button color="warn" (click)="ourLoginDir.resetForm({})">{{ 'resetLabel' | translate }}</button>
         </mat-card-actions>
     </form>
+
+	<p>
+		<button mat-raised-button routerLink='/register'>{{ 'registerLabel' | translate }}</button>
+	</p>
     <!--<mat-form-field>
       <input type="email" matInput placeholder="Username or Email" [(ngModel)]="user.emailOrUsername" [formControl]="emailFormControl" [errorStateMatcher]="matcher">
       <mat-error *ngIf="emailFormControl.hasError('email') && !emailFormControl.hasError('required')">

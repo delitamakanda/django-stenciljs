@@ -21,10 +21,12 @@ import { RegisterComponent } from './components/register/register.component';
 import { LoginComponent } from './components/login/login.component';
 import { LandingComponent } from './components/landing/landing.component';
 import { DashboardComponent } from './components/dashboard/dashboard.component';
+import { LogoutComponent } from './components/logout/logout.component';
 
 // UI
 import { FlexLayoutModule } from '@angular/flex-layout';
 import { NavigationBarComponent } from './components/navigation-bar/navigation-bar.component';
+import { SideNavComponent } from './components/side-nav/side-nav.component';
 
 // import { CookieService } from 'angular2-cookie/core';
 import { CookieService } from 'ngx-cookie-service';
@@ -42,7 +44,9 @@ export function setupTranslateFactory (service: TranslateService): Function {
     TranslatePipe,
     LandingComponent,
     DashboardComponent,
-    NavigationBarComponent
+    NavigationBarComponent,
+    LogoutComponent,
+    SideNavComponent
   ],
   imports: [
     BrowserModule,

@@ -6,20 +6,21 @@ module.exports = {
         "path":  path.join(process.cwd(), "dist"),
         "filename":  "[name].bundle.js",
         "chunkFilename":  "[id].chunk.js",
-        "crossOriginLoading": false,
-        "publicPath":"http://127.0.0.1:4200/"
+        "publicPath":"http://localhost:4200/"
     },
     resolve: {
         extensions: [ '.ts', '.js' ]
     },
     devServer: {
-		   "proxy": {
-			     "**": "http://localhost:8000"
-		    },
+        "host": "localhost",
+        "proxy": {
+            "*": "http://localhost:8000/"
+        },
         "historyApiFallback":  true,
-        "publicPath":  "http://127.0.0.1:4200/",
+        "publicPath":  "http://localhost:4200/",
         "headers": {
-            'Access-Control-Allow-Origin':  '*'
+            'Access-Control-Allow-Origin':  '*',
+            'Access-Control-Allow-Headers': 'Origin, X-Requested-With, Content-Type, Accept'
         },
     },
     plugins:[

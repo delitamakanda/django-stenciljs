@@ -26,7 +26,7 @@ export class LoginComponent implements OnInit, OnDestroy, ErrorStateMatcher {
     passwordField: FormControl;
     authLoginSub: any;
     loginErrors: any;
-    tokenExists = false
+    tokenExists: boolean;
     didLogin = false;
 
     isErrorState(control: FormControl | null, form: FormGroupDirective | NgForm | null): boolean {
