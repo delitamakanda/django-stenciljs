@@ -4,6 +4,7 @@ import json
 from django.shortcuts import render, HttpResponse, get_object_or_404
 from django.contrib.auth import authenticate
 from django.utils.translation import gettext as _
+from django.db.models import Q
 
 from rest_framework import viewsets, permissions, status, generics, pagination, mixins
 from rest_framework.authentication import SessionAuthentication, BasicAuthentication
@@ -33,6 +34,7 @@ from dating.settings import SECRET_KEY
 
 jwt_payload_handler = api_settings.JWT_PAYLOAD_HANDLER
 jwt_encode_handler = api_settings.JWT_ENCODE_HANDLER
+jwt_response_payload_handler = api_settings.JWT_RESPONSE_PAYLOAD_HANDLER
 
 # Create your views here.
 class UserPhotoAPIDetailView(mixins.UpdateModelMixin, mixins.DestroyModelMixin, generics.RetrieveAPIView):
@@ -166,7 +168,7 @@ class LoginUserView(APIView):
         data = request.data
         username = data.get('username') # username or email address
         password = data.get('password')
-        qs = User.objects.filter(
+        qs = UserAccount.objects.filter(
                 Q(username__iexact=username)|
                 Q(email__iexact=username)
             ).distinct()
