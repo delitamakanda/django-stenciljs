@@ -20,7 +20,7 @@ export class NavigationBarComponent implements OnInit {
 
     public logout() {
         this.authService.performLogout();
-        this.router.navigate(['/']);
+        this.router.navigate(['/logout']);
     }
 
 }

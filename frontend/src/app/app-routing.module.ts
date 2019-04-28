@@ -7,11 +7,12 @@ import { LandingComponent } from './components/landing/landing.component';
 import { DashboardComponent } from './components/dashboard/dashboard.component';
 
 const routes: Routes = [
-    //{ path: '', redirectTo: '', pathMatch: 'full' },
+    { path: '', redirectTo: 'dashboard', pathMatch: 'full' },
     { path: 'login', component: LoginComponent },
     { path: 'register', component: RegisterComponent },
     { path: 'dashboard', component: DashboardComponent },
-    { path: '', component: LandingComponent },
+    { path: 'landing', component: LandingComponent },
+    { path: 'logout', component: LandingComponent },
 ];
 
 @NgModule({

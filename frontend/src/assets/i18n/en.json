@@ -2,8 +2,9 @@
   "title": "My i18n Application (ua)",
   "loginLabel": "Login",
   "registerLabel": "Register",
-  "APP_TOOLBAR_TITLE": "Lov3r",
-  "MY_WORK": "travail",
-  "CUSTOMERS": "client",
-  "LOGOUT": "Déconnexion"
+  "APPTOOLBARTITLE": "Lov3r",
+  "MYWORK": "Work",
+  "CUSTOMERS": "Customers",
+  "LOGOUT": "Logout",
+  "resetLabel": "Reset"
 }

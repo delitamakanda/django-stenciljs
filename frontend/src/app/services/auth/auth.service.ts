@@ -127,13 +127,13 @@ console.log(err);
     login(data: AuthLogin): Observable<any>{
         // let token = 'eyJ0eXAiOiJKV1QiLCJhbGciOiJIUzI1NiJ9.eyJ1c2VyX2lkIjoxLCJ1c2VybmFtZSI6ImNmZSIsImV4cCI6MTUxNzQzMDkzNSwiZW1haWwiOiJoZWxsb0B0ZWFtY2ZlLmNvbSIsIm9yaWdfaWF0IjoxNTE3NDMwNjM1fQ.pB6-lE55DBBu0pGv_r85oFaI3OODc69MlAIfno7SM_w'
         let httpOptions = this.createHeaders()
-        let apiLoginEndpoint = `${this.baseUrl}auth/`
+        let apiLoginEndpoint = `${this.baseUrl}login-user/`
         return this.http.post(apiLoginEndpoint, data, httpOptions) // , httpOptions)
     }
 
     register(data: any): Observable<any>{
         let httpOptions = this.createHeaders()
-        let apiRegisterEndpoint = `${this.baseUrl}auth/register`
+        let apiRegisterEndpoint = `${this.baseUrl}register-user/`
         return this.http.post(apiRegisterEndpoint, data, httpOptions)
     }
 }

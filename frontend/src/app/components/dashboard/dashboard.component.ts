@@ -1,8 +1,10 @@
 import { Component, OnInit, OnDestroy } from '@angular/core';
-import { AuthLogin } from '../../models/auth';
 import { User } from '../../models/user';
+import { AuthLogin } from '../../models/auth';
 import { AuthService } from '../../services/auth/auth.service';
 import { DashboardService } from '../../services/dashboard/dashboard.service';
+import { TranslateService } from '../../services/translate/translate.service';
+import { CookieService } from 'ngx-cookie-service';
 
 @Component({
     selector: 'app-dashboard',
@@ -12,16 +14,19 @@ import { DashboardService } from '../../services/dashboard/dashboard.service';
 export class DashboardComponent implements OnInit, OnDestroy {
     listRelationship: any;
     results = [];
-    userData:User;
+    userData: User;
     tokenExists = false;
 
     constructor(
+        private translate: TranslateService,
         private dashboardService: DashboardService,
-        private authService: AuthService
+        private authService: AuthService,
+        public cookieService: CookieService
     ) { }
 
     ngOnInit() {
         this.getData();
+        this.tokenExists = this.authService.checkToken();
     }
 
     getData(){
