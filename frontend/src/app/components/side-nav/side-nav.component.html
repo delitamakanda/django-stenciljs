@@ -45,7 +45,7 @@
   </mat-sidenav>
 
   <mat-sidenav-content>
-      <app-navigation-bar *ngIf="tokenExists" (toggleSidenav)="sidenav.toggle()"></app-navigation-bar>
+      <app-navigation-bar (tokenExists)="isAuthenticated()" (toggleSidenav)="sidenav.toggle()"></app-navigation-bar>
       <router-outlet></router-outlet>
   </mat-sidenav-content>
 
