@@ -18,7 +18,7 @@
                 <input type="text" matInput placeholder="Username or Email" formControlName="usernameField" />
                 <div *ngIf='usernameField.invalid && (usernameField.dirty || usernameField.touched)'>
                 <mat-error *ngIf='usernameField.errors.required'>
-                  Password is required.
+                  Username is required.
                 </mat-error>
                 <mat-error *ngIf='usernameField.errors.maxlength'>
                    Max length is 280
@@ -45,6 +45,7 @@
                 </div>
             </mat-form-field>
         </mat-card-content>
+        <br />
         <mat-card-actions>
             <button type="submit" mat-raised-button color="primary" [disabled]="loginForm.invalid">{{ 'loginLabel' | translate }}</button>
             <button type="button" mat-raised-button color="warn" (click)="ourLoginDir.resetForm({})">{{ 'resetLabel' | translate }}</button>

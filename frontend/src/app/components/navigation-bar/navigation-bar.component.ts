@@ -11,6 +11,7 @@ import { TranslateService } from '../../services/translate/translate.service';
 export class NavigationBarComponent implements OnInit {
 
     @Output() toggleSidenav = new EventEmitter<void>();
+    @Output() isAuthenticated = new EventEmitter<void>();
 
     constructor(
         private translate: TranslateService,

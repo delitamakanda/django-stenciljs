@@ -7,3 +7,17 @@ export class AuthLogin {
         this.password  = pwd;
     }
 }
+
+export class AuthRegister {
+    username: string;
+    email: string;
+    password: string;
+    password2: string;
+
+    constructor(usn: string, eml: string, pwd: string, pwdConfirm: string) {
+        this.username = usn;
+        this.email = eml;
+        this.password  = pwd;
+        this.password2  = pwdConfirm;
+    }
+}

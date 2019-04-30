@@ -1,4 +1,4 @@
-import { Component, OnInit, OnDestroy, Output, EventEmitter } from '@angular/core';
+import { Component, OnInit, OnDestroy } from '@angular/core';
 import { User } from '../../models/user';
 import { AuthLogin } from '../../models/auth';
 import { AuthService } from '../../services/auth/auth.service';
@@ -15,7 +15,7 @@ export class DashboardComponent implements OnInit, OnDestroy {
     listRelationship: any;
     results = [];
     userData: User;
-    @Output() tokenExists: boolean = new EventEmitter<>();
+    tokenExists: boolean;
 
     constructor(
         private translate: TranslateService,
@@ -26,7 +26,6 @@ export class DashboardComponent implements OnInit, OnDestroy {
 
     ngOnInit() {
         this.getData();
-        this.tokenExists.emit();
     }
 
     getData(){

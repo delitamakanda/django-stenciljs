@@ -15,9 +15,6 @@ interface ROUTE {
   styleUrls: ['./side-nav.component.scss']
 })
 export class SideNavComponent implements OnInit {
-  
-    tokenExists: boolean;
-  
 
     myWorkRoutes: ROUTE[] = [
         {
@@ -56,8 +53,11 @@ export class SideNavComponent implements OnInit {
       private authService: AuthService
   ) { }
 
-  isAuthenticated():void {
-      this.tokenExists = this.authService.checkToken();
+  ngOnInit() {
+  }
+
+  isAuthenticated () {
+      return this.authService.checkToken();
   }
 
 }

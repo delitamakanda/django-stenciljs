@@ -74,12 +74,12 @@ export class LoginComponent implements OnInit, OnDestroy, ErrorStateMatcher {
 
     doLogin(data) {
         this.authLoginSub = this.authService.login(data).subscribe(data=>{
-       this.userData = data as User
-       let token = this.userData.token || null
-       let date = new Date(data.expires)
-       this.authService.performLogin(token, date)
-       this.authService.setUsername(this.userData)
-       this.didLogin = true
+       this.userData = data as User;
+       let token = this.userData.token || null;
+       let date = new Date(data.expires);
+       this.authService.performLogin(token, date);
+       this.authService.setUsername(this.userData);
+       this.didLogin = true;
       }, error=>{
         this.loginErrors = error['error']['detail']
       })
