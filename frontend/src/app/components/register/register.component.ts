@@ -5,6 +5,7 @@ import { Router } from '@angular/router';
 
 import { AuthService } from '../../services/auth/auth.service';
 import { UserService } from '../../services/user/user.service';
+import { GenderService } from '../../services/user/gender/gender.service';
 
 import { AuthRegister } from '../../models/auth';
 import { User } from '../../models/user';
@@ -19,6 +20,8 @@ import { CookieService } from 'ngx-cookie-service';
 export class RegisterComponent implements OnInit, ErrorStateMatcher {
     register;
     hide = true;
+    listGender: any;
+    listResultGenders = [];
 
     userData: User;
     registerForm: FormGroup;
@@ -26,6 +29,7 @@ export class RegisterComponent implements OnInit, ErrorStateMatcher {
     passwordField: FormControl;
     passwordFieldVerification: FormControl;
     emailField: FormControl;
+    genderField: FormControl;
     authLoginSub: any;
     loginErrors: any;
 
@@ -37,8 +41,18 @@ export class RegisterComponent implements OnInit, ErrorStateMatcher {
     constructor(
         private userService: UserService,
         private authService: AuthService,
+        private genderService: GenderService,
         private router: Router
-    ) {}
+    ) {
+        this.listGenders();
+    }
+
+    listGenders () {
+        this.listGender = this.genderService.getGenders().subscribe(data=>{
+            console.log(data)
+            this.listResultGenders = data
+        });
+    }
 
     emailFormControl = new FormControl('', [
         Validators.required,
@@ -66,12 +80,16 @@ export class RegisterComponent implements OnInit, ErrorStateMatcher {
                    Validators.minLength(4),
                    Validators.maxLength(280)
               ])
+      this.genderField  = new FormControl("", [
+                  Validators.required
+             ])
 
         this.registerForm = new FormGroup({
             'usernameField': this.usernameField,
             'passwordField': this.passwordField,
             'passwordFieldVerification': this.passwordFieldVerification,
-            'emailField': this.emailField
+            'emailField': this.emailField,
+            'genderField': this.genderField
         });
         /*this.register = {
             username: '',
@@ -85,6 +103,10 @@ export class RegisterComponent implements OnInit, ErrorStateMatcher {
     ngOnDestroy() {
         if (this.authLoginSub){
           this.authLoginSub.unsubscribe()
+        }
+
+        if (this.listGender){
+            this.listGender.unsubscribe()
         }
     }
 
@@ -113,7 +135,8 @@ export class RegisterComponent implements OnInit, ErrorStateMatcher {
                 registerFormGroup.value['usernameField'],
                 registerFormGroup.value['emailField'],
                 registerFormGroup.value['passwordField'],
-                registerFormGroup.value['passwordFieldVerification']
+                registerFormGroup.value['passwordFieldVerification'],
+                registerFormGroup.value['genderField']
                 )
             this.createAccount(authRegisterData);
             ourRegisterDir.resetForm({})

@@ -11,6 +11,7 @@ import { MaterialModule } from './shared/material.module';
 
 import { UserService } from './services/user/user.service';
 import { AuthService } from './services/auth/auth.service';
+import { GenderService } from './services/user/gender/gender.service';
 import { DashboardService } from './services/dashboard/dashboard.service';
 import { TranslateService } from './services/translate/translate.service';
 import { TranslatePipe } from './pipes/translate/translate.pipe';
@@ -62,6 +63,7 @@ export function setupTranslateFactory (service: TranslateService): Function {
   providers: [
       UserService,
       AuthService,
+      GenderService,
       CookieService,
       TranslateService,
       {

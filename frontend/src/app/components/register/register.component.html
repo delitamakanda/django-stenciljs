@@ -67,6 +67,12 @@
                     </mat-error>
                 </div>
             </mat-form-field>
+
+            <div>
+                <mat-radio-group aria-label="Select an option" formControlName="genderField" class="radio-group">
+                  <mat-radio-button class="radio-button" *ngFor="let gender of listResultGenders" [value]="gender.id">{{ gender.name }}</mat-radio-button>
+                </mat-radio-group>
+            </div>
         </mat-card-content>
         <br />
         <mat-card-actions>

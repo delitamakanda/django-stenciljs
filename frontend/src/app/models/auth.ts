@@ -13,11 +13,19 @@ export class AuthRegister {
     email: string;
     password: string;
     password2: string;
+    gender:string;
 
-    constructor(usn: string, eml: string, pwd: string, pwdConfirm: string) {
+    constructor(
+        usn: string,
+        eml: string,
+        pwd: string,
+        pwdConfirm: string,
+        gendr: string
+    ) {
         this.username = usn;
         this.email = eml;
         this.password  = pwd;
         this.password2  = pwdConfirm;
+        this.gender = gendr;
     }
 }
