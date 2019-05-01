@@ -45,6 +45,8 @@ INSTALLED_APPS = [
     'api.apps.ApiConfig',
 ]
 
+SITE_ID = 1
+
 MIDDLEWARE = [
     'django.middleware.security.SecurityMiddleware',
     'django.contrib.sessions.middleware.SessionMiddleware',
@@ -185,3 +187,6 @@ CORS_ORIGIN_WHITELIST = (
 from corsheaders.defaults import default_headers
 
 CORS_ALLOW_HEADERS = default_headers + ('X-CSRFToken',)
+
+# Mail
+EMAIL_BACKEND = 'django.core.mail.backends.console.EmailBackend'
