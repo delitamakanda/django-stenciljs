@@ -1,4 +1,6 @@
 import datetime
+import random
+import string
 
 from django.utils import timezone
 from django.utils.translation import gettext as _
@@ -154,6 +156,8 @@ class UserAccountSerializer(serializers.ModelSerializer):
         )
         user.set_password(validated_data.get('password'))
         user.is_active = False
+        user.details = ''
+        user.confirmation_code = ''.join(random.choice(string.ascii_uppercase + string.digits + string.ascii_lowercase) for x in range(33))
         user.save()
         return user
 

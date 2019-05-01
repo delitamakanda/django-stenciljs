@@ -5,6 +5,7 @@ from django.shortcuts import render, HttpResponse, get_object_or_404
 from django.contrib.auth import authenticate
 from django.utils.translation import gettext as _
 from django.db.models import Q
+from django.core.mail import send_mail
 
 from rest_framework import viewsets, permissions, status, generics, pagination, mixins
 from rest_framework.authentication import SessionAuthentication, BasicAuthentication
@@ -191,6 +192,12 @@ class CreateUserView(generics.CreateAPIView):
 
     def get_serializer_context(self, *args, **kwargs):
         return {"request": self.request}
+
+    def perform_create(self, serializer):
+        created_obj = serializer.save()
+        title = _("Lov3r account confirmation")
+        content = self.request.get_host() + "/confirm/" + str(created_obj.confirmation_code) + "/" + created_obj.username
+        send_mail(title, content, 'no-reply@lov3r.com', [created_obj.email], fail_silently=False)
 
 
 # https://github.com/pyaf/djangular
