@@ -3,7 +3,8 @@
         <mat-icon svgIcon="love" aria-hidden="false"></mat-icon>
     </p>
     <form [formGroup]="registerForm" #ourRegisterDir='ngForm' (submit)="handleSubmit($event, ourRegisterDir, registerForm)">
-        <p *ngIf='loginErrors'>{{ loginErrors }}</p>
+        <p *ngIf='loginErrors'>{{ loginErrors.email }}</p>
+        <p *ngIf='loginErrors'>{{ loginErrors.username }}</p>
 
         <mat-card-content>
             <mat-form-field>
