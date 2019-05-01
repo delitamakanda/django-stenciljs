@@ -2,7 +2,7 @@ import { Injectable } from '@angular/core';
 import { HttpClient, HttpHeaders } from '@angular/common/http';
 import { Observable } from 'rxjs';
 
-import { readCookie } from '../cookie.service';
+//import { readCookie } from '../cookie.service';
 
 @Injectable({
   providedIn: 'root'
@@ -17,7 +17,7 @@ export class UserService {
 
     constructor(private http: HttpClient) {
         this.httpOptions = {
-            headers: new HttpHeaders({'Accept': 'application/json', 'Content-Type': 'application/json', 'X-CSRFToken': readCookie('csrftoken')})
+            headers: new HttpHeaders({'Accept': 'application/json', 'Content-Type': 'application/json', /*'X-CSRFToken': readCookie('csrftoken')*/})
         };
     }
 
