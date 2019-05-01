@@ -124,7 +124,7 @@ export class RegisterComponent implements OnInit, ErrorStateMatcher {
            this.router.navigate(['/login']);
           }, error=>{
               console.log(error)
-            //this.loginErrors = error['errors']['detail']
+            this.loginErrors = error['errors']
           })
     }
 
