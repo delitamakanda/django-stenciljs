@@ -55,7 +55,7 @@ class UserAccountPublicSerializer(serializers.ModelSerializer):
 
     class Meta:
         model = UserAccount
-        fields = ('id', 'username', 'uri', 'displayName', 'email', 'is_staff','gender', 'details', 'popularity')
+        fields = ('id', 'username', 'uri', 'displayName', 'is_active', 'email', 'is_staff','gender', 'details', 'popularity')
 
     def get_uri(self, obj):
         request = self.context.get('request')
@@ -108,7 +108,7 @@ class UserAccountSerializer(serializers.ModelSerializer):
 
     class Meta:
         model = UserAccount
-        fields = ('id', 'username', 'password', 'password2', 'token','expires', 'uri','message', 'displayName', 'email', 'is_staff','gender', 'details', 'confirmation_code', 'confirmation_time', 'popularity',)
+        fields = ('id', 'username', 'password', 'password2', 'token','expires', 'uri','message', 'displayName', 'email', 'is_staff','gender', 'is_active', 'details', 'confirmation_code', 'confirmation_time', 'popularity',)
         extra_kwargs = {'password': { 'write_only': True, 'required': True }}
 
     def get_message(self, obj):
@@ -156,8 +156,9 @@ class UserAccountSerializer(serializers.ModelSerializer):
         )
         user.set_password(validated_data.get('password'))
         user.is_active = False
-        user.details = ''
         user.confirmation_code = ''.join(random.choice(string.ascii_uppercase + string.digits + string.ascii_lowercase) for x in range(33))
+        user.gender = validated_data.get('gender')
+        user.last_login = datetime.datetime.now()
         user.save()
         return user
 

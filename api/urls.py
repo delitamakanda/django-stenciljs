@@ -31,4 +31,5 @@ urlpatterns = [
     url(r'^user/(?P<username>\w+)/photo/$', views.UserPhotoAPIView.as_view(), name='user-photo'),
     url(r'^user-photo/$', views.UserPhotoAPIView.as_view(), name='user-photo-list'),
     url(r'^user-photo/(?P<id>\d+)/detail/$', views.UserPhotoAPIDetailView.as_view(), name='user-photo-detail'),
+    url(r'^confirm/(?P<confirmation_code>\w+)/(?P<username>\w+)/$', views.confirm, name='confirm'),
 ]

@@ -1,11 +1,14 @@
 import jwt
 import json
+import datetime
+import pytz
 
-from django.shortcuts import render, HttpResponse, get_object_or_404
+from django.shortcuts import render, HttpResponse, HttpResponseRedirect, get_object_or_404
 from django.contrib.auth import authenticate
 from django.utils.translation import gettext as _
 from django.db.models import Q
 from django.core.mail import send_mail
+from django.utils import timezone
 
 from rest_framework import viewsets, permissions, status, generics, pagination, mixins
 from rest_framework.authentication import SessionAuthentication, BasicAuthentication
@@ -196,8 +199,22 @@ class CreateUserView(generics.CreateAPIView):
     def perform_create(self, serializer):
         created_obj = serializer.save()
         title = _("Lov3r account confirmation")
-        content = self.request.get_host() + "/confirm/" + str(created_obj.confirmation_code) + "/" + created_obj.username
+        content = self.request.scheme + ":" + "//" + self.request.get_host() + "/api/confirm/" + str(created_obj.confirmation_code) + "/" + created_obj.username
         send_mail(title, content, 'no-reply@lov3r.com', [created_obj.email], fail_silently=False)
+
+
+def confirm(request, confirmation_code, username):
+    try:
+        user = UserAccount.objects.get(username=username)
+        if user.confirmation_code == confirmation_code and user.date_joined > (timezone.now() - datetime.timedelta(days=1)):
+            user.is_active = True
+            user.confirmation_time = timezone.now()
+            user.save()
+            user.backend='django.contrib.auth.backends.ModelBackend'
+            print(user.is_active)
+        return HttpResponseRedirect('/')
+    except:
+        return HttpResponseRedirect('/')
 
 
 # https://github.com/pyaf/djangular
