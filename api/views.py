@@ -100,6 +100,7 @@ class UserPhotoAPIView(UserPhotoAPIView):
 class GenderViewSet(viewsets.ModelViewSet):
     queryset = Gender.objects.all()
     serializer_class = GenderSerializer
+    permission_classes = (permissions.AllowAny,)
 
 
 class RelationshipTypeSerializerViewSet(viewsets.ModelViewSet):
