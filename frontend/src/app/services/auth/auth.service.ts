@@ -1,4 +1,5 @@
 import { Injectable } from '@angular/core';
+import {environment} from '../../../environments/environment';
 import { HttpHeaders, HttpClient } from '@angular/common/http';
 import { ActivatedRoute, Router } from '@angular/router';
 // import { CookieService } from 'angular2-cookie/core';
@@ -15,7 +16,7 @@ import { User } from '../../models/user';
 })
 export class AuthService {
     private httpOptions: any;
-    private baseUrl = 'http://localhost:8000/api/'
+    private baseUrl = `${environment.serverUrl}/api/`;
     private nextUrl;
     auth$: Subject<boolean>;
 

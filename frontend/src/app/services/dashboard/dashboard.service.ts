@@ -1,5 +1,6 @@
 import { Injectable } from '@angular/core';
 import { HttpClient, HttpHeaders, HttpRequest } from '@angular/common/http';
+import {environment} from '../../../environments/environment';
 
 import { Observable } from 'rxjs';
 import { of } from  'rxjs/observable/of';
@@ -11,7 +12,7 @@ import { CookieService } from 'ngx-cookie-service';
 })
 export class DashboardService {
     private httpOptions: any;
-    private baseUrl = 'http://localhost:8000/api/';
+    private baseUrl = `${environment.serverUrl}/api/`;
 
     constructor(
         private http: HttpClient,
