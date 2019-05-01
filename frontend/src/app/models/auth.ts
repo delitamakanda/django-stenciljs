@@ -13,14 +13,14 @@ export class AuthRegister {
     email: string;
     password: string;
     password2: string;
-    gender: number;
+    gender: string;
 
     constructor(
         usn: string,
         eml: string,
         pwd: string,
         pwdConfirm: string,
-        gendr: number
+        gendr: string
     ) {
         this.username = usn;
         this.email = eml;
