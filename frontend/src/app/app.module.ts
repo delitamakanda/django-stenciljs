@@ -57,7 +57,7 @@ export function setupTranslateFactory (service: TranslateService): Function {
     FlexLayoutModule,
     FormsModule,
     ReactiveFormsModule.withConfig({warnOnNgModelWithFormControl: 'never'}),
-    ServiceWorkerModule.register('service-worker.js', { enabled: environment.production }),
+    //ServiceWorkerModule.register('service-worker.js', { enabled: environment.production }),
     AppRoutingModule
   ],
   providers: [

@@ -3,10 +3,9 @@ var path = require('path');
 
 module.exports = {
     output: {
-        "path":  path.join(process.cwd(), "dist"),
+        "path": path.resolve('../static/angular'),
         "filename":  "[name].bundle.js",
-        "chunkFilename":  "[id].chunk.js",
-        "publicPath": "http://localhost:4200/"
+        "chunkFilename":  "[id].chunk.js"
     },
     resolve: {
         extensions: [ '.ts', '.js' ]
