@@ -16,7 +16,7 @@
 * https://www.metaltoad.com/blog/angular-api-calls-django-authentication-jwt
 * http://jasonwatmore.com/post/2018/05/23/angular-6-jwt-authentication-example-tutorial
 * https://stackoverflow.com/questions/53022401/angular-component-outside-of-router-outlet
-
+* https://stackoverflow.com/questions/53503054/how-to-host-angular-6-application-in-python-django
 
 * https://dribbble.com/shots/2939825-Air-Travel-App/attachments/610646
 
