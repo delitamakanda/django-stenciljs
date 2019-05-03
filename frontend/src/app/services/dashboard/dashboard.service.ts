@@ -12,7 +12,7 @@ import { CookieService } from 'ngx-cookie-service';
 })
 export class DashboardService {
     private httpOptions: any;
-    private baseUrl = `${environment.serverUrl}/api/`;
+    private baseUrl = `${environment.serverUrl}api/`;
 
     constructor(
         private http: HttpClient,

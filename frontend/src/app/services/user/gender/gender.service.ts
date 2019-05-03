@@ -9,7 +9,7 @@ import {environment} from '../../../../environments/environment';
 })
 export class GenderService {
     private httpOptions: any;
-    private baseUrl = `${environment.serverUrl}/api/`;
+    private baseUrl = `${environment.serverUrl}api/`;
 
     constructor(
         private http: HttpClient,

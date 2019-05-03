@@ -1050,7 +1050,7 @@ var AuthService = /** @class */ (function () {
         this.cookieService = cookieService;
         this.router = router;
         this.route = route;
-        this.baseUrl = _environments_environment__WEBPACK_IMPORTED_MODULE_2__["environment"].serverUrl + "/api/";
+        this.baseUrl = _environments_environment__WEBPACK_IMPORTED_MODULE_2__["environment"].serverUrl + "api/";
         this.auth$ = new rxjs__WEBPACK_IMPORTED_MODULE_6__["Subject"]();
     }
     AuthService.prototype.isAuthenticated = function (status) {
@@ -1270,7 +1270,7 @@ var DashboardService = /** @class */ (function () {
     function DashboardService(http, cookieService) {
         this.http = http;
         this.cookieService = cookieService;
-        this.baseUrl = _environments_environment__WEBPACK_IMPORTED_MODULE_3__["environment"].serverUrl + "/api/";
+        this.baseUrl = _environments_environment__WEBPACK_IMPORTED_MODULE_3__["environment"].serverUrl + "api/";
     }
     DashboardService.prototype.createHeaders = function (token) {
         var data = {
@@ -1376,7 +1376,7 @@ var GenderService = /** @class */ (function () {
     function GenderService(http, cookieService) {
         this.http = http;
         this.cookieService = cookieService;
-        this.baseUrl = _environments_environment__WEBPACK_IMPORTED_MODULE_4__["environment"].serverUrl + "/api/";
+        this.baseUrl = _environments_environment__WEBPACK_IMPORTED_MODULE_4__["environment"].serverUrl + "api/";
     }
     GenderService.prototype.getGenders = function () {
         return this.http.get(this.baseUrl + "genders/");

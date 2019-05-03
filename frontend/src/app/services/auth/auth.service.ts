@@ -16,7 +16,7 @@ import { User } from '../../models/user';
 })
 export class AuthService {
     private httpOptions: any;
-    private baseUrl = `${environment.serverUrl}/api/`;
+    private baseUrl = `${environment.serverUrl}api/`;
     private nextUrl;
     auth$: Subject<boolean>;
 
