@@ -78,7 +78,6 @@ class UserPhoto(models.Model):
 
 class UserAccount(AbstractUser):
     gender = models.ForeignKey(Gender, null=True)
-    details = models.TextField(null=True)
     confirmation_code = models.TextField(null=True)
     confirmation_time = models.DateTimeField(null=True)
     popularity = models.IntegerField(default='0')

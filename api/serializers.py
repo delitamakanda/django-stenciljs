@@ -55,7 +55,7 @@ class UserAccountPublicSerializer(serializers.ModelSerializer):
 
     class Meta:
         model = UserAccount
-        fields = ('id', 'username', 'uri', 'displayName', 'is_active', 'email', 'is_staff','gender', 'details', 'popularity')
+        fields = ('id', 'username', 'uri', 'displayName', 'is_active', 'email', 'is_staff','gender', 'popularity')
 
     def get_uri(self, obj):
         request = self.context.get('request')
@@ -108,7 +108,7 @@ class UserAccountSerializer(serializers.ModelSerializer):
 
     class Meta:
         model = UserAccount
-        fields = ('id', 'username', 'password', 'password2', 'token','expires', 'uri','message', 'displayName', 'email', 'is_staff','gender', 'is_active', 'details', 'confirmation_code', 'confirmation_time', 'popularity',)
+        fields = ('id', 'username', 'password', 'password2', 'token','expires', 'uri','message', 'displayName', 'email', 'is_staff','gender', 'is_active', 'confirmation_code', 'confirmation_time', 'popularity',)
         extra_kwargs = {'password': { 'write_only': True, 'required': True }}
 
     def get_message(self, obj):
