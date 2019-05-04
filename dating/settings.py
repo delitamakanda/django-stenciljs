@@ -179,9 +179,11 @@ JWT_AUTH = {
 # corsheaders
 
 CORS_ORIGIN_WHITELIST = (
+    'localhost',
     'localhost:4200',
     'localhost:8000',
-    '127.0.0.1'
+    '127.0.0.1',
+    'lov3r.herokuapp.com'
 )
 
 from corsheaders.defaults import default_headers

@@ -4,8 +4,8 @@
 
 export const environment = {
   production: false,
-  serverUrl: "http://localhost:8000",
-  staticAssetsUrl: "http://localhost:4200/assets/" 
+  serverUrl: "http://localhost:8000/",
+  staticAssetsUrl: "http://localhost:4200/assets/"
 };
 
 /*
