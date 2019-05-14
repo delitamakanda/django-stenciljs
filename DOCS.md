@@ -21,3 +21,5 @@
 * https://dribbble.com/shots/2939825-Air-Travel-App/attachments/610646
 
 * https://codepen.io/mhartington/pen/dHaDC
+
+* https://material.io/tools/icons/?icon=add_to_photos&style=baseline

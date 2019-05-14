@@ -95,7 +95,7 @@ class UserPhotoAPIListView(UserPhotoAPIView):
 
         if username is None:
             return UserPhoto.objects.none()
-        return UserPhoto.objects.filter(user_account__username=username)
+        return UserPhoto.objects.filter(user_account__username=username).order_by('-id')
 
     def post(self, request, *args, **kwargs):
         return Response({"detail": "Not allowed here"}, status=400)
