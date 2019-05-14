@@ -4,7 +4,7 @@ import datetime
 import pytz
 
 from django.shortcuts import render, HttpResponse, HttpResponseRedirect, get_object_or_404
-from django.contrib.auth import authenticate
+from django.contrib.auth import authenticate, login, logout
 from django.utils.translation import gettext as _
 from django.db.models import Q
 from django.core.mail import send_mail
@@ -18,7 +18,7 @@ from rest_framework.authtoken.models import Token
 from rest_framework.generics import CreateAPIView
 from rest_framework.response import Response
 from rest_framework_jwt.settings import api_settings
-from rest_framework.parsers import MultiPartParser, FormParser
+from rest_framework.parsers import MultiPartParser, FormParser, FileUploadParser
 
 from api.models import Gender, RelationshipType
 from api.models import InterestedInGender, InterestedInRelation
@@ -26,7 +26,7 @@ from api.models import UserAccount, UserPhoto
 from api.models import Conversation, Participant, Message
 from api.models import Grade, BlockUser
 
-from api.serializers import UserAccountSerializer, UserPhotoSerializer, UserAccountPublicSerializer
+from api.serializers import UserAccountSerializer, UserPhotoSerializer, UserAccountPublicSerializer, UserPhotoInlineUserAccountSerializer
 from api.serializers import GenderSerializer, RelationshipTypeSerializer, InterestedInGenderSerializer, InterestedInRelationSerializer
 from api.serializers import ConversationSerializer, ParticipantSerializer, MessageSerializer
 from api.serializers import GradeSerializer, BlockUserSerializer
@@ -43,7 +43,7 @@ jwt_response_payload_handler = api_settings.JWT_RESPONSE_PAYLOAD_HANDLER
 # Create your views here.
 class UserPhotoAPIDetailView(mixins.UpdateModelMixin, mixins.DestroyModelMixin, generics.RetrieveAPIView):
     permission_classes = [permissions.IsAuthenticatedOrReadOnly, IsOwnerOrReadOnly]
-    serializer_class = UserPhotoSerializer
+    serializer_class = UserPhotoInlineUserAccountSerializer
     queryset = UserPhoto.objects.all()
     lookup_field = 'id'
 
@@ -58,17 +58,17 @@ class UserPhotoAPIDetailView(mixins.UpdateModelMixin, mixins.DestroyModelMixin, 
 
 class UserPhotoAPIView(mixins.CreateModelMixin,generics.ListAPIView):
     permission_classes = [permissions.IsAuthenticatedOrReadOnly]
-    serializer_class = UserPhotoSerializer
+    serializer_class = UserPhotoInlineUserAccountSerializer
     passed_id = None
     search_fields = ('user_account__username', 'details', 'user_account__email')
     ordering_fields = ('user_account__username', 'time_added')
     queryset = UserPhoto.objects.all()
-    parser_classes = (MultiPartParser, FormParser)
+    parser_classes = (MultiPartParser, FormParser, FileUploadParser)
 
     def post(self, request, *args, **kwargs):
-        file_serializer = UserPhotoSerializer(data=request.data)
+        file_serializer = UserPhotoInlineUserAccountSerializer(data=request.data)
         if file_serializer.is_valid():
-            file_serializer.save()
+            file_serializer.save(user_account=self.request.user)
             return Response(file_serializer.data, status=status.HTTP_201_CREATED)
         else:
             return Response(file_serializer.errors, status=status.HTTP_400_BAD_REQUEST)
@@ -87,8 +87,8 @@ class UserAccountDetailAPIView(generics.RetrieveAPIView):
         return {'request': self.request}
 
 
-class UserPhotoAPIView(UserPhotoAPIView):
-    serializer_class = UserPhotoSerializer
+class UserPhotoAPIListView(UserPhotoAPIView):
+    serializer_class = UserPhotoInlineUserAccountSerializer
 
     def get_queryset(self, *args, **kwargs):
         username = self.kwargs.get("username", None)
@@ -181,11 +181,21 @@ class LoginUserView(APIView):
             user_obj = qs.first()
             if user_obj.check_password(password):
                 user = user_obj
+                u = authenticate(username=username, password=password)
                 payload = jwt_payload_handler(user)
                 token = jwt_encode_handler(payload)
+                login(request, u)
                 response = jwt_response_payload_handler(token, user, request=request)
                 return Response(response)
         return Response({"detail": _("Invalid credentials")}, status=401)
+
+
+class LogoutView(APIView):
+    permission_classes = ( permissions.AllowAny,)
+
+    def get(self, request):
+        logout(request)
+        return Response({"status": "ok"}, status=status.HTTP_200_OK)
 
 
 class CreateUserView(generics.CreateAPIView):

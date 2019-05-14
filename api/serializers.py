@@ -52,6 +52,7 @@ class InterestedInRelationSerializer(serializers.ModelSerializer):
 class UserAccountPublicSerializer(serializers.ModelSerializer):
     uri = serializers.SerializerMethodField(read_only=True)
     displayName = serializers.SerializerMethodField(read_only=True)
+    gender = GenderSerializer(read_only=True)
 
     class Meta:
         model = UserAccount
@@ -73,7 +74,7 @@ class UserPhotoSerializer(serializers.ModelSerializer):
     class Meta:
         model = UserPhoto
         fields = ('id', 'uri', 'user_account', 'link', 'file', 'details', 'time_added', 'active',)
-        read_only_fields = ['user_account']
+        read_only_fields = ['user_account', 'active']
 
     def get_uri(self, obj):
         request = self.context.get('request')
@@ -93,7 +94,7 @@ class UserPhotoInlineUserAccountSerializer(UserPhotoSerializer):
 
     class Meta:
         model = UserPhoto
-        fields = ('uri', 'id', 'details', 'file')
+        fields = ('uri', 'id', 'details', 'file', 'link',)
 
 
 

@@ -8,7 +8,7 @@ from rest_framework_jwt.views import (obtain_jwt_token,
 
 router = routers.DefaultRouter()
 router.register(r'users', views.UserAccountViewSet)
-router.register(r'user-photo', views.UserPhotoViewSet)
+router.register(r'users-photos', views.UserPhotoViewSet)
 router.register(r'genders', views.GenderViewSet)
 router.register(r'relationship-type', views.RelationshipTypeSerializerViewSet)
 router.register(r'interested-in-gender', views.InterestedInGenderViewSet)
@@ -28,7 +28,7 @@ urlpatterns = [
     url(r'^refresh/', refresh_jwt_token),
 
     url(r'^user/(?P<username>\w+)/$', views.UserAccountDetailAPIView.as_view(), name='user-detail'),
-    url(r'^user/(?P<username>\w+)/photo/$', views.UserPhotoAPIView.as_view(), name='user-photo'),
+    url(r'^user/(?P<username>\w+)/photo/$', views.UserPhotoAPIListView.as_view(), name='user-photo'),
     url(r'^user-photo/$', views.UserPhotoAPIView.as_view(), name='user-photo-list'),
     url(r'^user-photo/(?P<id>\d+)/detail/$', views.UserPhotoAPIDetailView.as_view(), name='user-photo-detail'),
     url(r'^confirm/(?P<confirmation_code>\w+)/(?P<username>\w+)/$', views.confirm, name='confirm'),
