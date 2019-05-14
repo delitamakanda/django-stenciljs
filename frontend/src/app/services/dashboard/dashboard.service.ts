@@ -7,6 +7,8 @@ import { of } from  'rxjs/observable/of';
 import { catchError, map, tap } from  'rxjs/operators';
 import { CookieService } from 'ngx-cookie-service';
 
+import { AuthService } from '../../services/auth/auth.service';
+
 @Injectable({
   providedIn: 'root'
 })
@@ -16,13 +18,14 @@ export class DashboardService {
 
     constructor(
         private http: HttpClient,
-        private cookieService: CookieService
+        private cookieService: CookieService,
+        private authService: AuthService
     ) { }
 
     createHeaders(token?: string) {
         let data = {
-            'Accept': 'application/json',
-            'Content-Type': 'application/json',
+            //'Accept': 'application/json',
+            //'Content-Type': 'application/json',
             'X-CSRFToken': this.cookieService.get('csrftoken')
         };
 
@@ -38,9 +41,22 @@ export class DashboardService {
         return this.httpOptions;
     }
 
-    list(): Observable<any>{
-        let apiListEndpoint = `${this.baseUrl}messages/`
+    detailUser(): Observable<any>{
+        const username = this.authService.getUsername();
+        let apiListEndpoint = `${this.baseUrl}user/${username}/`
         return this.http.get(apiListEndpoint)
+    }
+
+    detailUserPhoto(): Observable<any>{
+        const username = this.authService.getUsername();
+        let apiListEndpoint = `${this.baseUrl}user/${username}/photo/`
+        return this.http.get(apiListEndpoint)
+    }
+
+    postUserPhoto(data: any): Observable<any>{
+        let httpOptions = this.createHeaders();
+        let apiListEndpoint = `${this.baseUrl}user-photo/`
+        return this.http.post(apiListEndpoint, data, httpOptions)
     }
 
 }

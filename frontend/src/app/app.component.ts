@@ -1,5 +1,4 @@
 import { Component, OnInit, OnDestroy } from '@angular/core';
-import { TranslateService } from './services/translate/translate.service';
 import { MatIconRegistry } from "@angular/material/icon";
 import { DomSanitizer } from "@angular/platform-browser";
 
@@ -13,7 +12,6 @@ import { environment } from '../environments/environment';
 export class AppComponent implements OnInit, OnDestroy {
 
     constructor(
-        private translate: TranslateService,
         private matIconRegistry: MatIconRegistry,
         private domSanitizer: DomSanitizer
     ) {
@@ -28,9 +26,5 @@ export class AppComponent implements OnInit, OnDestroy {
 
     ngOnDestroy() {
 
-    }
-
-    setLang(lang: string) {
-        this.translate.use(lang);
     }
 }

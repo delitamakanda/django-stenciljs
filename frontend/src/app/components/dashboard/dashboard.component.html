@@ -1,6 +1,60 @@
 <div class="container">
-<p>
-    Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum.
-</p>
+    <br/>
+    <button mat-icon-button mat-mini-fab type="button" (click)="updated = !updated" title="{{ 'updatedProfileSettings' | translate }}">
+        <mat-icon>{{updated ? 'expand_less' : 'expand_more'}}</mat-icon>
+    </button>
+    <br/>
+    <mat-card *ngIf="updated" class="card-image">
+        <form [formGroup]="profilForm" #ourUserPhotoDir='ngForm' (submit)='handleSubmit($event, ourUserPhotoDir, profilForm)' enctype="multipart/form-data">
+            <p *ngIf='userPhotoErrors'>{{ userPhotoErrors }}</p>
+            <div class="lg-container">
+                <mat-form-field>
+                    <input type="text" matInput placeholder="{{ 'labelLink' | translate }}" formControlName="linkField" />
+                </mat-form-field>
+                <input type="file" id="userFile" (change)="onSelectFile($event)" #fileInput style="display: none">
+                <mat-form-field>
+                    <input matInput formControlName="fileField" placeholder="{{ 'labelFile' | translate }}" readonly />
+                </mat-form-field>
+                <!--<div *ngIf="fileInformation">
+                    <p>{{fileInformation.filename}}</p>
+                    <p>{{fileInformation.size}}</p>
+                </div>-->
+                <button mat-raised-button type="button" (click)="selectFile()">{{ 'labelSelect' | translate }}</button>
+                <mat-form-field>
+                    <textarea matInput placeholder="{{ 'labelDetails' | translate }}" formControlName="detailsField"></textarea>
+                    <div *ngIf='detailsField.invalid && (detailsField.dirty || detailsField.touched)'>
+                    <mat-error *ngIf='detailsField.errors.required'>
+                      {{ 'labelDetailsRequired' | translate }}
+                    </mat-error>
+                    </div>
+                </mat-form-field>
+                <mat-card-actions>
+                    <button type="submit" mat-raised-button color="primary" [disabled]="profilForm.invalid">{{ 'labelValidate' | translate }}</button>
+                    <button type="button" mat-raised-button color="warn" (click)="ourUserPhotoDir.resetForm({})">{{ 'resetLabel' | translate }}</button>
+                </mat-card-actions>
+            </div>
+        </form>
+    </mat-card>
 
+    <mat-card class="card-image">
+        <mat-card-header>
+            <div mat-card-avatar>
+                <img ngxGravatar *ngIf="results.email" [email]="results.email">
+            </div>
+            <mat-card-title>{{ results.displayName }}</mat-card-title>
+            <mat-card-subtitle>{{ 'labelPopularity' | translate }} : {{ results.popularity }}</mat-card-subtitle>
+        </mat-card-header>
+    </mat-card>
+
+    <div *ngIf="results2">
+        <mat-card *ngFor="let res of results2" class="card-image">
+            <img mat-card-image *ngIf="res.file" [src]="res.file" [alt]="res.details">
+            <img mat-card-image *ngIf="res.link && res.link != 'null'" [src]="res.link" [alt]="res.details">
+            <mat-card-content>
+                <p>
+                  {{ res.details }}
+                </p>
+            </mat-card-content>
+        </mat-card>
+    </div>
 </div>

@@ -1,0 +1,14 @@
+.card-image {
+    margin-top: 1em;
+}
+
+.lg-container {
+   display: flex;
+   flex-direction: column;
+}
+
+.lg-container > * {
+   width: 100%;
+   margin: 0 auto;
+   max-width: 100%;
+}

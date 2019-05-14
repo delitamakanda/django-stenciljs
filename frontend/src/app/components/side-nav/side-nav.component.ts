@@ -60,4 +60,8 @@ export class SideNavComponent implements OnInit {
       return this.authService.checkToken();
   }
 
+  setLang(lang: string) {
+      this.translate.use(lang);
+  }
+
 }

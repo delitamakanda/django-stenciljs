@@ -10,7 +10,7 @@
 
     <mat-nav-list>
 
-      <h2 matSubheader> {{ 'MYWORK' | translate }} </h2>
+      <h2 matSubheader> {{ 'PROFILE' | translate }} </h2>
 
       <a mat-list-item routerLink="/" style="height: 0;"></a>
 
@@ -27,7 +27,7 @@
 
       <mat-divider></mat-divider>
 
-      <h2 matSubheader> {{ 'CUSTOMERS' | translate }} </h2>
+      <h2 matSubheader> {{ 'CONTACTS' | translate }} </h2>
 
       <a *ngFor="let item of customerRoutes"
          mat-list-item
@@ -39,6 +39,11 @@
         <mat-icon matListIcon class="app-nav-list-icon"> {{ item.icon }} </mat-icon>
         {{item.title}}
       </a>
+
+      <mat-divider></mat-divider>
+
+      <a mat-list-item (click)="setLang('fr')">FR</a>
+      <a mat-list-item (click)="setLang('en')">EN</a>
 
     </mat-nav-list>
 

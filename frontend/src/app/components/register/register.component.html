@@ -6,80 +6,83 @@
         <p *ngIf='loginErrors'>{{ loginErrors.email }}</p>
         <p *ngIf='loginErrors'>{{ loginErrors.username }}</p>
 
-        <mat-card-content>
+        <div class="tp-container">
             <mat-form-field>
-                <input type="text" matInput placeholder="Username" formControlName="usernameField" />
+                <input type="text" maxlength="280" minlength="4" matInput placeholder="{{ 'labelUsername' | translate }}" formControlName="usernameField" />
                 <div *ngIf='usernameField.invalid && (usernameField.dirty || usernameField.touched)'>
                 <mat-error *ngIf='usernameField.errors.required'>
-                  Username is required.
+                  {{ 'labelUsernameRequired' | translate }}
                 </mat-error>
                 <mat-error *ngIf='usernameField.errors.maxlength'>
-                   Max length is 280
+                   {{ 'labelMaxLength' | translate }} 280
                 </mat-error>
                 <mat-error *ngIf='usernameField.errors.minlength'>
-                  Min length is 4
+                  {{ 'labelMinLength' | translate }}  4
                 </mat-error>
                 </div>
             </mat-form-field>
 
             <mat-form-field>
-                <input type="text" matInput placeholder="Email" formControlName="emailField" />
+                <input type="text" maxlength="280" minlength="4" matInput placeholder="{{ 'labelEmail' | translate }}" formControlName="emailField" />
                 <div *ngIf='emailField.invalid && (emailField.dirty || emailField.touched)'>
                 <mat-error *ngIf='emailField.errors.required'>
-                  Username is required.
+                 {{ 'labelEmailRequired' | translate }}
                 </mat-error>
                 <mat-error *ngIf='emailField.errors.maxlength'>
-                   Max length is 280
+                    {{ 'labelMaxLength' | translate }} 280
                 </mat-error>
                 <mat-error *ngIf='emailField.errors.minlength'>
-                  Min length is 4
+                  {{ 'labelMinLength' | translate }}  4
                 </mat-error>
                 </div>
             </mat-form-field>
 
             <mat-form-field>
-                <input type="password" matInput placeholder="Password" formControlName="passwordField" [type]="hide ? 'password' : 'text'" />
-                <mat-icon matSuffix (click)="hide = !hide">{{hide ? 'visibility_off' : 'visibility'}}</mat-icon>
+                <input type="password" maxlength="280" minlength="4" matInput placeholder="{{ 'labelPassword' | translate }}" formControlName="passwordField" [type]="hide ? 'password' : 'text'" />
+                <button type="button" mat-icon-button matSuffix (click)="hide = !hide" [attr.aria-label]="'Hide password'" [attr.aria-pressed]="hide">
+                    <mat-icon>{{hide ? 'visibility_off' : 'visibility'}}</mat-icon>
+                </button>
                 <div *ngIf='passwordField.invalid && (passwordField.dirty || passwordField.touched)'>
                     <mat-error *ngIf='passwordField.errors.required'>
-                        Password is required.
+                        {{ 'labelPasswordRequired' | translate }}
                     </mat-error>
                     <mat-error *ngIf='passwordField.errors.maxlength'>
-                        Max length is 280
+                        {{ 'labelMaxLength' | translate }} 280
                     </mat-error>
                     <mat-error *ngIf='passwordField.errors.minlength'>
-                        Min length is 4
+                        {{ 'labelMinLength' | translate }}  4
                     </mat-error>
                 </div>
             </mat-form-field>
 
             <mat-form-field>
-                <input type="password" matInput placeholder="Confirm password" formControlName="passwordFieldVerification" [type]="hide ? 'password' : 'text'" />
-                <mat-icon matSuffix (click)="hide = !hide">{{hide ? 'visibility_off' : 'visibility'}}</mat-icon>
+                <input type="password"  maxlength="280" minlength="4" matInput placeholder="{{ 'labelPasswordConfirm' | translate }}" formControlName="passwordFieldVerification" [type]="hide2 ? 'password' : 'text'" />
+                <button type="button" mat-icon-button matSuffix (click)="hide2 = !hide2" [attr.aria-label]="'Hide password'" [attr.aria-pressed]="hide2">
+                    <mat-icon>{{hide2 ? 'visibility_off' : 'visibility'}}</mat-icon>
+                </button>
                 <div *ngIf='passwordFieldVerification.invalid && (passwordFieldVerification.dirty || passwordFieldVerification.touched)'>
                     <mat-error *ngIf='passwordFieldVerification.errors.required'>
-                        Password is required.
+                        {{ 'labelPasswordRequired' | translate }}
                     </mat-error>
                     <mat-error *ngIf='passwordFieldVerification.errors.maxlength'>
-                        Max length is 280
+                        {{ 'labelMaxLength' | translate }} 280
                     </mat-error>
                     <mat-error *ngIf='passwordFieldVerification.errors.minlength'>
-                        Min length is 4
+                        {{ 'labelMinLength' | translate }}  4
                     </mat-error>
                 </div>
             </mat-form-field>
-
             <div>
+                <label>{{ 'labelGender' | translate }}: </label>
                 <mat-radio-group aria-label="Select an option" formControlName="genderField" class="radio-group">
                   <mat-radio-button class="radio-button" *ngFor="let gender of listResultGenders" [value]="gender.id">{{ gender.name }}</mat-radio-button>
                 </mat-radio-group>
             </div>
-        </mat-card-content>
-        <br />
         <mat-card-actions>
             <button type="submit" mat-raised-button color="primary" [disabled]="registerForm.invalid">{{ 'registerLabel' | translate }}</button>
             <button type="button" mat-raised-button color="warn" (click)="ourRegisterDir.resetForm({})">{{ 'resetLabel' | translate }}</button>
         </mat-card-actions>
+        </div>
     </form>
     <p>
 		<button mat-raised-button routerLink='/login'>{{ 'loginLabel' | translate }}</button>

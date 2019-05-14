@@ -29,6 +29,8 @@ import { FlexLayoutModule } from '@angular/flex-layout';
 import { NavigationBarComponent } from './components/navigation-bar/navigation-bar.component';
 import { SideNavComponent } from './components/side-nav/side-nav.component';
 
+import { GravatarModule } from  'ngx-gravatar';
+
 // import { CookieService } from 'angular2-cookie/core';
 import { CookieService } from 'ngx-cookie-service';
 import { TokenInterceptor } from './services/auth/token.interceptor';
@@ -58,7 +60,8 @@ export function setupTranslateFactory (service: TranslateService): Function {
     FormsModule,
     ReactiveFormsModule.withConfig({warnOnNgModelWithFormControl: 'never'}),
     //ServiceWorkerModule.register('service-worker.js', { enabled: environment.production }),
-    AppRoutingModule
+    AppRoutingModule,
+    GravatarModule
   ],
   providers: [
       UserService,

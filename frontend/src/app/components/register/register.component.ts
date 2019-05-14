@@ -20,6 +20,7 @@ import { CookieService } from 'ngx-cookie-service';
 export class RegisterComponent implements OnInit, ErrorStateMatcher {
     register;
     hide = true;
+    hide2 = true;
     listGender: any;
     listResultGenders = [];
 
