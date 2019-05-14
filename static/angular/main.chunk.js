@@ -80,7 +80,7 @@ var AppRoutingModule = /** @class */ (function () {
 /*! no static exports found */
 /***/ (function(module, exports) {
 
-module.exports = "<!--The content below is only a placeholder and can be replaced.-->\n<div class=\"app-container\">\n    <div class=\"language-switching\">\n        <button mat-mini-fab (click)=\"setLang('fr')\">FR</button>\n        <button mat-mini-fab (click)=\"setLang('en')\">EN</button>\n    </div>\n    <app-side-nav></app-side-nav>\n</div>\n"
+module.exports = "<!--The content below is only a placeholder and can be replaced.-->\n<div class=\"app-container\">\n    <app-side-nav></app-side-nav>\n</div>\n"
 
 /***/ }),
 
@@ -91,7 +91,7 @@ module.exports = "<!--The content below is only a placeholder and can be replace
 /*! no static exports found */
 /***/ (function(module, exports) {
 
-module.exports = ".app-container {\n  position: relative;\n  height: 100%;\n  width: 100%; }\n\n.language-switching {\n  position: fixed;\n  z-index: 2;\n  right: 1em;\n  bottom: 1em; }\n\n/*# sourceMappingURL=data:application/json;base64,eyJ2ZXJzaW9uIjozLCJzb3VyY2VzIjpbIi9Vc2Vycy9kZWxpdGFtYWthbmRhL1Byb2plY3RzL2RhdGluZy9mcm9udGVuZC9zcmMvYXBwL2FwcC5jb21wb25lbnQuc2NzcyJdLCJuYW1lcyI6W10sIm1hcHBpbmdzIjoiQUFBQTtFQUNJLGtCQUFrQjtFQUNsQixZQUFZO0VBQ1osV0FBVyxFQUFBOztBQUdmO0VBQ0ksZUFBZTtFQUNmLFVBQVU7RUFDVixVQUFVO0VBQ1YsV0FBVyxFQUFBIiwiZmlsZSI6InNyYy9hcHAvYXBwLmNvbXBvbmVudC5zY3NzIiwic291cmNlc0NvbnRlbnQiOlsiLmFwcC1jb250YWluZXIge1xuICAgIHBvc2l0aW9uOiByZWxhdGl2ZTtcbiAgICBoZWlnaHQ6IDEwMCU7XG4gICAgd2lkdGg6IDEwMCU7XG59XG5cbi5sYW5ndWFnZS1zd2l0Y2hpbmcge1xuICAgIHBvc2l0aW9uOiBmaXhlZDtcbiAgICB6LWluZGV4OiAyO1xuICAgIHJpZ2h0OiAxZW07XG4gICAgYm90dG9tOiAxZW07XG59XG4iXX0= */"
+module.exports = ".app-container {\n  position: relative;\n  height: 100vh;\n  width: 100vw; }\n\n/*# sourceMappingURL=data:application/json;base64,eyJ2ZXJzaW9uIjozLCJzb3VyY2VzIjpbIi9Vc2Vycy9kZWxpdGFtYWthbmRhL1Byb2plY3RzL2RhdGluZy9mcm9udGVuZC9zcmMvYXBwL2FwcC5jb21wb25lbnQuc2NzcyJdLCJuYW1lcyI6W10sIm1hcHBpbmdzIjoiQUFBQTtFQUNJLGtCQUFrQjtFQUNsQixhQUFhO0VBQ2IsWUFBWSxFQUFBIiwiZmlsZSI6InNyYy9hcHAvYXBwLmNvbXBvbmVudC5zY3NzIiwic291cmNlc0NvbnRlbnQiOlsiLmFwcC1jb250YWluZXIge1xuICAgIHBvc2l0aW9uOiByZWxhdGl2ZTtcbiAgICBoZWlnaHQ6IDEwMHZoO1xuICAgIHdpZHRoOiAxMDB2dztcbn1cbiJdfQ== */"
 
 /***/ }),
 
@@ -107,29 +107,23 @@ __webpack_require__.r(__webpack_exports__);
 /* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "AppComponent", function() { return AppComponent; });
 /* harmony import */ var tslib__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! tslib */ "./node_modules/tslib/tslib.es6.js");
 /* harmony import */ var _angular_core__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! @angular/core */ "./node_modules/@angular/core/fesm5/core.js");
-/* harmony import */ var _services_translate_translate_service__WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__(/*! ./services/translate/translate.service */ "./src/app/services/translate/translate.service.ts");
-/* harmony import */ var _angular_material_icon__WEBPACK_IMPORTED_MODULE_3__ = __webpack_require__(/*! @angular/material/icon */ "./node_modules/@angular/material/esm5/icon.es5.js");
-/* harmony import */ var _angular_platform_browser__WEBPACK_IMPORTED_MODULE_4__ = __webpack_require__(/*! @angular/platform-browser */ "./node_modules/@angular/platform-browser/fesm5/platform-browser.js");
-/* harmony import */ var _environments_environment__WEBPACK_IMPORTED_MODULE_5__ = __webpack_require__(/*! ../environments/environment */ "./src/environments/environment.ts");
-
+/* harmony import */ var _angular_material_icon__WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__(/*! @angular/material/icon */ "./node_modules/@angular/material/esm5/icon.es5.js");
+/* harmony import */ var _angular_platform_browser__WEBPACK_IMPORTED_MODULE_3__ = __webpack_require__(/*! @angular/platform-browser */ "./node_modules/@angular/platform-browser/fesm5/platform-browser.js");
+/* harmony import */ var _environments_environment__WEBPACK_IMPORTED_MODULE_4__ = __webpack_require__(/*! ../environments/environment */ "./src/environments/environment.ts");
 
 
 
 
 
 var AppComponent = /** @class */ (function () {
-    function AppComponent(translate, matIconRegistry, domSanitizer) {
-        this.translate = translate;
+    function AppComponent(matIconRegistry, domSanitizer) {
         this.matIconRegistry = matIconRegistry;
         this.domSanitizer = domSanitizer;
-        this.matIconRegistry.addSvgIcon("love", this.domSanitizer.bypassSecurityTrustResourceUrl(_environments_environment__WEBPACK_IMPORTED_MODULE_5__["environment"].staticAssetsUrl + "love_icon.svg"));
+        this.matIconRegistry.addSvgIcon("love", this.domSanitizer.bypassSecurityTrustResourceUrl(_environments_environment__WEBPACK_IMPORTED_MODULE_4__["environment"].staticAssetsUrl + "love_icon.svg"));
     }
     AppComponent.prototype.ngOnInit = function () {
     };
     AppComponent.prototype.ngOnDestroy = function () {
-    };
-    AppComponent.prototype.setLang = function (lang) {
-        this.translate.use(lang);
     };
     AppComponent = tslib__WEBPACK_IMPORTED_MODULE_0__["__decorate"]([
         Object(_angular_core__WEBPACK_IMPORTED_MODULE_1__["Component"])({
@@ -137,9 +131,8 @@ var AppComponent = /** @class */ (function () {
             template: __webpack_require__(/*! ./app.component.html */ "./src/app/app.component.html"),
             styles: [__webpack_require__(/*! ./app.component.scss */ "./src/app/app.component.scss")]
         }),
-        tslib__WEBPACK_IMPORTED_MODULE_0__["__metadata"]("design:paramtypes", [_services_translate_translate_service__WEBPACK_IMPORTED_MODULE_2__["TranslateService"],
-            _angular_material_icon__WEBPACK_IMPORTED_MODULE_3__["MatIconRegistry"],
-            _angular_platform_browser__WEBPACK_IMPORTED_MODULE_4__["DomSanitizer"]])
+        tslib__WEBPACK_IMPORTED_MODULE_0__["__metadata"]("design:paramtypes", [_angular_material_icon__WEBPACK_IMPORTED_MODULE_2__["MatIconRegistry"],
+            _angular_platform_browser__WEBPACK_IMPORTED_MODULE_3__["DomSanitizer"]])
     ], AppComponent);
     return AppComponent;
 }());
@@ -182,8 +175,9 @@ __webpack_require__.r(__webpack_exports__);
 /* harmony import */ var _angular_flex_layout__WEBPACK_IMPORTED_MODULE_20__ = __webpack_require__(/*! @angular/flex-layout */ "./node_modules/@angular/flex-layout/esm5/flex-layout.es5.js");
 /* harmony import */ var _components_navigation_bar_navigation_bar_component__WEBPACK_IMPORTED_MODULE_21__ = __webpack_require__(/*! ./components/navigation-bar/navigation-bar.component */ "./src/app/components/navigation-bar/navigation-bar.component.ts");
 /* harmony import */ var _components_side_nav_side_nav_component__WEBPACK_IMPORTED_MODULE_22__ = __webpack_require__(/*! ./components/side-nav/side-nav.component */ "./src/app/components/side-nav/side-nav.component.ts");
-/* harmony import */ var ngx_cookie_service__WEBPACK_IMPORTED_MODULE_23__ = __webpack_require__(/*! ngx-cookie-service */ "./node_modules/ngx-cookie-service/index.js");
-/* harmony import */ var _services_auth_token_interceptor__WEBPACK_IMPORTED_MODULE_24__ = __webpack_require__(/*! ./services/auth/token.interceptor */ "./src/app/services/auth/token.interceptor.ts");
+/* harmony import */ var ngx_gravatar__WEBPACK_IMPORTED_MODULE_23__ = __webpack_require__(/*! ngx-gravatar */ "./node_modules/ngx-gravatar/fesm5/ngx-gravatar.js");
+/* harmony import */ var ngx_cookie_service__WEBPACK_IMPORTED_MODULE_24__ = __webpack_require__(/*! ngx-cookie-service */ "./node_modules/ngx-cookie-service/index.js");
+/* harmony import */ var _services_auth_token_interceptor__WEBPACK_IMPORTED_MODULE_25__ = __webpack_require__(/*! ./services/auth/token.interceptor */ "./src/app/services/auth/token.interceptor.ts");
 
 
 
@@ -205,6 +199,7 @@ __webpack_require__.r(__webpack_exports__);
 
 
 // UI
+
 
 
 
@@ -239,13 +234,14 @@ var AppModule = /** @class */ (function () {
                 _angular_forms__WEBPACK_IMPORTED_MODULE_2__["FormsModule"],
                 _angular_forms__WEBPACK_IMPORTED_MODULE_2__["ReactiveFormsModule"].withConfig({ warnOnNgModelWithFormControl: 'never' }),
                 //ServiceWorkerModule.register('service-worker.js', { enabled: environment.production }),
-                _app_routing_module__WEBPACK_IMPORTED_MODULE_13__["AppRoutingModule"]
+                _app_routing_module__WEBPACK_IMPORTED_MODULE_13__["AppRoutingModule"],
+                ngx_gravatar__WEBPACK_IMPORTED_MODULE_23__["GravatarModule"]
             ],
             providers: [
                 _services_user_user_service__WEBPACK_IMPORTED_MODULE_7__["UserService"],
                 _services_auth_auth_service__WEBPACK_IMPORTED_MODULE_8__["AuthService"],
                 _services_user_gender_gender_service__WEBPACK_IMPORTED_MODULE_9__["GenderService"],
-                ngx_cookie_service__WEBPACK_IMPORTED_MODULE_23__["CookieService"],
+                ngx_cookie_service__WEBPACK_IMPORTED_MODULE_24__["CookieService"],
                 _services_translate_translate_service__WEBPACK_IMPORTED_MODULE_11__["TranslateService"],
                 {
                     provide: _angular_core__WEBPACK_IMPORTED_MODULE_3__["APP_INITIALIZER"],
@@ -253,11 +249,11 @@ var AppModule = /** @class */ (function () {
                     deps: [_services_translate_translate_service__WEBPACK_IMPORTED_MODULE_11__["TranslateService"]],
                     multi: true
                 },
-                _services_auth_token_interceptor__WEBPACK_IMPORTED_MODULE_24__["TokenInterceptor"],
+                _services_auth_token_interceptor__WEBPACK_IMPORTED_MODULE_25__["TokenInterceptor"],
                 _services_dashboard_dashboard_service__WEBPACK_IMPORTED_MODULE_10__["DashboardService"],
                 {
                     provide: _angular_common_http__WEBPACK_IMPORTED_MODULE_5__["HTTP_INTERCEPTORS"],
-                    useClass: _services_auth_token_interceptor__WEBPACK_IMPORTED_MODULE_24__["TokenInterceptor"],
+                    useClass: _services_auth_token_interceptor__WEBPACK_IMPORTED_MODULE_25__["TokenInterceptor"],
                     multi: true
                 }
             ],
@@ -278,7 +274,7 @@ var AppModule = /** @class */ (function () {
 /*! no static exports found */
 /***/ (function(module, exports) {
 
-module.exports = "<div class=\"container\">\n<p>\n    Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum.\n</p>\n\n</div>\n"
+module.exports = "<div class=\"container\">\n    <br/>\n    <button mat-icon-button mat-mini-fab type=\"button\" (click)=\"updated = !updated\" title=\"{{ 'updatedProfileSettings' | translate }}\">\n        <mat-icon>{{updated ? 'expand_less' : 'expand_more'}}</mat-icon>\n    </button>\n    <br/>\n    <mat-card *ngIf=\"updated\" class=\"card-image\">\n        <form [formGroup]=\"profilForm\" #ourUserPhotoDir='ngForm' (submit)='handleSubmit($event, ourUserPhotoDir, profilForm)' enctype=\"multipart/form-data\">\n            <p *ngIf='userPhotoErrors'>{{ userPhotoErrors }}</p>\n            <div class=\"lg-container\">\n                <mat-form-field>\n                    <input type=\"text\" matInput placeholder=\"{{ 'labelLink' | translate }}\" formControlName=\"linkField\" />\n                </mat-form-field>\n                <input type=\"file\" id=\"userFile\" (change)=\"onSelectFile($event)\" #fileInput style=\"display: none\">\n                <mat-form-field>\n                    <input matInput formControlName=\"fileField\" placeholder=\"{{ 'labelFile' | translate }}\" readonly />\n                </mat-form-field>\n                <!--<div *ngIf=\"fileInformation\">\n                    <p>{{fileInformation.filename}}</p>\n                    <p>{{fileInformation.size}}</p>\n                </div>-->\n                <button mat-raised-button type=\"button\" (click)=\"selectFile()\">{{ 'labelSelect' | translate }}</button>\n                <mat-form-field>\n                    <textarea matInput placeholder=\"{{ 'labelDetails' | translate }}\" formControlName=\"detailsField\"></textarea>\n                    <div *ngIf='detailsField.invalid && (detailsField.dirty || detailsField.touched)'>\n                    <mat-error *ngIf='detailsField.errors.required'>\n                      {{ 'labelDetailsRequired' | translate }}\n                    </mat-error>\n                    </div>\n                </mat-form-field>\n                <mat-card-actions>\n                    <button type=\"submit\" mat-raised-button color=\"primary\" [disabled]=\"profilForm.invalid\">{{ 'labelValidate' | translate }}</button>\n                    <button type=\"button\" mat-raised-button color=\"warn\" (click)=\"ourUserPhotoDir.resetForm({})\">{{ 'resetLabel' | translate }}</button>\n                </mat-card-actions>\n            </div>\n        </form>\n    </mat-card>\n\n    <mat-card class=\"card-image\">\n        <mat-card-header>\n            <div mat-card-avatar>\n                <img ngxGravatar *ngIf=\"results.email\" [email]=\"results.email\">\n            </div>\n            <mat-card-title>{{ results.displayName }}</mat-card-title>\n            <mat-card-subtitle>{{ 'labelPopularity' | translate }} : {{ results.popularity }}</mat-card-subtitle>\n        </mat-card-header>\n    </mat-card>\n\n    <div *ngIf=\"results2\">\n        <mat-card *ngFor=\"let res of results2\" class=\"card-image\">\n            <img mat-card-image *ngIf=\"res.file\" [src]=\"res.file\" [alt]=\"res.details\">\n            <img mat-card-image *ngIf=\"res.link && res.link != 'null'\" [src]=\"res.link\" [alt]=\"res.details\">\n            <mat-card-content>\n                <p>\n                  {{ res.details }}\n                </p>\n            </mat-card-content>\n        </mat-card>\n    </div>\n</div>\n"
 
 /***/ }),
 
@@ -289,7 +285,7 @@ module.exports = "<div class=\"container\">\n<p>\n    Lorem ipsum dolor sit amet
 /*! no static exports found */
 /***/ (function(module, exports) {
 
-module.exports = "\n/*# sourceMappingURL=data:application/json;base64,eyJ2ZXJzaW9uIjozLCJzb3VyY2VzIjpbXSwibmFtZXMiOltdLCJtYXBwaW5ncyI6IiIsImZpbGUiOiJzcmMvYXBwL2NvbXBvbmVudHMvZGFzaGJvYXJkL2Rhc2hib2FyZC5jb21wb25lbnQuc2NzcyJ9 */"
+module.exports = ".card-image {\n  margin-top: 1em; }\n\n.lg-container {\n  display: flex;\n  flex-direction: column; }\n\n.lg-container > * {\n  width: 100%;\n  margin: 0 auto;\n  max-width: 100%; }\n\n/*# sourceMappingURL=data:application/json;base64,eyJ2ZXJzaW9uIjozLCJzb3VyY2VzIjpbIi9Vc2Vycy9kZWxpdGFtYWthbmRhL1Byb2plY3RzL2RhdGluZy9mcm9udGVuZC9zcmMvYXBwL2NvbXBvbmVudHMvZGFzaGJvYXJkL2Rhc2hib2FyZC5jb21wb25lbnQuc2NzcyJdLCJuYW1lcyI6W10sIm1hcHBpbmdzIjoiQUFBQTtFQUNJLGVBQWUsRUFBQTs7QUFHbkI7RUFDRyxhQUFhO0VBQ2Isc0JBQXNCLEVBQUE7O0FBR3pCO0VBQ0csV0FBVztFQUNYLGNBQWM7RUFDZCxlQUFlLEVBQUEiLCJmaWxlIjoic3JjL2FwcC9jb21wb25lbnRzL2Rhc2hib2FyZC9kYXNoYm9hcmQuY29tcG9uZW50LnNjc3MiLCJzb3VyY2VzQ29udGVudCI6WyIuY2FyZC1pbWFnZSB7XG4gICAgbWFyZ2luLXRvcDogMWVtO1xufVxuXG4ubGctY29udGFpbmVyIHtcbiAgIGRpc3BsYXk6IGZsZXg7XG4gICBmbGV4LWRpcmVjdGlvbjogY29sdW1uO1xufVxuXG4ubGctY29udGFpbmVyID4gKiB7XG4gICB3aWR0aDogMTAwJTtcbiAgIG1hcmdpbjogMCBhdXRvO1xuICAgbWF4LXdpZHRoOiAxMDAlO1xufVxuIl19 */"
 
 /***/ }),
 
@@ -305,10 +301,12 @@ __webpack_require__.r(__webpack_exports__);
 /* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "DashboardComponent", function() { return DashboardComponent; });
 /* harmony import */ var tslib__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! tslib */ "./node_modules/tslib/tslib.es6.js");
 /* harmony import */ var _angular_core__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! @angular/core */ "./node_modules/@angular/core/fesm5/core.js");
-/* harmony import */ var _services_auth_auth_service__WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__(/*! ../../services/auth/auth.service */ "./src/app/services/auth/auth.service.ts");
-/* harmony import */ var _services_dashboard_dashboard_service__WEBPACK_IMPORTED_MODULE_3__ = __webpack_require__(/*! ../../services/dashboard/dashboard.service */ "./src/app/services/dashboard/dashboard.service.ts");
-/* harmony import */ var _services_translate_translate_service__WEBPACK_IMPORTED_MODULE_4__ = __webpack_require__(/*! ../../services/translate/translate.service */ "./src/app/services/translate/translate.service.ts");
-/* harmony import */ var ngx_cookie_service__WEBPACK_IMPORTED_MODULE_5__ = __webpack_require__(/*! ngx-cookie-service */ "./node_modules/ngx-cookie-service/index.js");
+/* harmony import */ var _angular_forms__WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__(/*! @angular/forms */ "./node_modules/@angular/forms/fesm5/forms.js");
+/* harmony import */ var _services_auth_auth_service__WEBPACK_IMPORTED_MODULE_3__ = __webpack_require__(/*! ../../services/auth/auth.service */ "./src/app/services/auth/auth.service.ts");
+/* harmony import */ var _services_dashboard_dashboard_service__WEBPACK_IMPORTED_MODULE_4__ = __webpack_require__(/*! ../../services/dashboard/dashboard.service */ "./src/app/services/dashboard/dashboard.service.ts");
+/* harmony import */ var _services_translate_translate_service__WEBPACK_IMPORTED_MODULE_5__ = __webpack_require__(/*! ../../services/translate/translate.service */ "./src/app/services/translate/translate.service.ts");
+/* harmony import */ var ngx_cookie_service__WEBPACK_IMPORTED_MODULE_6__ = __webpack_require__(/*! ngx-cookie-service */ "./node_modules/ngx-cookie-service/index.js");
+
 
 
 
@@ -316,38 +314,108 @@ __webpack_require__.r(__webpack_exports__);
 
 
 var DashboardComponent = /** @class */ (function () {
-    function DashboardComponent(translate, dashboardService, authService, cookieService) {
+    function DashboardComponent(translate, dashboardService, authService, cookieService, formBuilder) {
         this.translate = translate;
         this.dashboardService = dashboardService;
         this.authService = authService;
         this.cookieService = cookieService;
+        this.formBuilder = formBuilder;
+        this.results2 = [];
         this.results = [];
     }
+    DashboardComponent.prototype.isErrorState = function (control, form) {
+        var isSubmitted = form && form.submitted;
+        return !!(control && control.invalid && (control.dirty || control.touched || isSubmitted));
+    };
     DashboardComponent.prototype.ngOnInit = function () {
         this.getData();
+        this.linkField = new _angular_forms__WEBPACK_IMPORTED_MODULE_2__["FormControl"]("");
+        this.fileField = new _angular_forms__WEBPACK_IMPORTED_MODULE_2__["FormControl"]("");
+        this.detailsField = new _angular_forms__WEBPACK_IMPORTED_MODULE_2__["FormControl"]("", [
+            _angular_forms__WEBPACK_IMPORTED_MODULE_2__["Validators"].required
+        ]);
+        this.profilForm = new _angular_forms__WEBPACK_IMPORTED_MODULE_2__["FormGroup"]({
+            'linkField': this.linkField,
+            'fileField': this.fileField,
+            'detailsField': this.detailsField
+        });
     };
     DashboardComponent.prototype.getData = function () {
         var _this = this;
-        this.listRelationship = this.dashboardService.list().subscribe(function (data) {
+        this.listAccountDetail = this.dashboardService.detailUser().subscribe(function (data) {
+            _this.results = data;
+        });
+        this.listAccountDetailPhoto = this.dashboardService.detailUserPhoto().subscribe(function (data) {
             console.log(data);
-            _this.results = data.results;
+            _this.results2 = data;
         });
     };
     DashboardComponent.prototype.ngOnDestroy = function () {
-        if (this.listRelationship) {
-            this.listRelationship.unsubscribe();
+        if (this.listAccountDetail) {
+            this.listAccountDetail.unsubscribe();
+        }
+        if (this.listAccountDetailPhoto) {
+            this.listAccountDetailPhoto.unsubscribe();
+        }
+        if (this.postPhotoUserSub) {
+            this.postPhotoUserSub.unsubscribe();
         }
     };
+    DashboardComponent.prototype.postPhoto = function (data) {
+        var _this = this;
+        this.postPhotoUserSub = this.dashboardService.postUserPhoto(data).subscribe(function (data) {
+            _this.fileInformation = data;
+            _this.getData();
+            _this.updated = false;
+        }, function (error) {
+            _this.userPhotoErrors = error['error'];
+        });
+    };
+    DashboardComponent.prototype.handleSubmit = function (event, ourUserPhotoDir, userPhotoFormGroup) {
+        event.preventDefault();
+        if (ourUserPhotoDir.submitted) {
+            var userPhotoData = new FormData();
+            userPhotoData.append("link", userPhotoFormGroup.value['linkField']);
+            if (this.file) {
+                userPhotoData.append("file", this.file, this.file.name);
+            }
+            else {
+                userPhotoData.append("file", userPhotoFormGroup.value['fileField']);
+            }
+            userPhotoData.append("details", userPhotoFormGroup.value['detailsField']);
+            this.postPhoto(userPhotoData);
+            ourUserPhotoDir.resetForm({});
+        }
+        ;
+    };
+    DashboardComponent.prototype.onSelectFile = function (event) {
+        if (event.target.files && event.target.files.length > 0) {
+            this.file = event.target.files[0];
+            console.log(this.file);
+            this.profilForm.get('fileField').setValue(this.file.name);
+            // console.log(`file: ${JSON.stringify(this.file.name)}`);
+            // console.log(`file: ${JSON.stringify(this.file.size)}`);
+            this.fileInformation = null;
+        }
+    };
+    DashboardComponent.prototype.selectFile = function () {
+        this.fileInput.nativeElement.click();
+    };
+    tslib__WEBPACK_IMPORTED_MODULE_0__["__decorate"]([
+        Object(_angular_core__WEBPACK_IMPORTED_MODULE_1__["ViewChild"])('fileInput'),
+        tslib__WEBPACK_IMPORTED_MODULE_0__["__metadata"]("design:type", _angular_core__WEBPACK_IMPORTED_MODULE_1__["ElementRef"])
+    ], DashboardComponent.prototype, "fileInput", void 0);
     DashboardComponent = tslib__WEBPACK_IMPORTED_MODULE_0__["__decorate"]([
         Object(_angular_core__WEBPACK_IMPORTED_MODULE_1__["Component"])({
             selector: 'app-dashboard',
             template: __webpack_require__(/*! ./dashboard.component.html */ "./src/app/components/dashboard/dashboard.component.html"),
             styles: [__webpack_require__(/*! ./dashboard.component.scss */ "./src/app/components/dashboard/dashboard.component.scss")]
         }),
-        tslib__WEBPACK_IMPORTED_MODULE_0__["__metadata"]("design:paramtypes", [_services_translate_translate_service__WEBPACK_IMPORTED_MODULE_4__["TranslateService"],
-            _services_dashboard_dashboard_service__WEBPACK_IMPORTED_MODULE_3__["DashboardService"],
-            _services_auth_auth_service__WEBPACK_IMPORTED_MODULE_2__["AuthService"],
-            ngx_cookie_service__WEBPACK_IMPORTED_MODULE_5__["CookieService"]])
+        tslib__WEBPACK_IMPORTED_MODULE_0__["__metadata"]("design:paramtypes", [_services_translate_translate_service__WEBPACK_IMPORTED_MODULE_5__["TranslateService"],
+            _services_dashboard_dashboard_service__WEBPACK_IMPORTED_MODULE_4__["DashboardService"],
+            _services_auth_auth_service__WEBPACK_IMPORTED_MODULE_3__["AuthService"],
+            ngx_cookie_service__WEBPACK_IMPORTED_MODULE_6__["CookieService"],
+            _angular_forms__WEBPACK_IMPORTED_MODULE_2__["FormBuilder"]])
     ], DashboardComponent);
     return DashboardComponent;
 }());
@@ -419,7 +487,7 @@ var LandingComponent = /** @class */ (function () {
 /*! no static exports found */
 /***/ (function(module, exports) {
 
-module.exports = "<div class=\"container\">\n\n    <p *ngIf='didLogin'>\n        Welcome! Get started <a [routerLink]=\"'/'\">here</a>.<br/><br/>\n    </p>\n    <p *ngIf='tokenExists'>\n    You are already logged in! Would you like to <a routerLink='/logout'>logout</a>?\n\n        </p>\n    <p>\n        <mat-icon svgIcon=\"love\" aria-hidden=\"false\"></mat-icon>\n    </p>\n\n    <form *ngIf='!userData && !tokenExists' [formGroup]='loginForm' #ourLoginDir='ngForm' (submit)='handleSubmit($event, ourLoginDir, loginForm)'>\n        <p *ngIf='loginErrors'>{{ loginErrors }}</p>\n        <mat-card-content>\n            <mat-form-field>\n                <input type=\"text\" matInput placeholder=\"Username or Email\" formControlName=\"usernameField\" />\n                <div *ngIf='usernameField.invalid && (usernameField.dirty || usernameField.touched)'>\n                <mat-error *ngIf='usernameField.errors.required'>\n                  Username is required.\n                </mat-error>\n                <mat-error *ngIf='usernameField.errors.maxlength'>\n                   Max length is 280\n                </mat-error>\n                <mat-error *ngIf='usernameField.errors.minlength'>\n                  Min length is 4\n                </mat-error>\n                </div>\n            </mat-form-field>\n\n            <mat-form-field>\n                <input type=\"password\" matInput placeholder=\"Password\" formControlName=\"passwordField\" [type]=\"hide ? 'password' : 'text'\" />\n                <mat-icon matSuffix (click)=\"hide = !hide\">{{hide ? 'visibility_off' : 'visibility'}}</mat-icon>\n                <div *ngIf='passwordField.invalid && (passwordField.dirty || passwordField.touched)'>\n                    <mat-error *ngIf='passwordField.errors.required'>\n                        Password is required.\n                    </mat-error>\n                    <mat-error *ngIf='passwordField.errors.maxlength'>\n                        Max length is 280\n                    </mat-error>\n                    <mat-error *ngIf='passwordField.errors.minlength'>\n                        Min length is 4\n                    </mat-error>\n                </div>\n            </mat-form-field>\n        </mat-card-content>\n        <br />\n        <mat-card-actions>\n            <button type=\"submit\" mat-raised-button color=\"primary\" [disabled]=\"loginForm.invalid\">{{ 'loginLabel' | translate }}</button>\n            <button type=\"button\" mat-raised-button color=\"warn\" (click)=\"ourLoginDir.resetForm({})\">{{ 'resetLabel' | translate }}</button>\n        </mat-card-actions>\n    </form>\n\n\t<p>\n\t\t<button mat-raised-button routerLink='/register'>{{ 'registerLabel' | translate }}</button>\n\t</p>\n    <!--<mat-form-field>\n      <input type=\"email\" matInput placeholder=\"Username or Email\" [(ngModel)]=\"user.emailOrUsername\" [formControl]=\"emailFormControl\" [errorStateMatcher]=\"matcher\">\n      <mat-error *ngIf=\"emailFormControl.hasError('email') && !emailFormControl.hasError('required')\">\n        Please enter a valid email address or username\n      </mat-error>\n      <mat-error *ngFor=\"let error of userService.errors.username\">{{ error }}</mat-error>\n      <mat-error *ngIf=\"emailFormControl.hasError('required')\">\n        Email is <strong>required</strong>\n      </mat-error>\n    </mat-form-field>-->\n\n  <!--<mat-form-field>\n    <input type=\"password\" matInput placeholder=\"Password\" [(ngModel)]=\"user.password\" [type]=\"hide ? 'password' : 'text'\">\n    <mat-icon matSuffix (click)=\"hide = !hide\">{{hide ? 'visibility_off' : 'visibility'}}</mat-icon>\n    <mat-error *ngFor=\"let error of userService.errors.password\">{{ error }}</mat-error>\n  </mat-form-field>-->\n\n  <!--<button (click)=\"signin()\" mat-raised-button>Login</button>-->\n</div>\n"
+module.exports = "<div class=\"container\">\n\n    <p *ngIf='didLogin'>\n        Welcome! Get started <a [routerLink]=\"'/'\">here</a>.<br/><br/>\n    </p>\n    <p *ngIf='tokenExists'>\n    You are already logged in! Would you like to <a routerLink='/logout'>logout</a>?\n\n        </p>\n    <p>\n        <mat-icon svgIcon=\"love\" aria-hidden=\"false\"></mat-icon>\n    </p>\n\n    <form *ngIf='!userData && !tokenExists' [formGroup]='loginForm' #ourLoginDir='ngForm' (submit)='handleSubmit($event, ourLoginDir, loginForm)'>\n        <p *ngIf='loginErrors'>{{ loginErrors }}</p>\n        <div class=\"tp-container\">\n        <mat-form-field appearance=\"standard\">\n            <input type=\"text\" maxlength=\"280\" minlength=\"4\" matInput placeholder=\"{{ 'labelEmailOrUsername' | translate }}\" formControlName=\"usernameField\" />\n            <div *ngIf=\"usernameField.invalid && (usernameField.dirty || usernameField.touched)\">\n                <mat-error *ngIf='usernameField.errors.required'>\n                  {{ 'labelUsernameRequired' | translate }}\n                </mat-error>\n\n                <mat-error *ngIf='usernameField.errors.maxlength'>\n                   {{ 'labelMaxLength' | translate }} 280\n                </mat-error>\n                <mat-error *ngIf='usernameField.errors.minlength'>\n                  {{ 'labelMinLength' | translate }}  4\n                </mat-error>\n            </div>\n        </mat-form-field>\n\n        <mat-form-field appearance=\"standard\">\n            <input type=\"password\" maxlength=\"280\" minlength=\"4\" matInput placeholder=\"{{ 'labelPassword' | translate }}\" formControlName=\"passwordField\" [type]=\"hide ? 'password' : 'text'\" />\n            <button type=\"button\" mat-icon-button matSuffix (click)=\"hide = !hide\" [attr.aria-label]=\"'Hide password'\" [attr.aria-pressed]=\"hide\">\n                <mat-icon>{{hide ? 'visibility_off' : 'visibility'}}</mat-icon>\n            </button>\n            <div *ngIf='passwordField.invalid && (passwordField.dirty || passwordField.touched)'>\n                <mat-error *ngIf='passwordField.errors.required'>\n                    {{ 'labelPasswordRequired' | translate }}\n                </mat-error>\n                <mat-error *ngIf='passwordField.errors.maxlength'>\n                    {{ 'labelMaxLength' | translate }} 280\n                </mat-error>\n                <mat-error *ngIf='passwordField.errors.minlength'>\n                    {{ 'labelMinLength' | translate }}  4\n                </mat-error>\n            </div>\n        </mat-form-field>\n        <mat-card-actions>\n            <button type=\"submit\" mat-raised-button color=\"primary\" [disabled]=\"loginForm.invalid\">{{ 'loginLabel' | translate }}</button>\n            <button type=\"button\" mat-raised-button color=\"warn\" (click)=\"ourLoginDir.resetForm({})\">{{ 'resetLabel' | translate }}</button>\n        </mat-card-actions>\n        </div>\n    </form>\n\n\t<p>\n\t\t<button mat-raised-button routerLink='/register'>{{ 'registerLabel' | translate }}</button>\n\t</p>\n    <!--<mat-form-field>\n      <input type=\"email\" matInput placeholder=\"Username or Email\" [(ngModel)]=\"user.emailOrUsername\" [formControl]=\"emailFormControl\" [errorStateMatcher]=\"matcher\">\n      <mat-error *ngIf=\"emailFormControl.hasError('email') && !emailFormControl.hasError('required')\">\n        Please enter a valid email address or username\n      </mat-error>\n      <mat-error *ngFor=\"let error of userService.errors.username\">{{ error }}</mat-error>\n      <mat-error *ngIf=\"emailFormControl.hasError('required')\">\n        Email is <strong>required</strong>\n      </mat-error>\n    </mat-form-field>-->\n\n  <!--<mat-form-field>\n    <input type=\"password\" matInput placeholder=\"Password\" [(ngModel)]=\"user.password\" [type]=\"hide ? 'password' : 'text'\">\n    <mat-icon matSuffix (click)=\"hide = !hide\">{{hide ? 'visibility_off' : 'visibility'}}</mat-icon>\n    <mat-error *ngFor=\"let error of userService.errors.password\">{{ error }}</mat-error>\n  </mat-form-field>-->\n\n  <!--<button (click)=\"signin()\" mat-raised-button>Login</button>-->\n</div>\n"
 
 /***/ }),
 
@@ -694,7 +762,7 @@ var NavigationBarComponent = /** @class */ (function () {
 /*! no static exports found */
 /***/ (function(module, exports) {
 
-module.exports = "<div class=\"container\">\n    <p>\n        <mat-icon svgIcon=\"love\" aria-hidden=\"false\"></mat-icon>\n    </p>\n    <form [formGroup]=\"registerForm\" #ourRegisterDir='ngForm' (submit)=\"handleSubmit($event, ourRegisterDir, registerForm)\">\n        <p *ngIf='loginErrors'>{{ loginErrors.email }}</p>\n        <p *ngIf='loginErrors'>{{ loginErrors.username }}</p>\n\n        <mat-card-content>\n            <mat-form-field>\n                <input type=\"text\" matInput placeholder=\"Username\" formControlName=\"usernameField\" />\n                <div *ngIf='usernameField.invalid && (usernameField.dirty || usernameField.touched)'>\n                <mat-error *ngIf='usernameField.errors.required'>\n                  Username is required.\n                </mat-error>\n                <mat-error *ngIf='usernameField.errors.maxlength'>\n                   Max length is 280\n                </mat-error>\n                <mat-error *ngIf='usernameField.errors.minlength'>\n                  Min length is 4\n                </mat-error>\n                </div>\n            </mat-form-field>\n\n            <mat-form-field>\n                <input type=\"text\" matInput placeholder=\"Email\" formControlName=\"emailField\" />\n                <div *ngIf='emailField.invalid && (emailField.dirty || emailField.touched)'>\n                <mat-error *ngIf='emailField.errors.required'>\n                  Username is required.\n                </mat-error>\n                <mat-error *ngIf='emailField.errors.maxlength'>\n                   Max length is 280\n                </mat-error>\n                <mat-error *ngIf='emailField.errors.minlength'>\n                  Min length is 4\n                </mat-error>\n                </div>\n            </mat-form-field>\n\n            <mat-form-field>\n                <input type=\"password\" matInput placeholder=\"Password\" formControlName=\"passwordField\" [type]=\"hide ? 'password' : 'text'\" />\n                <mat-icon matSuffix (click)=\"hide = !hide\">{{hide ? 'visibility_off' : 'visibility'}}</mat-icon>\n                <div *ngIf='passwordField.invalid && (passwordField.dirty || passwordField.touched)'>\n                    <mat-error *ngIf='passwordField.errors.required'>\n                        Password is required.\n                    </mat-error>\n                    <mat-error *ngIf='passwordField.errors.maxlength'>\n                        Max length is 280\n                    </mat-error>\n                    <mat-error *ngIf='passwordField.errors.minlength'>\n                        Min length is 4\n                    </mat-error>\n                </div>\n            </mat-form-field>\n\n            <mat-form-field>\n                <input type=\"password\" matInput placeholder=\"Confirm password\" formControlName=\"passwordFieldVerification\" [type]=\"hide ? 'password' : 'text'\" />\n                <mat-icon matSuffix (click)=\"hide = !hide\">{{hide ? 'visibility_off' : 'visibility'}}</mat-icon>\n                <div *ngIf='passwordFieldVerification.invalid && (passwordFieldVerification.dirty || passwordFieldVerification.touched)'>\n                    <mat-error *ngIf='passwordFieldVerification.errors.required'>\n                        Password is required.\n                    </mat-error>\n                    <mat-error *ngIf='passwordFieldVerification.errors.maxlength'>\n                        Max length is 280\n                    </mat-error>\n                    <mat-error *ngIf='passwordFieldVerification.errors.minlength'>\n                        Min length is 4\n                    </mat-error>\n                </div>\n            </mat-form-field>\n\n            <div>\n                <mat-radio-group aria-label=\"Select an option\" formControlName=\"genderField\" class=\"radio-group\">\n                  <mat-radio-button class=\"radio-button\" *ngFor=\"let gender of listResultGenders\" [value]=\"gender.id\">{{ gender.name }}</mat-radio-button>\n                </mat-radio-group>\n            </div>\n        </mat-card-content>\n        <br />\n        <mat-card-actions>\n            <button type=\"submit\" mat-raised-button color=\"primary\" [disabled]=\"registerForm.invalid\">{{ 'registerLabel' | translate }}</button>\n            <button type=\"button\" mat-raised-button color=\"warn\" (click)=\"ourRegisterDir.resetForm({})\">{{ 'resetLabel' | translate }}</button>\n        </mat-card-actions>\n    </form>\n    <p>\n\t\t<button mat-raised-button routerLink='/login'>{{ 'loginLabel' | translate }}</button>\n\t</p>\n\n    <!--<mat-form-field>\n        <input type=\"text\" matInput placeholder=\"Username\" [(ngModel)]=\"register.username\">\n    </mat-form-field>\n\n    <mat-form-field>\n        <input type=\"password\" matInput placeholder=\"Password\" [(ngModel)]=\"register.password\" [type]=\"hide ? 'password' : 'text'\">\n        <mat-icon matSuffix (click)=\"hide = !hide\">{{hide ? 'visibility_off' : 'visibility'}}</mat-icon>\n    </mat-form-field>\n\n    <mat-form-field>\n        <input type=\"email\" matInput placeholder=\"Email\" [(ngModel)]=\"register.email\" [formControl]=\"emailFormControl\" [errorStateMatcher]=\"matcher\">\n        <mat-hint>Errors appear instantly!</mat-hint>\n        <mat-error *ngIf=\"emailFormControl.hasError('email') && !emailFormControl.hasError('required')\">\n            Please enter a valid email address\n        </mat-error>\n        <mat-error *ngIf=\"emailFormControl.hasError('required')\">\n            Email is <strong>required</strong>\n        </mat-error>\n    </mat-form-field>\n\n    <button (click)=\"createAccount()\" mat-raised-button>Register</button>-->\n</div>\n"
+module.exports = "<div class=\"container\">\n    <p>\n        <mat-icon svgIcon=\"love\" aria-hidden=\"false\"></mat-icon>\n    </p>\n    <form [formGroup]=\"registerForm\" #ourRegisterDir='ngForm' (submit)=\"handleSubmit($event, ourRegisterDir, registerForm)\">\n        <p *ngIf='loginErrors'>{{ loginErrors.email }}</p>\n        <p *ngIf='loginErrors'>{{ loginErrors.username }}</p>\n\n        <div class=\"tp-container\">\n            <mat-form-field>\n                <input type=\"text\" maxlength=\"280\" minlength=\"4\" matInput placeholder=\"{{ 'labelUsername' | translate }}\" formControlName=\"usernameField\" />\n                <div *ngIf='usernameField.invalid && (usernameField.dirty || usernameField.touched)'>\n                <mat-error *ngIf='usernameField.errors.required'>\n                  {{ 'labelUsernameRequired' | translate }}\n                </mat-error>\n                <mat-error *ngIf='usernameField.errors.maxlength'>\n                   {{ 'labelMaxLength' | translate }} 280\n                </mat-error>\n                <mat-error *ngIf='usernameField.errors.minlength'>\n                  {{ 'labelMinLength' | translate }}  4\n                </mat-error>\n                </div>\n            </mat-form-field>\n\n            <mat-form-field>\n                <input type=\"text\" maxlength=\"280\" minlength=\"4\" matInput placeholder=\"{{ 'labelEmail' | translate }}\" formControlName=\"emailField\" />\n                <div *ngIf='emailField.invalid && (emailField.dirty || emailField.touched)'>\n                <mat-error *ngIf='emailField.errors.required'>\n                 {{ 'labelEmailRequired' | translate }}\n                </mat-error>\n                <mat-error *ngIf='emailField.errors.maxlength'>\n                    {{ 'labelMaxLength' | translate }} 280\n                </mat-error>\n                <mat-error *ngIf='emailField.errors.minlength'>\n                  {{ 'labelMinLength' | translate }}  4\n                </mat-error>\n                </div>\n            </mat-form-field>\n\n            <mat-form-field>\n                <input type=\"password\" maxlength=\"280\" minlength=\"4\" matInput placeholder=\"{{ 'labelPassword' | translate }}\" formControlName=\"passwordField\" [type]=\"hide ? 'password' : 'text'\" />\n                <button type=\"button\" mat-icon-button matSuffix (click)=\"hide = !hide\" [attr.aria-label]=\"'Hide password'\" [attr.aria-pressed]=\"hide\">\n                    <mat-icon>{{hide ? 'visibility_off' : 'visibility'}}</mat-icon>\n                </button>\n                <div *ngIf='passwordField.invalid && (passwordField.dirty || passwordField.touched)'>\n                    <mat-error *ngIf='passwordField.errors.required'>\n                        {{ 'labelPasswordRequired' | translate }}\n                    </mat-error>\n                    <mat-error *ngIf='passwordField.errors.maxlength'>\n                        {{ 'labelMaxLength' | translate }} 280\n                    </mat-error>\n                    <mat-error *ngIf='passwordField.errors.minlength'>\n                        {{ 'labelMinLength' | translate }}  4\n                    </mat-error>\n                </div>\n            </mat-form-field>\n\n            <mat-form-field>\n                <input type=\"password\"  maxlength=\"280\" minlength=\"4\" matInput placeholder=\"{{ 'labelPasswordConfirm' | translate }}\" formControlName=\"passwordFieldVerification\" [type]=\"hide2 ? 'password' : 'text'\" />\n                <button type=\"button\" mat-icon-button matSuffix (click)=\"hide2 = !hide2\" [attr.aria-label]=\"'Hide password'\" [attr.aria-pressed]=\"hide2\">\n                    <mat-icon>{{hide2 ? 'visibility_off' : 'visibility'}}</mat-icon>\n                </button>\n                <div *ngIf='passwordFieldVerification.invalid && (passwordFieldVerification.dirty || passwordFieldVerification.touched)'>\n                    <mat-error *ngIf='passwordFieldVerification.errors.required'>\n                        {{ 'labelPasswordRequired' | translate }}\n                    </mat-error>\n                    <mat-error *ngIf='passwordFieldVerification.errors.maxlength'>\n                        {{ 'labelMaxLength' | translate }} 280\n                    </mat-error>\n                    <mat-error *ngIf='passwordFieldVerification.errors.minlength'>\n                        {{ 'labelMinLength' | translate }}  4\n                    </mat-error>\n                </div>\n            </mat-form-field>\n            <div>\n                <label>{{ 'labelGender' | translate }}: </label>\n                <mat-radio-group aria-label=\"Select an option\" formControlName=\"genderField\" class=\"radio-group\">\n                  <mat-radio-button class=\"radio-button\" *ngFor=\"let gender of listResultGenders\" [value]=\"gender.id\">{{ gender.name }}</mat-radio-button>\n                </mat-radio-group>\n            </div>\n        <mat-card-actions>\n            <button type=\"submit\" mat-raised-button color=\"primary\" [disabled]=\"registerForm.invalid\">{{ 'registerLabel' | translate }}</button>\n            <button type=\"button\" mat-raised-button color=\"warn\" (click)=\"ourRegisterDir.resetForm({})\">{{ 'resetLabel' | translate }}</button>\n        </mat-card-actions>\n        </div>\n    </form>\n    <p>\n\t\t<button mat-raised-button routerLink='/login'>{{ 'loginLabel' | translate }}</button>\n\t</p>\n\n    <!--<mat-form-field>\n        <input type=\"text\" matInput placeholder=\"Username\" [(ngModel)]=\"register.username\">\n    </mat-form-field>\n\n    <mat-form-field>\n        <input type=\"password\" matInput placeholder=\"Password\" [(ngModel)]=\"register.password\" [type]=\"hide ? 'password' : 'text'\">\n        <mat-icon matSuffix (click)=\"hide = !hide\">{{hide ? 'visibility_off' : 'visibility'}}</mat-icon>\n    </mat-form-field>\n\n    <mat-form-field>\n        <input type=\"email\" matInput placeholder=\"Email\" [(ngModel)]=\"register.email\" [formControl]=\"emailFormControl\" [errorStateMatcher]=\"matcher\">\n        <mat-hint>Errors appear instantly!</mat-hint>\n        <mat-error *ngIf=\"emailFormControl.hasError('email') && !emailFormControl.hasError('required')\">\n            Please enter a valid email address\n        </mat-error>\n        <mat-error *ngIf=\"emailFormControl.hasError('required')\">\n            Email is <strong>required</strong>\n        </mat-error>\n    </mat-form-field>\n\n    <button (click)=\"createAccount()\" mat-raised-button>Register</button>-->\n</div>\n"
 
 /***/ }),
 
@@ -742,6 +810,7 @@ var RegisterComponent = /** @class */ (function () {
         this.genderService = genderService;
         this.router = router;
         this.hide = true;
+        this.hide2 = true;
         this.listResultGenders = [];
         this.emailFormControl = new _angular_forms__WEBPACK_IMPORTED_MODULE_2__["FormControl"]('', [
             _angular_forms__WEBPACK_IMPORTED_MODULE_2__["Validators"].required,
@@ -859,7 +928,7 @@ var RegisterComponent = /** @class */ (function () {
 /*! no static exports found */
 /***/ (function(module, exports) {
 
-module.exports = "<mat-sidenav-container>\n\n  <mat-sidenav #sidenav mode=\"over\">\n\n    <mat-toolbar>\n      <mat-toolbar-row>\n        <h2 class=\"toolbar-title\"> {{ 'title' | translate }} </h2>\n      </mat-toolbar-row>\n    </mat-toolbar>\n\n    <mat-nav-list>\n\n      <h2 matSubheader> {{ 'MYWORK' | translate }} </h2>\n\n      <a mat-list-item routerLink=\"/\" style=\"height: 0;\"></a>\n\n      <a *ngFor=\"let item of myWorkRoutes\"\n         mat-list-item\n         (click)=\"sidenav.close()\"\n         routerLinkActive\n         #routerLinkActiveInstance=\"routerLinkActive\"\n         [class.list-item-active]=\"routerLinkActiveInstance.isActive\"\n         [routerLink]=\"[item.route]\">\n        <mat-icon matListIcon class=\"app-nav-list-icon\"> {{ item.icon }} </mat-icon>\n        {{item.title}}\n      </a>\n\n      <mat-divider></mat-divider>\n\n      <h2 matSubheader> {{ 'CUSTOMERS' | translate }} </h2>\n\n      <a *ngFor=\"let item of customerRoutes\"\n         mat-list-item\n         (click)=\"sidenav.close()\"\n         routerLinkActive\n         #routerLinkActiveInstance=\"routerLinkActive\"\n         [class.list-item-active]=\"routerLinkActiveInstance.isActive\"\n         [routerLink]=\"[item.route]\">\n        <mat-icon matListIcon class=\"app-nav-list-icon\"> {{ item.icon }} </mat-icon>\n        {{item.title}}\n      </a>\n\n    </mat-nav-list>\n\n  </mat-sidenav>\n\n  <mat-sidenav-content>\n      <app-navigation-bar *ngIf=\"isAuthenticated()\" (toggleSidenav)=\"sidenav.toggle()\"></app-navigation-bar>\n      <router-outlet></router-outlet>\n  </mat-sidenav-content>\n\n</mat-sidenav-container>\n"
+module.exports = "<mat-sidenav-container>\n\n  <mat-sidenav #sidenav mode=\"over\">\n\n    <mat-toolbar>\n      <mat-toolbar-row>\n        <h2 class=\"toolbar-title\"> {{ 'title' | translate }} </h2>\n      </mat-toolbar-row>\n    </mat-toolbar>\n\n    <mat-nav-list>\n\n      <h2 matSubheader> {{ 'PROFILE' | translate }} </h2>\n\n      <a mat-list-item routerLink=\"/\" style=\"height: 0;\"></a>\n\n      <a *ngFor=\"let item of myWorkRoutes\"\n         mat-list-item\n         (click)=\"sidenav.close()\"\n         routerLinkActive\n         #routerLinkActiveInstance=\"routerLinkActive\"\n         [class.list-item-active]=\"routerLinkActiveInstance.isActive\"\n         [routerLink]=\"[item.route]\">\n        <mat-icon matListIcon class=\"app-nav-list-icon\"> {{ item.icon }} </mat-icon>\n        {{item.title}}\n      </a>\n\n      <mat-divider></mat-divider>\n\n      <h2 matSubheader> {{ 'CONTACTS' | translate }} </h2>\n\n      <a *ngFor=\"let item of customerRoutes\"\n         mat-list-item\n         (click)=\"sidenav.close()\"\n         routerLinkActive\n         #routerLinkActiveInstance=\"routerLinkActive\"\n         [class.list-item-active]=\"routerLinkActiveInstance.isActive\"\n         [routerLink]=\"[item.route]\">\n        <mat-icon matListIcon class=\"app-nav-list-icon\"> {{ item.icon }} </mat-icon>\n        {{item.title}}\n      </a>\n\n      <mat-divider></mat-divider>\n\n      <a mat-list-item (click)=\"setLang('fr')\">FR</a>\n      <a mat-list-item (click)=\"setLang('en')\">EN</a>\n\n    </mat-nav-list>\n\n  </mat-sidenav>\n\n  <mat-sidenav-content>\n      <app-navigation-bar *ngIf=\"isAuthenticated()\" (toggleSidenav)=\"sidenav.toggle()\"></app-navigation-bar>\n      <router-outlet></router-outlet>\n  </mat-sidenav-content>\n\n</mat-sidenav-container>\n"
 
 /***/ }),
 
@@ -931,6 +1000,9 @@ var SideNavComponent = /** @class */ (function () {
     };
     SideNavComponent.prototype.isAuthenticated = function () {
         return this.authService.checkToken();
+    };
+    SideNavComponent.prototype.setLang = function (lang) {
+        this.translate.use(lang);
     };
     SideNavComponent = tslib__WEBPACK_IMPORTED_MODULE_0__["__decorate"]([
         Object(_angular_core__WEBPACK_IMPORTED_MODULE_1__["Component"])({
@@ -1261,21 +1333,24 @@ __webpack_require__.r(__webpack_exports__);
 /* harmony import */ var _angular_common_http__WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__(/*! @angular/common/http */ "./node_modules/@angular/common/fesm5/http.js");
 /* harmony import */ var _environments_environment__WEBPACK_IMPORTED_MODULE_3__ = __webpack_require__(/*! ../../../environments/environment */ "./src/environments/environment.ts");
 /* harmony import */ var ngx_cookie_service__WEBPACK_IMPORTED_MODULE_4__ = __webpack_require__(/*! ngx-cookie-service */ "./node_modules/ngx-cookie-service/index.js");
+/* harmony import */ var _services_auth_auth_service__WEBPACK_IMPORTED_MODULE_5__ = __webpack_require__(/*! ../../services/auth/auth.service */ "./src/app/services/auth/auth.service.ts");
+
 
 
 
 
 
 var DashboardService = /** @class */ (function () {
-    function DashboardService(http, cookieService) {
+    function DashboardService(http, cookieService, authService) {
         this.http = http;
         this.cookieService = cookieService;
+        this.authService = authService;
         this.baseUrl = _environments_environment__WEBPACK_IMPORTED_MODULE_3__["environment"].serverUrl + "api/";
     }
     DashboardService.prototype.createHeaders = function (token) {
         var data = {
-            'Accept': 'application/json',
-            'Content-Type': 'application/json',
+            //'Accept': 'application/json',
+            //'Content-Type': 'application/json',
             'X-CSRFToken': this.cookieService.get('csrftoken')
         };
         if (token) {
@@ -1287,16 +1362,28 @@ var DashboardService = /** @class */ (function () {
         console.log(this.httpOptions.headers);
         return this.httpOptions;
     };
-    DashboardService.prototype.list = function () {
-        var apiListEndpoint = this.baseUrl + "messages/";
+    DashboardService.prototype.detailUser = function () {
+        var username = this.authService.getUsername();
+        var apiListEndpoint = this.baseUrl + "user/" + username + "/";
         return this.http.get(apiListEndpoint);
+    };
+    DashboardService.prototype.detailUserPhoto = function () {
+        var username = this.authService.getUsername();
+        var apiListEndpoint = this.baseUrl + "user/" + username + "/photo/";
+        return this.http.get(apiListEndpoint);
+    };
+    DashboardService.prototype.postUserPhoto = function (data) {
+        var httpOptions = this.createHeaders();
+        var apiListEndpoint = this.baseUrl + "user-photo/";
+        return this.http.post(apiListEndpoint, data, httpOptions);
     };
     DashboardService = tslib__WEBPACK_IMPORTED_MODULE_0__["__decorate"]([
         Object(_angular_core__WEBPACK_IMPORTED_MODULE_1__["Injectable"])({
             providedIn: 'root'
         }),
         tslib__WEBPACK_IMPORTED_MODULE_0__["__metadata"]("design:paramtypes", [_angular_common_http__WEBPACK_IMPORTED_MODULE_2__["HttpClient"],
-            ngx_cookie_service__WEBPACK_IMPORTED_MODULE_4__["CookieService"]])
+            ngx_cookie_service__WEBPACK_IMPORTED_MODULE_4__["CookieService"],
+            _services_auth_auth_service__WEBPACK_IMPORTED_MODULE_5__["AuthService"]])
     ], DashboardService);
     return DashboardService;
 }());
