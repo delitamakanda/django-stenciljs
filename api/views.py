@@ -181,21 +181,21 @@ class LoginUserView(APIView):
             user_obj = qs.first()
             if user_obj.check_password(password):
                 user = user_obj
-                u = authenticate(username=username, password=password)
+                # u = authenticate(username=username, password=password)
                 payload = jwt_payload_handler(user)
                 token = jwt_encode_handler(payload)
-                login(request, u)
+                # login(request, u)
                 response = jwt_response_payload_handler(token, user, request=request)
                 return Response(response)
         return Response({"detail": _("Invalid credentials")}, status=401)
 
 
-class LogoutView(APIView):
-    permission_classes = ( permissions.AllowAny,)
-
-    def get(self, request):
-        logout(request)
-        return Response({"status": "ok"}, status=status.HTTP_200_OK)
+# class LogoutView(APIView):
+#     permission_classes = ( permissions.AllowAny,)
+#
+#     def get(self, request):
+#         logout(request)
+#         return Response({"status": "ok"}, status=status.HTTP_200_OK)
 
 
 class CreateUserView(generics.CreateAPIView):
