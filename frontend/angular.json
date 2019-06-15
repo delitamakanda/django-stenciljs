@@ -44,6 +44,7 @@
                                     "with": "src/environments/environment.prod.ts"
                                 }
                             ],
+                            "extractCss": true
                         }
                     }
                 },
@@ -54,7 +55,8 @@
                     },
                     "configurations": {
                         "production": {
-                            "browserTarget": "frontend:build:production"
+                            "browserTarget": "frontend:build:production",
+                            "extractCss": true
                         }
                     }
                 },

@@ -3,8 +3,8 @@
   "version": "0.0.0",
   "scripts": {
     "ng": "ng",
-    "start": "ng serve --public-host=http://localhost:4200 --extract-css",
-    "build": "ng build --configuration=production --extract-css",
+    "start": "ng serve --public-host=http://localhost:4200",
+    "build": "ng build --configuration=production",
     "test": "ng test",
     "lint": "ng lint",
     "e2e": "ng e2e"
