@@ -14,7 +14,12 @@ ALLOWED_HOSTS = ['*',]
 STATICFILES_STORAGE = 'whitenoise.django.GzipManifestStaticFilesStorage'
 
 # Mail
-SERVER_EMAIL = 'no-reply@lov3r.com'
+
+ADMINS = [
+  (os.environ.get('ADMIN_NAME'), os.environ.get('ADMIN_EMAIL')),
+]
+
+SERVER_EMAIL = os.environ.get('NOTIFICATION_EMAIL')
 
 EMAIL_BACKEND = 'django.core.mail.backends.smtp.EmailBackend'
 EMAIL_HOST = os.environ.get('SENDGRID_SERVER')
