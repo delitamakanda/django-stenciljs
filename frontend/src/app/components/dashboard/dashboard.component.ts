@@ -38,6 +38,7 @@ export class DashboardComponent implements OnInit, OnDestroy, ErrorStateMatcher 
 
     @ViewChild('fileInput')
     fileInput: ElementRef;
+    isInputValid: boolean = false;
 
     isErrorState(control: FormControl | null, form: FormGroupDirective | NgForm | null): boolean {
         const isSubmitted = form && form.submitted;
@@ -68,6 +69,16 @@ export class DashboardComponent implements OnInit, OnDestroy, ErrorStateMatcher 
         });
     }
 
+    isValid(data) {
+        const valid = /^([0-9]*[1-9][0-9]*)$/.test(data);
+        if (valid) {
+          this.isInputValid = true
+        }
+        else {
+          this.isInputValid = false;
+        }
+    }
+
     getData(){
         this.listAccountDetail = this.dashboardService.detailUser().subscribe(data=>{
             this.results = data
@@ -91,6 +102,16 @@ export class DashboardComponent implements OnInit, OnDestroy, ErrorStateMatcher 
         if (this.postPhotoUserSub) {
             this.postPhotoUserSub.unsubscribe()
         }
+    }
+
+    likePhoto(id: number) {
+        console.log(id)
+    }
+
+    deletePhoto(id: number) {
+        return this.dashboardService.deleteUserPhoto(id).subscribe(data => {
+            this.getData()
+        });
     }
 
     postPhoto(data) {

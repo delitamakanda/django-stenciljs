@@ -59,4 +59,10 @@ export class DashboardService {
         return this.http.post(apiListEndpoint, data, httpOptions)
     }
 
+    deleteUserPhoto(id: number) {
+        let httpOptions = this.createHeaders();
+        let apiDeleteEndpoint = `${this.baseUrl}user-photo/${id}/detail/`
+        return this.http.delete(apiDeleteEndpoint, httpOptions)
+    }
+
 }

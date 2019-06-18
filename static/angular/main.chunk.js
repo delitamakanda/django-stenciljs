@@ -274,7 +274,7 @@ var AppModule = /** @class */ (function () {
 /*! no static exports found */
 /***/ (function(module, exports) {
 
-module.exports = "<div class=\"container\">\n    <br/>\n    <button mat-icon-button mat-mini-fab type=\"button\" (click)=\"updated = !updated\" title=\"{{ 'updatedProfileSettings' | translate }}\">\n        <mat-icon>{{updated ? 'expand_less' : 'expand_more'}}</mat-icon>\n    </button>\n    <br/>\n    <mat-card *ngIf=\"updated\" class=\"card-image\">\n        <form [formGroup]=\"profilForm\" #ourUserPhotoDir='ngForm' (submit)='handleSubmit($event, ourUserPhotoDir, profilForm)' enctype=\"multipart/form-data\">\n            <p *ngIf='userPhotoErrors'>{{ userPhotoErrors }}</p>\n            <div class=\"lg-container\">\n                <mat-form-field>\n                    <input type=\"text\" matInput placeholder=\"{{ 'labelLink' | translate }}\" formControlName=\"linkField\" />\n                </mat-form-field>\n                <input type=\"file\" id=\"userFile\" (change)=\"onSelectFile($event)\" #fileInput style=\"display: none\">\n                <mat-form-field>\n                    <input matInput formControlName=\"fileField\" placeholder=\"{{ 'labelFile' | translate }}\" readonly />\n                </mat-form-field>\n                <!--<div *ngIf=\"fileInformation\">\n                    <p>{{fileInformation.filename}}</p>\n                    <p>{{fileInformation.size}}</p>\n                </div>-->\n                <button mat-raised-button type=\"button\" (click)=\"selectFile()\">{{ 'labelSelect' | translate }}</button>\n                <mat-form-field>\n                    <textarea matInput placeholder=\"{{ 'labelDetails' | translate }}\" formControlName=\"detailsField\"></textarea>\n                    <div *ngIf='detailsField.invalid && (detailsField.dirty || detailsField.touched)'>\n                    <mat-error *ngIf='detailsField.errors.required'>\n                      {{ 'labelDetailsRequired' | translate }}\n                    </mat-error>\n                    </div>\n                </mat-form-field>\n                <mat-card-actions>\n                    <button type=\"submit\" mat-raised-button color=\"primary\" [disabled]=\"profilForm.invalid\">{{ 'labelValidate' | translate }}</button>\n                    <button type=\"button\" mat-raised-button color=\"warn\" (click)=\"ourUserPhotoDir.resetForm({})\">{{ 'resetLabel' | translate }}</button>\n                </mat-card-actions>\n            </div>\n        </form>\n    </mat-card>\n\n    <mat-card class=\"card-image\">\n        <mat-card-header>\n            <div mat-card-avatar>\n                <img ngxGravatar *ngIf=\"results.email\" [email]=\"results.email\">\n            </div>\n            <mat-card-title>{{ results.displayName }}</mat-card-title>\n            <mat-card-subtitle>{{ 'labelPopularity' | translate }} : {{ results.popularity }}</mat-card-subtitle>\n        </mat-card-header>\n    </mat-card>\n\n    <div *ngIf=\"results2\">\n        <mat-card *ngFor=\"let res of results2\" class=\"card-image\">\n            <img mat-card-image *ngIf=\"res.file\" [src]=\"res.file\" [alt]=\"res.details\">\n            <img mat-card-image *ngIf=\"res.link && res.link != 'null'\" [src]=\"res.link\" [alt]=\"res.details\">\n            <mat-card-content>\n                <p>\n                  {{ res.details }}\n                </p>\n            </mat-card-content>\n        </mat-card>\n    </div>\n</div>\n"
+module.exports = "<div class=\"container\">\n    <br/>\n    <button mat-icon-button mat-mini-fab type=\"button\" (click)=\"updated = !updated\" title=\"{{ 'updatedProfileSettings' | translate }}\">\n        <mat-icon>{{updated ? 'expand_less' : 'expand_more'}}</mat-icon>\n    </button>\n    <br/>\n    <mat-card *ngIf=\"updated\" class=\"card-image\">\n        <form [formGroup]=\"profilForm\" #ourUserPhotoDir='ngForm' (submit)='handleSubmit($event, ourUserPhotoDir, profilForm)' enctype=\"multipart/form-data\">\n            <p *ngIf='userPhotoErrors'>{{ userPhotoErrors }}</p>\n            <div class=\"lg-container\">\n                <mat-form-field>\n                    <input type=\"text\" matInput placeholder=\"{{ 'labelLink' | translate }}\" formControlName=\"linkField\" />\n                </mat-form-field>\n                <input type=\"file\" id=\"userFile\" (change)=\"onSelectFile($event)\" #fileInput style=\"display: none\">\n                <mat-form-field>\n                    <input matInput formControlName=\"fileField\" placeholder=\"{{ 'labelFile' | translate }}\" readonly />\n                </mat-form-field>\n                <!--<div *ngIf=\"fileInformation\">\n                    <p>{{fileInformation.filename}}</p>\n                    <p>{{fileInformation.size}}</p>\n                </div>-->\n                <button mat-raised-button type=\"button\" (click)=\"selectFile()\">{{ 'labelSelect' | translate }}</button>\n                <mat-form-field>\n                    <textarea matInput placeholder=\"{{ 'labelDetails' | translate }}\" formControlName=\"detailsField\"></textarea>\n                    <div *ngIf='detailsField.invalid && (detailsField.dirty || detailsField.touched)'>\n                    <mat-error *ngIf='detailsField.errors.required'>\n                      {{ 'labelDetailsRequired' | translate }}\n                    </mat-error>\n                    </div>\n                </mat-form-field>\n                <mat-card-actions>\n                    <button type=\"submit\" mat-raised-button color=\"primary\" [disabled]=\"profilForm.invalid\">{{ 'labelValidate' | translate }}</button>\n                    <button type=\"button\" mat-raised-button color=\"warn\" (click)=\"ourUserPhotoDir.resetForm({})\">{{ 'resetLabel' | translate }}</button>\n                </mat-card-actions>\n            </div>\n        </form>\n    </mat-card>\n\n    <mat-card class=\"card-image\">\n        <mat-card-header>\n            <div mat-card-avatar>\n                <img ngxGravatar *ngIf=\"results.email\" [email]=\"results.email\">\n            </div>\n            <mat-card-title>{{ results.displayName }}</mat-card-title>\n            <mat-card-subtitle>{{ 'labelPopularity' | translate }} : {{ results.popularity }}</mat-card-subtitle>\n        </mat-card-header>\n    </mat-card>\n\n    <div *ngIf=\"results2\">\n        <mat-card *ngFor=\"let res of results2\" class=\"card-image\">\n            <img mat-card-image *ngIf=\"res.file\" [src]=\"res.file\" [alt]=\"res.details\">\n            <img mat-card-image *ngIf=\"res.link && res.link != 'null'\" [src]=\"res.link\" [alt]=\"res.details\">\n            <mat-card-content>\n                <p>\n                  {{ res.details }}\n                </p>\n            </mat-card-content>\n            <mat-card-actions>\n            <button mat-button (click)=\"likePhoto(res.id)\"><mat-icon>favorite</mat-icon></button>\n            <button mat-button (click)=\"deletePhoto(res.id)\"><mat-icon>delete</mat-icon></button>\n          </mat-card-actions>\n        </mat-card>\n    </div>\n</div>\n"
 
 /***/ }),
 
@@ -322,6 +322,7 @@ var DashboardComponent = /** @class */ (function () {
         this.formBuilder = formBuilder;
         this.results2 = [];
         this.results = [];
+        this.isInputValid = false;
     }
     DashboardComponent.prototype.isErrorState = function (control, form) {
         var isSubmitted = form && form.submitted;
@@ -339,6 +340,15 @@ var DashboardComponent = /** @class */ (function () {
             'fileField': this.fileField,
             'detailsField': this.detailsField
         });
+    };
+    DashboardComponent.prototype.isValid = function (data) {
+        var valid = /^([0-9]*[1-9][0-9]*)$/.test(data);
+        if (valid) {
+            this.isInputValid = true;
+        }
+        else {
+            this.isInputValid = false;
+        }
     };
     DashboardComponent.prototype.getData = function () {
         var _this = this;
@@ -360,6 +370,15 @@ var DashboardComponent = /** @class */ (function () {
         if (this.postPhotoUserSub) {
             this.postPhotoUserSub.unsubscribe();
         }
+    };
+    DashboardComponent.prototype.likePhoto = function (id) {
+        console.log(id);
+    };
+    DashboardComponent.prototype.deletePhoto = function (id) {
+        var _this = this;
+        return this.dashboardService.deleteUserPhoto(id).subscribe(function (data) {
+            _this.getData();
+        });
     };
     DashboardComponent.prototype.postPhoto = function (data) {
         var _this = this;
@@ -1376,6 +1395,11 @@ var DashboardService = /** @class */ (function () {
         var httpOptions = this.createHeaders();
         var apiListEndpoint = this.baseUrl + "user-photo/";
         return this.http.post(apiListEndpoint, data, httpOptions);
+    };
+    DashboardService.prototype.deleteUserPhoto = function (id) {
+        var httpOptions = this.createHeaders();
+        var apiDeleteEndpoint = this.baseUrl + "user-photo/" + id + "/detail/";
+        return this.http.delete(apiDeleteEndpoint, httpOptions);
     };
     DashboardService = tslib__WEBPACK_IMPORTED_MODULE_0__["__decorate"]([
         Object(_angular_core__WEBPACK_IMPORTED_MODULE_1__["Injectable"])({
