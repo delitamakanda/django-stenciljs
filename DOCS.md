@@ -23,3 +23,4 @@
 * https://codepen.io/mhartington/pen/dHaDC
 
 * https://material.io/tools/icons/?icon=add_to_photos&style=baseline
+* https://blog.angularindepth.com/build-a-progressive-web-app-with-angular-bf7d66744020
