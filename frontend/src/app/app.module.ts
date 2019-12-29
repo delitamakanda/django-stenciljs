@@ -28,12 +28,15 @@ import { LogoutComponent } from './components/logout/logout.component';
 import { FlexLayoutModule } from '@angular/flex-layout';
 import { NavigationBarComponent } from './components/navigation-bar/navigation-bar.component';
 import { SideNavComponent } from './components/side-nav/side-nav.component';
-
 import { GravatarModule } from  'ngx-gravatar';
 
-// import { CookieService } from 'angular2-cookie/core';
 import { CookieService } from 'ngx-cookie-service';
+
 import { TokenInterceptor } from './services/auth/token.interceptor';
+import { SettingComponent } from './components/settings/setting/setting.component';
+import { HelpComponent } from './components/help/help/help.component';
+import { ChatsComponent } from './components/chats/chats/chats.component';
+import { UserComponent } from './components/user/user/user.component';
 
 export function setupTranslateFactory (service: TranslateService): Function {
     return () => service.use('fr');
@@ -49,7 +52,11 @@ export function setupTranslateFactory (service: TranslateService): Function {
     DashboardComponent,
     NavigationBarComponent,
     LogoutComponent,
-    SideNavComponent
+    SideNavComponent,
+    SettingComponent,
+    HelpComponent,
+    ChatsComponent,
+    UserComponent
   ],
   imports: [
     BrowserModule,
@@ -59,7 +66,7 @@ export function setupTranslateFactory (service: TranslateService): Function {
     FlexLayoutModule,
     FormsModule,
     ReactiveFormsModule.withConfig({warnOnNgModelWithFormControl: 'never'}),
-    //ServiceWorkerModule.register('service-worker.js', { enabled: environment.production }),
+    // ServiceWorkerModule.register('service-worker.js', { enabled: environment.production }),
     AppRoutingModule,
     GravatarModule
   ],

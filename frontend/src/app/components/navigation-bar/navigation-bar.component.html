@@ -13,13 +13,13 @@
       <ul fxLayout fxLayoutGap="20px" class="navigation-items">
 
         <li fxHide.xs>
-          <button mat-icon-button>
+          <button mat-icon-button [routerLink]="['/settings']">
             <mat-icon>settings</mat-icon>
           </button>
         </li>
 
         <li fxHide.xs>
-          <button mat-icon-button>
+          <button mat-icon-button [routerLink]="['/help']">
             <mat-icon>help_outline</mat-icon>
           </button>
         </li>
@@ -29,6 +29,10 @@
             <mat-icon>person_outline</mat-icon>
           </button>
           <mat-menu #auth="matMenu">
+            <button mat-menu-item (click)="goToProfile()">
+              <mat-icon>person</mat-icon>
+              <span>{{ 'PROFILE' | translate }}</span>
+            </button>
             <button mat-menu-item (click)="logout()">
               <mat-icon>exit_to_app</mat-icon>
               <span>{{ 'LOGOUT' | translate }}</span>

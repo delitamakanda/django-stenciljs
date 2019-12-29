@@ -19,34 +19,27 @@ export class SideNavComponent implements OnInit {
     myWorkRoutes: ROUTE[] = [
         {
             icon: 'assignment',
-            route: 'sales/activities',
-            title: 'Activities',
-        }, {
-            icon: 'dashboard',
-            route: 'sales/dashboards',
-            title: 'Dashboards',
+            route: 'dashboard',
+            title: 'Board',
+        },
+        {
+          icon: 'people',
+          route: 'chats',
+          title: 'Chat',
+        },
+        {
+          icon: 'help',
+          route: 'help',
+          title: 'Help',
+        },
+        {
+          icon: 'settings',
+          route: 'settings',
+          title: 'Settings',
         }
     ];
 
-    customerRoutes: ROUTE[] = [
-    {
-      icon: 'contacts',
-      route: 'sales/accounts',
-      title: 'Accounts',
-    }, {
-      icon: 'people',
-      route: 'sales/contacts',
-      title: 'Contacts',
-    }, {
-      icon: 'settings_phone',
-      route: 'sales/leads',
-      title: 'Leads',
-    }, {
-      icon: 'account_box',
-      route: 'sales/opportunities',
-      title: 'Opportunities',
-    }
-  ];
+    customerRoutes: ROUTE[] = [];
 
   constructor(
       private translate: TranslateService,

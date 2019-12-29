@@ -6,7 +6,7 @@
     text-align: center;
     display: flex;
     flex-direction: column;
-    height: 100%;
+    height: 100vh;
     padding: 56px 16px 0 16px;
     justify-content: flex-start;
 }
@@ -14,6 +14,7 @@
 .tp-container {
    display: flex;
    flex-direction: column;
+   align-items: center;
 }
 
 .tp-container > * {

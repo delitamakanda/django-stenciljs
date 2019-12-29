@@ -26,4 +26,8 @@ export class NavigationBarComponent implements OnInit {
         this.router.navigate(['/logout']);
     }
 
+    public goToProfile() {
+        this.router.navigate(['/profile']);
+    }
+
 }

@@ -27,21 +27,6 @@
 
       <mat-divider></mat-divider>
 
-      <h2 matSubheader> {{ 'CONTACTS' | translate }} </h2>
-
-      <a *ngFor="let item of customerRoutes"
-         mat-list-item
-         (click)="sidenav.close()"
-         routerLinkActive
-         #routerLinkActiveInstance="routerLinkActive"
-         [class.list-item-active]="routerLinkActiveInstance.isActive"
-         [routerLink]="[item.route]">
-        <mat-icon matListIcon class="app-nav-list-icon"> {{ item.icon }} </mat-icon>
-        {{item.title}}
-      </a>
-
-      <mat-divider></mat-divider>
-
       <a mat-list-item (click)="setLang('fr')">FR</a>
       <a mat-list-item (click)="setLang('en')">EN</a>
 

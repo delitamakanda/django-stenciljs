@@ -36,7 +36,7 @@ export class DashboardComponent implements OnInit, OnDestroy, ErrorStateMatcher 
     file: File;
     fileInformation: FileInformation;
 
-    @ViewChild('fileInput')
+    @ViewChild('fileInput', { read: true, static: false })
     fileInput: ElementRef;
     isInputValid: boolean = false;
 
