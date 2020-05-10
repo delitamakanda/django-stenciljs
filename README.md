@@ -1,6 +1,7 @@
 # django-angular
 Experimental app in angular
 
+![Python package](https://github.com/delitamakanda/dating-app/workflows/Python%20package/badge.svg?branch=master)
 
 ## Frontend
 
