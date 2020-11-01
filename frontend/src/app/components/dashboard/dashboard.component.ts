@@ -10,6 +10,7 @@ import { AuthService } from '../../services/auth/auth.service';
 import { DashboardService } from '../../services/dashboard/dashboard.service';
 import { TranslateService } from '../../services/translate/translate.service';
 import { CookieService } from 'ngx-cookie-service';
+import { ErrorHandlerService } from '../../shared/error-handler.service';
 
 @Component({
     selector: 'app-dashboard',
@@ -50,7 +51,8 @@ export class DashboardComponent implements OnInit, OnDestroy, ErrorStateMatcher 
         private dashboardService: DashboardService,
         private authService: AuthService,
         public cookieService: CookieService,
-        private formBuilder: FormBuilder
+        private formBuilder: FormBuilder,
+        private errorService: ErrorHandlerService,
     ) { }
 
     ngOnInit() {
@@ -82,11 +84,15 @@ export class DashboardComponent implements OnInit, OnDestroy, ErrorStateMatcher 
     getData(){
         this.listAccountDetail = this.dashboardService.detailUser().subscribe(data=>{
             this.results = data
+        }, (error) => {
+            this.errorService.handleError(error);
         });
 
         this.listAccountDetailPhoto = this.dashboardService.detailUserPhoto().subscribe(data=>{
             console.log(data)
             this.results2 = data
+        }, (error) => {
+            this.errorService.handleError(error);
         });
     }
 

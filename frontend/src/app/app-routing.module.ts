@@ -10,9 +10,11 @@ import { SettingComponent } from './components/settings/setting/setting.componen
 import { HelpComponent } from './components/help/help/help.component';
 import { ChatsComponent } from './components/chats/chats/chats.component';
 import { UserComponent } from './components/user/user/user.component';
+import { NotFoundComponent } from './components/error-pages/not-found/not-found.component';
+import { ServerErrorComponent } from './components/error-pages/server-error/server-error.component';
 
 const routes: Routes = [
-    { path: '*', redirectTo: '/dashboard', pathMatch: 'full' },
+    { path: '', redirectTo: '/dashboard', pathMatch: 'full' },
     { path: 'login', component: LoginComponent },
     { path: 'register', component: RegisterComponent },
     { path: 'dashboard', component: DashboardComponent },
@@ -21,7 +23,10 @@ const routes: Routes = [
     { path: 'settings', component: SettingComponent },
     { path: 'help', component: HelpComponent },
     { path: 'chats', component: ChatsComponent },
-    { path: 'profile', component: UserComponent }
+    { path: 'profile', component: UserComponent },
+    { path: '404', component: NotFoundComponent },
+    { path: '500', component: ServerErrorComponent },
+    { path: '**', redirectTo: '/404', pathMatch: 'full' }
 ];
 
 @NgModule({

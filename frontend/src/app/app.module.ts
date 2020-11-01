@@ -18,11 +18,6 @@ import { TranslatePipe } from './pipes/translate/translate.pipe';
 
 import { AppRoutingModule } from './app-routing.module';
 import { AppComponent } from './app.component';
-import { RegisterComponent } from './components/register/register.component';
-import { LoginComponent } from './components/login/login.component';
-import { LandingComponent } from './components/landing/landing.component';
-import { DashboardComponent } from './components/dashboard/dashboard.component';
-import { LogoutComponent } from './components/logout/logout.component';
 
 // UI
 import { FlexLayoutModule } from '@angular/flex-layout';
@@ -33,10 +28,6 @@ import { GravatarModule } from  'ngx-gravatar';
 import { CookieService } from 'ngx-cookie-service';
 
 import { TokenInterceptor } from './services/auth/token.interceptor';
-import { SettingComponent } from './components/settings/setting/setting.component';
-import { HelpComponent } from './components/help/help/help.component';
-import { ChatsComponent } from './components/chats/chats/chats.component';
-import { UserComponent } from './components/user/user/user.component';
 
 export function setupTranslateFactory (service: TranslateService): Function {
     return () => service.use('fr');
@@ -45,18 +36,9 @@ export function setupTranslateFactory (service: TranslateService): Function {
 @NgModule({
   declarations: [
     AppComponent,
-    RegisterComponent,
-    LoginComponent,
     TranslatePipe,
-    LandingComponent,
-    DashboardComponent,
     NavigationBarComponent,
-    LogoutComponent,
     SideNavComponent,
-    SettingComponent,
-    HelpComponent,
-    ChatsComponent,
-    UserComponent
   ],
   imports: [
     BrowserModule,
