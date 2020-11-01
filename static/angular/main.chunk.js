@@ -39,6 +39,32 @@ __webpack_require__.r(__webpack_exports__);
 
 /***/ }),
 
+/***/ "./node_modules/raw-loader/dist/cjs.js!./src/app/components/error-pages/not-found/not-found.component.html":
+/*!*****************************************************************************************************************!*\
+  !*** ./node_modules/raw-loader/dist/cjs.js!./src/app/components/error-pages/not-found/not-found.component.html ***!
+  \*****************************************************************************************************************/
+/*! exports provided: default */
+/***/ (function(module, __webpack_exports__, __webpack_require__) {
+
+"use strict";
+__webpack_require__.r(__webpack_exports__);
+/* harmony default export */ __webpack_exports__["default"] = ("<section fxLayout=\"column wrap\" fxLayoutGap=\"60px\" fxLayoutAlign=\"center center\">\n  <div fxFlex>\n    404 We are searching for your page...\n  </div>\n  <div fxFlex>\n    <mat-progress-bar mode=\"indeterminate\"></mat-progress-bar>\n  </div>\n  <div fxFlex>\n    ... But we can not find it.\n  </div>\n</section>");
+
+/***/ }),
+
+/***/ "./node_modules/raw-loader/dist/cjs.js!./src/app/components/error-pages/server-error/server-error.component.html":
+/*!***********************************************************************************************************************!*\
+  !*** ./node_modules/raw-loader/dist/cjs.js!./src/app/components/error-pages/server-error/server-error.component.html ***!
+  \***********************************************************************************************************************/
+/*! exports provided: default */
+/***/ (function(module, __webpack_exports__, __webpack_require__) {
+
+"use strict";
+__webpack_require__.r(__webpack_exports__);
+/* harmony default export */ __webpack_exports__["default"] = ("<section fxLayout=\"column wrap\" fxLayoutAlign=\"center center\" fxLayoutGap=\"30px\">\n  <div fxFlex>\n    <p>500 Server Error</p>\n    <p>We are sorry for the inconvinience, plese report this error.</p>\n  </div>\n  <div fxFlex>\n    <mat-checkbox (change)=\"checkChanged($event)\" color=\"primary\">I want to report this error.</mat-checkbox>\n  </div>\n  <div fxFlex *ngIf=\"reportedError\">\n      <mat-progress-spinner mode=\"determinate\" [value]=\"errorPercentage\"></mat-progress-spinner>\n      <h1>{{errorPercentage}}%</h1>\n  </div>\n</section>");
+
+/***/ }),
+
 /***/ "./node_modules/raw-loader/dist/cjs.js!./src/app/components/help/help/help.component.html":
 /*!************************************************************************************************!*\
   !*** ./node_modules/raw-loader/dist/cjs.js!./src/app/components/help/help/help.component.html ***!
@@ -430,6 +456,10 @@ __webpack_require__.r(__webpack_exports__);
 /* harmony import */ var _components_help_help_help_component__WEBPACK_IMPORTED_MODULE_9__ = __webpack_require__(/*! ./components/help/help/help.component */ "./src/app/components/help/help/help.component.ts");
 /* harmony import */ var _components_chats_chats_chats_component__WEBPACK_IMPORTED_MODULE_10__ = __webpack_require__(/*! ./components/chats/chats/chats.component */ "./src/app/components/chats/chats/chats.component.ts");
 /* harmony import */ var _components_user_user_user_component__WEBPACK_IMPORTED_MODULE_11__ = __webpack_require__(/*! ./components/user/user/user.component */ "./src/app/components/user/user/user.component.ts");
+/* harmony import */ var _components_error_pages_not_found_not_found_component__WEBPACK_IMPORTED_MODULE_12__ = __webpack_require__(/*! ./components/error-pages/not-found/not-found.component */ "./src/app/components/error-pages/not-found/not-found.component.ts");
+/* harmony import */ var _components_error_pages_server_error_server_error_component__WEBPACK_IMPORTED_MODULE_13__ = __webpack_require__(/*! ./components/error-pages/server-error/server-error.component */ "./src/app/components/error-pages/server-error/server-error.component.ts");
+
+
 
 
 
@@ -443,7 +473,7 @@ __webpack_require__.r(__webpack_exports__);
 
 
 var routes = [
-    { path: '*', redirectTo: '/dashboard', pathMatch: 'full' },
+    { path: '', redirectTo: '/dashboard', pathMatch: 'full' },
     { path: 'login', component: _components_login_login_component__WEBPACK_IMPORTED_MODULE_4__["LoginComponent"] },
     { path: 'register', component: _components_register_register_component__WEBPACK_IMPORTED_MODULE_3__["RegisterComponent"] },
     { path: 'dashboard', component: _components_dashboard_dashboard_component__WEBPACK_IMPORTED_MODULE_6__["DashboardComponent"] },
@@ -452,7 +482,10 @@ var routes = [
     { path: 'settings', component: _components_settings_setting_setting_component__WEBPACK_IMPORTED_MODULE_8__["SettingComponent"] },
     { path: 'help', component: _components_help_help_help_component__WEBPACK_IMPORTED_MODULE_9__["HelpComponent"] },
     { path: 'chats', component: _components_chats_chats_chats_component__WEBPACK_IMPORTED_MODULE_10__["ChatsComponent"] },
-    { path: 'profile', component: _components_user_user_user_component__WEBPACK_IMPORTED_MODULE_11__["UserComponent"] }
+    { path: 'profile', component: _components_user_user_user_component__WEBPACK_IMPORTED_MODULE_11__["UserComponent"] },
+    { path: '404', component: _components_error_pages_not_found_not_found_component__WEBPACK_IMPORTED_MODULE_12__["NotFoundComponent"] },
+    { path: '500', component: _components_error_pages_server_error_server_error_component__WEBPACK_IMPORTED_MODULE_13__["ServerErrorComponent"] },
+    { path: '**', redirectTo: '/404', pathMatch: 'full' }
 ];
 var AppRoutingModule = /** @class */ (function () {
     function AppRoutingModule() {
@@ -559,26 +592,12 @@ __webpack_require__.r(__webpack_exports__);
 /* harmony import */ var _pipes_translate_translate_pipe__WEBPACK_IMPORTED_MODULE_12__ = __webpack_require__(/*! ./pipes/translate/translate.pipe */ "./src/app/pipes/translate/translate.pipe.ts");
 /* harmony import */ var _app_routing_module__WEBPACK_IMPORTED_MODULE_13__ = __webpack_require__(/*! ./app-routing.module */ "./src/app/app-routing.module.ts");
 /* harmony import */ var _app_component__WEBPACK_IMPORTED_MODULE_14__ = __webpack_require__(/*! ./app.component */ "./src/app/app.component.ts");
-/* harmony import */ var _components_register_register_component__WEBPACK_IMPORTED_MODULE_15__ = __webpack_require__(/*! ./components/register/register.component */ "./src/app/components/register/register.component.ts");
-/* harmony import */ var _components_login_login_component__WEBPACK_IMPORTED_MODULE_16__ = __webpack_require__(/*! ./components/login/login.component */ "./src/app/components/login/login.component.ts");
-/* harmony import */ var _components_landing_landing_component__WEBPACK_IMPORTED_MODULE_17__ = __webpack_require__(/*! ./components/landing/landing.component */ "./src/app/components/landing/landing.component.ts");
-/* harmony import */ var _components_dashboard_dashboard_component__WEBPACK_IMPORTED_MODULE_18__ = __webpack_require__(/*! ./components/dashboard/dashboard.component */ "./src/app/components/dashboard/dashboard.component.ts");
-/* harmony import */ var _components_logout_logout_component__WEBPACK_IMPORTED_MODULE_19__ = __webpack_require__(/*! ./components/logout/logout.component */ "./src/app/components/logout/logout.component.ts");
-/* harmony import */ var _angular_flex_layout__WEBPACK_IMPORTED_MODULE_20__ = __webpack_require__(/*! @angular/flex-layout */ "./node_modules/@angular/flex-layout/esm5/flex-layout.es5.js");
-/* harmony import */ var _components_navigation_bar_navigation_bar_component__WEBPACK_IMPORTED_MODULE_21__ = __webpack_require__(/*! ./components/navigation-bar/navigation-bar.component */ "./src/app/components/navigation-bar/navigation-bar.component.ts");
-/* harmony import */ var _components_side_nav_side_nav_component__WEBPACK_IMPORTED_MODULE_22__ = __webpack_require__(/*! ./components/side-nav/side-nav.component */ "./src/app/components/side-nav/side-nav.component.ts");
-/* harmony import */ var ngx_gravatar__WEBPACK_IMPORTED_MODULE_23__ = __webpack_require__(/*! ngx-gravatar */ "./node_modules/ngx-gravatar/fesm5/ngx-gravatar.js");
-/* harmony import */ var ngx_cookie_service__WEBPACK_IMPORTED_MODULE_24__ = __webpack_require__(/*! ngx-cookie-service */ "./node_modules/ngx-cookie-service/ngx-cookie-service.es5.js");
-/* harmony import */ var _services_auth_token_interceptor__WEBPACK_IMPORTED_MODULE_25__ = __webpack_require__(/*! ./services/auth/token.interceptor */ "./src/app/services/auth/token.interceptor.ts");
-/* harmony import */ var _components_settings_setting_setting_component__WEBPACK_IMPORTED_MODULE_26__ = __webpack_require__(/*! ./components/settings/setting/setting.component */ "./src/app/components/settings/setting/setting.component.ts");
-/* harmony import */ var _components_help_help_help_component__WEBPACK_IMPORTED_MODULE_27__ = __webpack_require__(/*! ./components/help/help/help.component */ "./src/app/components/help/help/help.component.ts");
-/* harmony import */ var _components_chats_chats_chats_component__WEBPACK_IMPORTED_MODULE_28__ = __webpack_require__(/*! ./components/chats/chats/chats.component */ "./src/app/components/chats/chats/chats.component.ts");
-/* harmony import */ var _components_user_user_user_component__WEBPACK_IMPORTED_MODULE_29__ = __webpack_require__(/*! ./components/user/user/user.component */ "./src/app/components/user/user/user.component.ts");
-
-
-
-
-
+/* harmony import */ var _angular_flex_layout__WEBPACK_IMPORTED_MODULE_15__ = __webpack_require__(/*! @angular/flex-layout */ "./node_modules/@angular/flex-layout/esm5/flex-layout.es5.js");
+/* harmony import */ var _components_navigation_bar_navigation_bar_component__WEBPACK_IMPORTED_MODULE_16__ = __webpack_require__(/*! ./components/navigation-bar/navigation-bar.component */ "./src/app/components/navigation-bar/navigation-bar.component.ts");
+/* harmony import */ var _components_side_nav_side_nav_component__WEBPACK_IMPORTED_MODULE_17__ = __webpack_require__(/*! ./components/side-nav/side-nav.component */ "./src/app/components/side-nav/side-nav.component.ts");
+/* harmony import */ var ngx_gravatar__WEBPACK_IMPORTED_MODULE_18__ = __webpack_require__(/*! ngx-gravatar */ "./node_modules/ngx-gravatar/fesm5/ngx-gravatar.js");
+/* harmony import */ var ngx_cookie_service__WEBPACK_IMPORTED_MODULE_19__ = __webpack_require__(/*! ngx-cookie-service */ "./node_modules/ngx-cookie-service/ngx-cookie-service.es5.js");
+/* harmony import */ var _services_auth_token_interceptor__WEBPACK_IMPORTED_MODULE_20__ = __webpack_require__(/*! ./services/auth/token.interceptor */ "./src/app/services/auth/token.interceptor.ts");
 
 
 
@@ -601,10 +620,6 @@ __webpack_require__.r(__webpack_exports__);
 
 
 
-
-
-
-
 function setupTranslateFactory(service) {
     return function () { return service.use('fr'); };
 }
@@ -615,36 +630,27 @@ var AppModule = /** @class */ (function () {
         Object(_angular_core__WEBPACK_IMPORTED_MODULE_3__["NgModule"])({
             declarations: [
                 _app_component__WEBPACK_IMPORTED_MODULE_14__["AppComponent"],
-                _components_register_register_component__WEBPACK_IMPORTED_MODULE_15__["RegisterComponent"],
-                _components_login_login_component__WEBPACK_IMPORTED_MODULE_16__["LoginComponent"],
                 _pipes_translate_translate_pipe__WEBPACK_IMPORTED_MODULE_12__["TranslatePipe"],
-                _components_landing_landing_component__WEBPACK_IMPORTED_MODULE_17__["LandingComponent"],
-                _components_dashboard_dashboard_component__WEBPACK_IMPORTED_MODULE_18__["DashboardComponent"],
-                _components_navigation_bar_navigation_bar_component__WEBPACK_IMPORTED_MODULE_21__["NavigationBarComponent"],
-                _components_logout_logout_component__WEBPACK_IMPORTED_MODULE_19__["LogoutComponent"],
-                _components_side_nav_side_nav_component__WEBPACK_IMPORTED_MODULE_22__["SideNavComponent"],
-                _components_settings_setting_setting_component__WEBPACK_IMPORTED_MODULE_26__["SettingComponent"],
-                _components_help_help_help_component__WEBPACK_IMPORTED_MODULE_27__["HelpComponent"],
-                _components_chats_chats_chats_component__WEBPACK_IMPORTED_MODULE_28__["ChatsComponent"],
-                _components_user_user_user_component__WEBPACK_IMPORTED_MODULE_29__["UserComponent"]
+                _components_navigation_bar_navigation_bar_component__WEBPACK_IMPORTED_MODULE_16__["NavigationBarComponent"],
+                _components_side_nav_side_nav_component__WEBPACK_IMPORTED_MODULE_17__["SideNavComponent"],
             ],
             imports: [
                 _angular_platform_browser__WEBPACK_IMPORTED_MODULE_1__["BrowserModule"],
                 _angular_platform_browser_animations__WEBPACK_IMPORTED_MODULE_4__["BrowserAnimationsModule"],
                 _shared_material_module__WEBPACK_IMPORTED_MODULE_6__["MaterialModule"],
                 _angular_common_http__WEBPACK_IMPORTED_MODULE_5__["HttpClientModule"],
-                _angular_flex_layout__WEBPACK_IMPORTED_MODULE_20__["FlexLayoutModule"],
+                _angular_flex_layout__WEBPACK_IMPORTED_MODULE_15__["FlexLayoutModule"],
                 _angular_forms__WEBPACK_IMPORTED_MODULE_2__["FormsModule"],
                 _angular_forms__WEBPACK_IMPORTED_MODULE_2__["ReactiveFormsModule"].withConfig({ warnOnNgModelWithFormControl: 'never' }),
                 // ServiceWorkerModule.register('service-worker.js', { enabled: environment.production }),
                 _app_routing_module__WEBPACK_IMPORTED_MODULE_13__["AppRoutingModule"],
-                ngx_gravatar__WEBPACK_IMPORTED_MODULE_23__["GravatarModule"]
+                ngx_gravatar__WEBPACK_IMPORTED_MODULE_18__["GravatarModule"]
             ],
             providers: [
                 _services_user_user_service__WEBPACK_IMPORTED_MODULE_7__["UserService"],
                 _services_auth_auth_service__WEBPACK_IMPORTED_MODULE_8__["AuthService"],
                 _services_user_gender_gender_service__WEBPACK_IMPORTED_MODULE_9__["GenderService"],
-                ngx_cookie_service__WEBPACK_IMPORTED_MODULE_24__["CookieService"],
+                ngx_cookie_service__WEBPACK_IMPORTED_MODULE_19__["CookieService"],
                 _services_translate_translate_service__WEBPACK_IMPORTED_MODULE_11__["TranslateService"],
                 {
                     provide: _angular_core__WEBPACK_IMPORTED_MODULE_3__["APP_INITIALIZER"],
@@ -652,11 +658,11 @@ var AppModule = /** @class */ (function () {
                     deps: [_services_translate_translate_service__WEBPACK_IMPORTED_MODULE_11__["TranslateService"]],
                     multi: true
                 },
-                _services_auth_token_interceptor__WEBPACK_IMPORTED_MODULE_25__["TokenInterceptor"],
+                _services_auth_token_interceptor__WEBPACK_IMPORTED_MODULE_20__["TokenInterceptor"],
                 _services_dashboard_dashboard_service__WEBPACK_IMPORTED_MODULE_10__["DashboardService"],
                 {
                     provide: _angular_common_http__WEBPACK_IMPORTED_MODULE_5__["HTTP_INTERCEPTORS"],
-                    useClass: _services_auth_token_interceptor__WEBPACK_IMPORTED_MODULE_25__["TokenInterceptor"],
+                    useClass: _services_auth_token_interceptor__WEBPACK_IMPORTED_MODULE_20__["TokenInterceptor"],
                     multi: true
                 }
             ],
@@ -747,6 +753,8 @@ __webpack_require__.r(__webpack_exports__);
 /* harmony import */ var _services_dashboard_dashboard_service__WEBPACK_IMPORTED_MODULE_4__ = __webpack_require__(/*! ../../services/dashboard/dashboard.service */ "./src/app/services/dashboard/dashboard.service.ts");
 /* harmony import */ var _services_translate_translate_service__WEBPACK_IMPORTED_MODULE_5__ = __webpack_require__(/*! ../../services/translate/translate.service */ "./src/app/services/translate/translate.service.ts");
 /* harmony import */ var ngx_cookie_service__WEBPACK_IMPORTED_MODULE_6__ = __webpack_require__(/*! ngx-cookie-service */ "./node_modules/ngx-cookie-service/ngx-cookie-service.es5.js");
+/* harmony import */ var _shared_error_handler_service__WEBPACK_IMPORTED_MODULE_7__ = __webpack_require__(/*! ../../shared/error-handler.service */ "./src/app/shared/error-handler.service.ts");
+
 
 
 
@@ -755,12 +763,13 @@ __webpack_require__.r(__webpack_exports__);
 
 
 var DashboardComponent = /** @class */ (function () {
-    function DashboardComponent(translate, dashboardService, authService, cookieService, formBuilder) {
+    function DashboardComponent(translate, dashboardService, authService, cookieService, formBuilder, errorService) {
         this.translate = translate;
         this.dashboardService = dashboardService;
         this.authService = authService;
         this.cookieService = cookieService;
         this.formBuilder = formBuilder;
+        this.errorService = errorService;
         this.results2 = [];
         this.results = [];
         this.isInputValid = false;
@@ -795,10 +804,14 @@ var DashboardComponent = /** @class */ (function () {
         var _this = this;
         this.listAccountDetail = this.dashboardService.detailUser().subscribe(function (data) {
             _this.results = data;
+        }, function (error) {
+            _this.errorService.handleError(error);
         });
         this.listAccountDetailPhoto = this.dashboardService.detailUserPhoto().subscribe(function (data) {
             console.log(data);
             _this.results2 = data;
+        }, function (error) {
+            _this.errorService.handleError(error);
         });
     };
     DashboardComponent.prototype.ngOnDestroy = function () {
@@ -866,7 +879,8 @@ var DashboardComponent = /** @class */ (function () {
         { type: _services_dashboard_dashboard_service__WEBPACK_IMPORTED_MODULE_4__["DashboardService"] },
         { type: _services_auth_auth_service__WEBPACK_IMPORTED_MODULE_3__["AuthService"] },
         { type: ngx_cookie_service__WEBPACK_IMPORTED_MODULE_6__["CookieService"] },
-        { type: _angular_forms__WEBPACK_IMPORTED_MODULE_2__["FormBuilder"] }
+        { type: _angular_forms__WEBPACK_IMPORTED_MODULE_2__["FormBuilder"] },
+        { type: _shared_error_handler_service__WEBPACK_IMPORTED_MODULE_7__["ErrorHandlerService"] }
     ]; };
     tslib__WEBPACK_IMPORTED_MODULE_0__["__decorate"]([
         Object(_angular_core__WEBPACK_IMPORTED_MODULE_1__["ViewChild"])('fileInput', { read: true, static: false }),
@@ -882,9 +896,122 @@ var DashboardComponent = /** @class */ (function () {
             _services_dashboard_dashboard_service__WEBPACK_IMPORTED_MODULE_4__["DashboardService"],
             _services_auth_auth_service__WEBPACK_IMPORTED_MODULE_3__["AuthService"],
             ngx_cookie_service__WEBPACK_IMPORTED_MODULE_6__["CookieService"],
-            _angular_forms__WEBPACK_IMPORTED_MODULE_2__["FormBuilder"]])
+            _angular_forms__WEBPACK_IMPORTED_MODULE_2__["FormBuilder"],
+            _shared_error_handler_service__WEBPACK_IMPORTED_MODULE_7__["ErrorHandlerService"]])
     ], DashboardComponent);
     return DashboardComponent;
+}());
+
+
+
+/***/ }),
+
+/***/ "./src/app/components/error-pages/not-found/not-found.component.scss":
+/*!***************************************************************************!*\
+  !*** ./src/app/components/error-pages/not-found/not-found.component.scss ***!
+  \***************************************************************************/
+/*! exports provided: default */
+/***/ (function(module, __webpack_exports__, __webpack_require__) {
+
+"use strict";
+__webpack_require__.r(__webpack_exports__);
+/* harmony default export */ __webpack_exports__["default"] = ("section div:nth-child(1),\nsection div:nth-child(3) {\n  color: blue;\n  font-size: 50px;\n}\n\nsection div:nth-child(1) {\n  margin-top: 20px;\n}\n\nsection div:nth-child(2) {\n  width: 50%;\n}\n/*# sourceMappingURL=data:application/json;base64,eyJ2ZXJzaW9uIjozLCJzb3VyY2VzIjpbIi9Vc2Vycy9kZWxpdGFtYWthbmRhL1Byb2plY3RzL2RhdGluZy9mcm9udGVuZC9zcmMvYXBwL2NvbXBvbmVudHMvZXJyb3ItcGFnZXMvbm90LWZvdW5kL25vdC1mb3VuZC5jb21wb25lbnQuc2NzcyIsInNyYy9hcHAvY29tcG9uZW50cy9lcnJvci1wYWdlcy9ub3QtZm91bmQvbm90LWZvdW5kLmNvbXBvbmVudC5zY3NzIl0sIm5hbWVzIjpbXSwibWFwcGluZ3MiOiJBQUFBOztFQUVJLFdBQUE7RUFDQSxlQUFBO0FDQ0o7O0FERUE7RUFDSSxnQkFBQTtBQ0NKOztBREVBO0VBQ0ksVUFBQTtBQ0NKIiwiZmlsZSI6InNyYy9hcHAvY29tcG9uZW50cy9lcnJvci1wYWdlcy9ub3QtZm91bmQvbm90LWZvdW5kLmNvbXBvbmVudC5zY3NzIiwic291cmNlc0NvbnRlbnQiOlsic2VjdGlvbiBkaXY6bnRoLWNoaWxkKDEpLFxuc2VjdGlvbiBkaXY6bnRoLWNoaWxkKDMpIHtcbiAgICBjb2xvcjogYmx1ZTtcbiAgICBmb250LXNpemU6IDUwcHg7XG59XG5cbnNlY3Rpb24gZGl2Om50aC1jaGlsZCgxKSB7XG4gICAgbWFyZ2luLXRvcDogMjBweDtcbn1cblxuc2VjdGlvbiBkaXY6bnRoLWNoaWxkKDIpIHtcbiAgICB3aWR0aDogNTAlO1xufVxuIiwic2VjdGlvbiBkaXY6bnRoLWNoaWxkKDEpLFxuc2VjdGlvbiBkaXY6bnRoLWNoaWxkKDMpIHtcbiAgY29sb3I6IGJsdWU7XG4gIGZvbnQtc2l6ZTogNTBweDtcbn1cblxuc2VjdGlvbiBkaXY6bnRoLWNoaWxkKDEpIHtcbiAgbWFyZ2luLXRvcDogMjBweDtcbn1cblxuc2VjdGlvbiBkaXY6bnRoLWNoaWxkKDIpIHtcbiAgd2lkdGg6IDUwJTtcbn0iXX0= */");
+
+/***/ }),
+
+/***/ "./src/app/components/error-pages/not-found/not-found.component.ts":
+/*!*************************************************************************!*\
+  !*** ./src/app/components/error-pages/not-found/not-found.component.ts ***!
+  \*************************************************************************/
+/*! exports provided: NotFoundComponent */
+/***/ (function(module, __webpack_exports__, __webpack_require__) {
+
+"use strict";
+__webpack_require__.r(__webpack_exports__);
+/* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "NotFoundComponent", function() { return NotFoundComponent; });
+/* harmony import */ var tslib__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! tslib */ "./node_modules/tslib/tslib.es6.js");
+/* harmony import */ var _angular_core__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! @angular/core */ "./node_modules/@angular/core/fesm5/core.js");
+
+
+var NotFoundComponent = /** @class */ (function () {
+    function NotFoundComponent() {
+    }
+    NotFoundComponent.prototype.ngOnInit = function () {
+    };
+    NotFoundComponent = tslib__WEBPACK_IMPORTED_MODULE_0__["__decorate"]([
+        Object(_angular_core__WEBPACK_IMPORTED_MODULE_1__["Component"])({
+            selector: 'app-not-found',
+            template: tslib__WEBPACK_IMPORTED_MODULE_0__["__importDefault"](__webpack_require__(/*! raw-loader!./not-found.component.html */ "./node_modules/raw-loader/dist/cjs.js!./src/app/components/error-pages/not-found/not-found.component.html")).default,
+            styles: [tslib__WEBPACK_IMPORTED_MODULE_0__["__importDefault"](__webpack_require__(/*! ./not-found.component.scss */ "./src/app/components/error-pages/not-found/not-found.component.scss")).default]
+        }),
+        tslib__WEBPACK_IMPORTED_MODULE_0__["__metadata"]("design:paramtypes", [])
+    ], NotFoundComponent);
+    return NotFoundComponent;
+}());
+
+
+
+/***/ }),
+
+/***/ "./src/app/components/error-pages/server-error/server-error.component.sass":
+/*!*********************************************************************************!*\
+  !*** ./src/app/components/error-pages/server-error/server-error.component.sass ***!
+  \*********************************************************************************/
+/*! exports provided: default */
+/***/ (function(module, __webpack_exports__, __webpack_require__) {
+
+"use strict";
+__webpack_require__.r(__webpack_exports__);
+/* harmony default export */ __webpack_exports__["default"] = ("section div p:nth-child(1) {\n  font-size: 50px;\n  text-align: center;\n  color: #f44336;\n}\n\nsection div p:nth-child(2) {\n  font-size: 20px;\n  text-align: center;\n  color: #3f51b5;\n}\n\nmat-checkbox {\n  color: #3f51b5;\n}\n\nsection div h1 {\n  text-align: center;\n  color: #3f51b5;\n  position: relative;\n  top: -85px;\n}\n/*# sourceMappingURL=data:application/json;base64,eyJ2ZXJzaW9uIjozLCJzb3VyY2VzIjpbIi9Vc2Vycy9kZWxpdGFtYWthbmRhL1Byb2plY3RzL2RhdGluZy9mcm9udGVuZC9zcmMvYXBwL2NvbXBvbmVudHMvZXJyb3ItcGFnZXMvc2VydmVyLWVycm9yL3NlcnZlci1lcnJvci5jb21wb25lbnQuc2FzcyIsInNyYy9hcHAvY29tcG9uZW50cy9lcnJvci1wYWdlcy9zZXJ2ZXItZXJyb3Ivc2VydmVyLWVycm9yLmNvbXBvbmVudC5zYXNzIl0sIm5hbWVzIjpbXSwibWFwcGluZ3MiOiJBQUFBO0VBQ0ksZUFBQTtFQUNBLGtCQUFBO0VBQ0EsY0FBQTtBQ0NKOztBRENBO0VBQ0ksZUFBQTtFQUNBLGtCQUFBO0VBQ0EsY0FBQTtBQ0VKOztBREFBO0VBQ0ksY0FBQTtBQ0dKOztBRERBO0VBQ0ksa0JBQUE7RUFDQSxjQUFBO0VBQ0Esa0JBQUE7RUFDQSxVQUFBO0FDSUoiLCJmaWxlIjoic3JjL2FwcC9jb21wb25lbnRzL2Vycm9yLXBhZ2VzL3NlcnZlci1lcnJvci9zZXJ2ZXItZXJyb3IuY29tcG9uZW50LnNhc3MiLCJzb3VyY2VzQ29udGVudCI6WyJzZWN0aW9uIGRpdiBwOm50aC1jaGlsZCgxKVxuICAgIGZvbnQtc2l6ZTogNTBweFxuICAgIHRleHQtYWxpZ246IGNlbnRlclxuICAgIGNvbG9yOiAjZjQ0MzM2XG5cbnNlY3Rpb24gZGl2IHA6bnRoLWNoaWxkKDIpXG4gICAgZm9udC1zaXplOiAyMHB4XG4gICAgdGV4dC1hbGlnbjogY2VudGVyXG4gICAgY29sb3I6ICMzZjUxYjVcblxubWF0LWNoZWNrYm94XG4gICAgY29sb3I6ICMzZjUxYjVcblxuc2VjdGlvbiBkaXYgaDFcbiAgICB0ZXh0LWFsaWduOiBjZW50ZXJcbiAgICBjb2xvcjogIzNmNTFiNVxuICAgIHBvc2l0aW9uOiByZWxhdGl2ZVxuICAgIHRvcDogLTg1cHhcbiIsInNlY3Rpb24gZGl2IHA6bnRoLWNoaWxkKDEpIHtcbiAgZm9udC1zaXplOiA1MHB4O1xuICB0ZXh0LWFsaWduOiBjZW50ZXI7XG4gIGNvbG9yOiAjZjQ0MzM2O1xufVxuXG5zZWN0aW9uIGRpdiBwOm50aC1jaGlsZCgyKSB7XG4gIGZvbnQtc2l6ZTogMjBweDtcbiAgdGV4dC1hbGlnbjogY2VudGVyO1xuICBjb2xvcjogIzNmNTFiNTtcbn1cblxubWF0LWNoZWNrYm94IHtcbiAgY29sb3I6ICMzZjUxYjU7XG59XG5cbnNlY3Rpb24gZGl2IGgxIHtcbiAgdGV4dC1hbGlnbjogY2VudGVyO1xuICBjb2xvcjogIzNmNTFiNTtcbiAgcG9zaXRpb246IHJlbGF0aXZlO1xuICB0b3A6IC04NXB4O1xufSJdfQ== */");
+
+/***/ }),
+
+/***/ "./src/app/components/error-pages/server-error/server-error.component.ts":
+/*!*******************************************************************************!*\
+  !*** ./src/app/components/error-pages/server-error/server-error.component.ts ***!
+  \*******************************************************************************/
+/*! exports provided: ServerErrorComponent */
+/***/ (function(module, __webpack_exports__, __webpack_require__) {
+
+"use strict";
+__webpack_require__.r(__webpack_exports__);
+/* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "ServerErrorComponent", function() { return ServerErrorComponent; });
+/* harmony import */ var tslib__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! tslib */ "./node_modules/tslib/tslib.es6.js");
+/* harmony import */ var _angular_core__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! @angular/core */ "./node_modules/@angular/core/fesm5/core.js");
+
+
+var ServerErrorComponent = /** @class */ (function () {
+    function ServerErrorComponent() {
+        var _this = this;
+        this.errorPercentage = 0;
+        this.checkChanged = function (event) {
+            _this.reportedError = event.checked;
+            _this.reportedError ? _this.startTimer() : _this.stopTimer();
+        };
+        this.startTimer = function () {
+            _this.timer = setInterval(function () {
+                _this.errorPercentage += 1;
+                if (_this.errorPercentage === 100) {
+                    clearInterval(_this.timer);
+                }
+            }, 30);
+        };
+        this.stopTimer = function () {
+            clearInterval(_this.timer);
+            _this.errorPercentage = 0;
+        };
+    }
+    ServerErrorComponent.prototype.ngOnInit = function () {
+    };
+    ServerErrorComponent = tslib__WEBPACK_IMPORTED_MODULE_0__["__decorate"]([
+        Object(_angular_core__WEBPACK_IMPORTED_MODULE_1__["Component"])({
+            selector: 'app-server-error',
+            template: tslib__WEBPACK_IMPORTED_MODULE_0__["__importDefault"](__webpack_require__(/*! raw-loader!./server-error.component.html */ "./node_modules/raw-loader/dist/cjs.js!./src/app/components/error-pages/server-error/server-error.component.html")).default,
+            styles: [tslib__WEBPACK_IMPORTED_MODULE_0__["__importDefault"](__webpack_require__(/*! ./server-error.component.sass */ "./src/app/components/error-pages/server-error/server-error.component.sass")).default]
+        }),
+        tslib__WEBPACK_IMPORTED_MODULE_0__["__metadata"]("design:paramtypes", [])
+    ], ServerErrorComponent);
+    return ServerErrorComponent;
 }());
 
 
@@ -2165,6 +2292,70 @@ var UserService = /** @class */ (function () {
         tslib__WEBPACK_IMPORTED_MODULE_0__["__metadata"]("design:paramtypes", [_angular_common_http__WEBPACK_IMPORTED_MODULE_2__["HttpClient"]])
     ], UserService);
     return UserService;
+}());
+
+
+
+/***/ }),
+
+/***/ "./src/app/shared/error-handler.service.ts":
+/*!*************************************************!*\
+  !*** ./src/app/shared/error-handler.service.ts ***!
+  \*************************************************/
+/*! exports provided: ErrorHandlerService */
+/***/ (function(module, __webpack_exports__, __webpack_require__) {
+
+"use strict";
+__webpack_require__.r(__webpack_exports__);
+/* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "ErrorHandlerService", function() { return ErrorHandlerService; });
+/* harmony import */ var tslib__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! tslib */ "./node_modules/tslib/tslib.es6.js");
+/* harmony import */ var _angular_core__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! @angular/core */ "./node_modules/@angular/core/fesm5/core.js");
+/* harmony import */ var _angular_router__WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__(/*! @angular/router */ "./node_modules/@angular/router/fesm5/router.js");
+
+
+
+var ErrorHandlerService = /** @class */ (function () {
+    function ErrorHandlerService(router) {
+        var _this = this;
+        this.router = router;
+        this.errorMessage = '';
+        this.handleError = function (error) {
+            if (error.status === 500) {
+                _this.handle500Error(error);
+            }
+            else if (error.status === 404) {
+                _this.handle404Error(error);
+            }
+            else {
+                _this.handleOtherError(error);
+            }
+        };
+        this.handle500Error = function (error) {
+            _this.createErrorMessage(error);
+            _this.router.navigate(['/500']);
+        };
+        this.handle404Error = function (error) {
+            _this.createErrorMessage(error);
+            _this.router.navigate(['/404']);
+        };
+        this.handleOtherError = function (error) {
+            _this.createErrorMessage(error);
+            //TODO: this will be fixed later;
+        };
+    }
+    ErrorHandlerService.prototype.createErrorMessage = function (error) {
+        this.errorMessage = error.error ? error.error : error.statusText;
+    };
+    ErrorHandlerService.ctorParameters = function () { return [
+        { type: _angular_router__WEBPACK_IMPORTED_MODULE_2__["Router"] }
+    ]; };
+    ErrorHandlerService = tslib__WEBPACK_IMPORTED_MODULE_0__["__decorate"]([
+        Object(_angular_core__WEBPACK_IMPORTED_MODULE_1__["Injectable"])({
+            providedIn: 'root'
+        }),
+        tslib__WEBPACK_IMPORTED_MODULE_0__["__metadata"]("design:paramtypes", [_angular_router__WEBPACK_IMPORTED_MODULE_2__["Router"]])
+    ], ErrorHandlerService);
+    return ErrorHandlerService;
 }());
 
 
