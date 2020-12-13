@@ -14,6 +14,7 @@
   "labelPasswordRequired": "Un mot de passe est requis.",
   "labelMaxLength": "Le maximum de caractère est",
   "labelMinLength": "Le minimum de caractère est",
+  "labelMismatch": "Les mots de passe ne correspondent pas.",
   "labelGender": "Genre",
   "labelUsername": "Pseudo",
   "labelEmail": "E-mail",
@@ -27,5 +28,6 @@
   "labelSelect": "Selectionner",
   "labelValidate": "Valider",
   "labelDetailsRequired": "Details est requis.",
-  "labelPopularity": "Popularité"
+  "labelPopularity": "Popularité",
+  "labeltokenExists": "Vous êtes déjà connecter!   "
 }

@@ -14,6 +14,7 @@
   "labelPasswordRequired": "Password is required.",
   "labelMaxLength": "Max length is",
   "labelMinLength": "Min length is",
+  "labelMismatch": "Passwords doesn't match",
   "labelGender": "Gender",
   "labelUsername": "Username",
   "labelEmail": "E-mail",
@@ -27,5 +28,6 @@
   "labelSelect": "Select",
   "labelValidate": "Validate",
   "labelDetailsRequired": "Details is required.",
-  "labelPopularity": "Popularity"
+  "labelPopularity": "Popularity",
+  "labeltokenExists": "You are already logged in! Would you like to "
 }
