@@ -1,0 +1,86 @@
+<div class="container">
+    <p>
+        <mat-icon svgIcon="love" aria-hidden="false"></mat-icon>
+    </p>
+    <form [formGroup]="signupFormGroup" (ngSubmit)="handleSubmit()">
+        <div class="tp-container">
+            <p *ngIf='loginErrors'>{{ loginErrors.email }}</p>
+            <p *ngIf='loginErrors'>{{ loginErrors.username }}</p>
+            <mat-form-field>
+                <input type="text" maxlength="280" minlength="4" matInput placeholder="{{ 'labelUsername' | translate }}" formControlName="usernameField" />
+                <div *ngIf="signupFormGroup.get('usernameField').invalid && (signupFormGroup.get('usernameField').dirty || signupFormGroup.get('usernameField').touched)">
+                    <mat-error *ngIf="signupFormGroup.get('usernameField').errors.required">
+                    {{ 'labelUsernameRequired' | translate }}
+                    </mat-error>
+                    <mat-error *ngIf="signupFormGroup.get('usernameField').errors.maxlength">
+                    {{ 'labelMaxLength' | translate }} 280
+                    </mat-error>
+                    <mat-error *ngIf="signupFormGroup.get('usernameField').errors.minlength">
+                    {{ 'labelMinLength' | translate }}  4
+                    </mat-error>
+                </div>
+            </mat-form-field>
+
+            <mat-form-field>
+                <input type="email" maxlength="280" minlength="4" matInput placeholder="{{ 'labelEmail' | translate }}" formControlName="emailField" />
+                <div *ngIf="signupFormGroup.get('emailField').invalid && (signupFormGroup.get('emailField').dirty || signupFormGroup.get('emailField').touched)">
+                    <mat-error *ngIf="signupFormGroup.get('emailField').errors.email">
+                    {{ 'labelEmailRequired' | translate }}
+                    </mat-error>
+                    <mat-error *ngIf="signupFormGroup.get('emailField').errors.maxlength">
+                        {{ 'labelMaxLength' | translate }} 280
+                    </mat-error>
+                    <mat-error *ngIf="signupFormGroup.get('emailField').errors.minlength">
+                    {{ 'labelMinLength' | translate }}  4
+                    </mat-error>
+                </div>
+            </mat-form-field>
+
+            <mat-form-field>
+                <input type="password" maxlength="280" minlength="4" matInput placeholder="{{ 'labelPassword' | translate }}" formControlName="passwordField" [type]="hide ? 'password' : 'text'" />
+                <button type="button" mat-icon-button matSuffix (click)="hide = !hide" [attr.aria-label]="'Hide password'" [attr.aria-pressed]="hide">
+                    <mat-icon>{{hide ? 'visibility_off' : 'visibility'}}</mat-icon>
+                </button>
+                <div *ngIf="signupFormGroup.get('passwordField').invalid && (signupFormGroup.get('passwordField').dirty || signupFormGroup.get('passwordField').touched)">
+                    <mat-error *ngIf="signupFormGroup.get('passwordField').errors.required">
+                        {{ 'labelPasswordRequired' | translate }}
+                    </mat-error>
+                    <mat-error *ngIf="signupFormGroup.get('passwordField').errors.maxlength">
+                        {{ 'labelMaxLength' | translate }} 280
+                    </mat-error>
+                    <mat-error *ngIf="signupFormGroup.get('passwordField').errors.minlength">
+                        {{ 'labelMinLength' | translate }}  4
+                    </mat-error>
+                </div>
+            </mat-form-field>
+
+            <mat-form-field>
+                <input type="password"  maxlength="280" minlength="4" matInput placeholder="{{ 'labelPasswordConfirm' | translate }}" formControlName="passwordFieldVerification" [type]="hide2 ? 'password' : 'text'" />
+                <button type="button" mat-icon-button matSuffix (click)="hide2 = !hide2" [attr.aria-label]="'Hide password'" [attr.aria-pressed]="hide2">
+                    <mat-icon>{{hide2 ? 'visibility_off' : 'visibility'}}</mat-icon>
+                </button>
+                <div *ngIf="signupFormGroup.get('passwordFieldVerification').invalid && (signupFormGroup.get('passwordFieldVerification').dirty || signupFormGroup.get('passwordFieldVerification').touched)">
+                    <mat-error *ngIf="signupFormGroup.get('passwordFieldVerification').errors.required">
+                        {{ 'labelPasswordRequired' | translate }}
+                    </mat-error>
+                    <mat-error *ngIf="signupFormGroup.errors.passwordshouldMatch">
+                        {{ 'labelMismatch' | translate }}
+                    </mat-error>
+                </div>
+            </mat-form-field>
+            <div>
+                <label>{{ 'labelGender' | translate }}: </label>
+                <mat-radio-group aria-label="Select an option" formControlName="genderField" class="radio-group">
+                  <mat-radio-button class="radio-button" *ngFor="let gender of listResultGenders" [value]="gender.id">{{ gender.name }}</mat-radio-button>
+                </mat-radio-group>
+            </div>
+        <mat-card-actions>
+            <button type="submit" mat-raised-button color="primary" [disabled]="signupFormGroup.invalid">{{ 'registerLabel' | translate }}</button>
+            <button type="button" mat-raised-button color="secondary" (click)="revert()">{{ 'resetLabel' | translate }}</button>
+        </mat-card-actions>
+        </div>
+    </form>
+    <p>
+		<button mat-raised-button routerLink='/log-in'>{{ 'loginLabel' | translate }}</button>
+	</p>
+</div>

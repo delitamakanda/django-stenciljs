@@ -1,0 +1,53 @@
+<div class="container">
+    <p>
+        <mat-icon svgIcon="love" aria-hidden="false"></mat-icon>
+    </p>
+
+    <div *ngIf='tokenExists'>
+        {{ 'labeltokenExists' | translate }} <a routerLink='/sign-out'>{{ 'LOGOUT' | translate }}</a>?
+    </div>
+
+    <form *ngIf='!userData && !tokenExists' [formGroup]='loginForm' (ngSubmit)='onSubmit()'>
+        <div *ngIf='loginErrors'>{{ loginErrors }}</div>
+        <div class="tp-container">
+            <mat-form-field appearance="standard">
+                <input type="text" maxlength="280" minlength="4" matInput placeholder="{{ 'labelEmailOrUsername' | translate }}" formControlName="usernameField" />
+                <div *ngIf="loginForm.get('usernameField').invalid && (loginForm.get('usernameField').dirty || loginForm.get('usernameField').touched)">
+                    <mat-error *ngIf="loginForm.get('usernameField').errors.required">
+                    {{ 'labelUsernameRequired' | translate }}
+                    </mat-error>
+                    <mat-error *ngIf="loginForm.get('usernameField').errors.maxlength">
+                    {{ 'labelMaxLength' | translate }} 280
+                    </mat-error>
+                    <mat-error *ngIf="loginForm.get('usernameField').errors.minlength">
+                    {{ 'labelMinLength' | translate }}  4
+                    </mat-error>
+                </div>
+            </mat-form-field>
+            <mat-form-field appearance="standard">
+                <input type="password" maxlength="280" minlength="4" matInput placeholder="{{ 'labelPassword' | translate }}" formControlName="passwordField" [type]="hide ? 'password' : 'text'" />
+                <button type="button" mat-icon-button matSuffix (click)="hide = !hide" [attr.aria-label]="'Hide password'" [attr.aria-pressed]="hide">
+                    <mat-icon>{{hide ? 'visibility_off' : 'visibility'}}</mat-icon>
+                </button>
+                <div *ngIf="loginForm.get('passwordField').invalid && (loginForm.get('passwordField').dirty || loginForm.get('passwordField').touched)">
+                    <mat-error *ngIf="loginForm.get('passwordField').errors.required">
+                        {{ 'labelPasswordRequired' | translate }}
+                    </mat-error>
+                    <mat-error *ngIf="loginForm.get('passwordField').errors.maxlength">
+                        {{ 'labelMaxLength' | translate }} 280
+                    </mat-error>
+                    <mat-error *ngIf="loginForm.get('passwordField').errors.minlength">
+                        {{ 'labelMinLength' | translate }}  4
+                    </mat-error>
+                </div>
+            </mat-form-field>
+            <mat-card-actions>
+                <button type="submit" mat-raised-button color="primary" [disabled]="loginForm.invalid">{{ 'loginLabel' | translate }}</button>
+                <button type="button" mat-raised-button color="secondary" (click)="revert()">{{ 'resetLabel' | translate }}</button>
+            </mat-card-actions>
+        </div>
+        <p>
+            <button mat-raised-button routerLink='/sign-up'>{{ 'registerLabel' | translate }}</button>
+	    </p>
+    </form>
+</div>
