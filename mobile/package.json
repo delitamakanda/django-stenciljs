@@ -36,6 +36,7 @@
     "@types/jasminewd2": "~2.0.3",
     "@types/node": "~8.9.4",
     "codelyzer": "^5.0.0",
+    "cypress": "^6.1.0",
     "jasmine-core": "~3.4.0",
     "jasmine-spec-reporter": "~4.2.1",
     "karma": "~4.1.0",
@@ -50,5 +51,12 @@
     "tslint": "~5.15.0",
     "typescript": "~3.5.3",
     "webpack-bundle-tracker": "^1.0.0-alpha.1"
-  }
+  },
+  "browserslist": [
+    "> 0.5%",
+    "last 2 versions",
+    "Firefox ESR",
+    "not dead",
+    "not IE 9-11"
+  ]
 }

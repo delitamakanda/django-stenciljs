@@ -1,0 +1,12 @@
+{
+    "$schema": "https://on.cypress.io/cypress.schema.json",
+    "fixturesFolder": "tests/e2e/fixtures",
+    "integrationFolder": "tests/e2e/integration",
+    "pluginsFile": "tests/e2e/plugins/index.js",
+    "supportFile": "tests/e2e/support/index.js",
+    "screenshotsFolder": "output/e2e/screenshots",
+    "videosFolder": "output/e2e/videos",
+    "baseUrl": "http://localhost:4200",
+    "chromeWebSecurity": false,
+    "videoCompression": 0
+}
