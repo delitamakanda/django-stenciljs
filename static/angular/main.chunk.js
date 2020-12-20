@@ -36,10 +36,10 @@ __webpack_require__.r(__webpack_exports__);
 
 /***/ }),
 
-/***/ "./node_modules/raw-loader/dist/cjs.js!./src/app/components/chats/chats.component.html":
-/*!*********************************************************************************************!*\
-  !*** ./node_modules/raw-loader/dist/cjs.js!./src/app/components/chats/chats.component.html ***!
-  \*********************************************************************************************/
+/***/ "./node_modules/raw-loader/dist/cjs.js!./src/app/components/dashboard/chats/chats.component.html":
+/*!*******************************************************************************************************!*\
+  !*** ./node_modules/raw-loader/dist/cjs.js!./src/app/components/dashboard/chats/chats.component.html ***!
+  \*******************************************************************************************************/
 /*! exports provided: default */
 /***/ (function(module, __webpack_exports__, __webpack_require__) {
 
@@ -58,7 +58,20 @@ __webpack_require__.r(__webpack_exports__);
 
 "use strict";
 __webpack_require__.r(__webpack_exports__);
-/* harmony default export */ __webpack_exports__["default"] = ("<p>dashboard works!</p>\n");
+/* harmony default export */ __webpack_exports__["default"] = ("<app-navigation-bar></app-navigation-bar>\n<router-outlet></router-outlet>\n");
+
+/***/ }),
+
+/***/ "./node_modules/raw-loader/dist/cjs.js!./src/app/components/dashboard/user-profile/user-profile.component.html":
+/*!*********************************************************************************************************************!*\
+  !*** ./node_modules/raw-loader/dist/cjs.js!./src/app/components/dashboard/user-profile/user-profile.component.html ***!
+  \*********************************************************************************************************************/
+/*! exports provided: default */
+/***/ (function(module, __webpack_exports__, __webpack_require__) {
+
+"use strict";
+__webpack_require__.r(__webpack_exports__);
+/* harmony default export */ __webpack_exports__["default"] = ("<p>user-profile works!</p>\n");
 
 /***/ }),
 
@@ -137,6 +150,19 @@ __webpack_require__.r(__webpack_exports__);
 "use strict";
 __webpack_require__.r(__webpack_exports__);
 /* harmony default export */ __webpack_exports__["default"] = ("<div class=\"container\">\n    <p>\n        <button mat-raised-button routerLink=\"/log-in\">{{ 'loginLabel' | translate }}</button>\n    </p>\n</div>\n");
+
+/***/ }),
+
+/***/ "./node_modules/raw-loader/dist/cjs.js!./src/app/components/navigation-bar/navigation-bar.component.html":
+/*!***************************************************************************************************************!*\
+  !*** ./node_modules/raw-loader/dist/cjs.js!./src/app/components/navigation-bar/navigation-bar.component.html ***!
+  \***************************************************************************************************************/
+/*! exports provided: default */
+/***/ (function(module, __webpack_exports__, __webpack_require__) {
+
+"use strict";
+__webpack_require__.r(__webpack_exports__);
+/* harmony default export */ __webpack_exports__["default"] = ("<mat-toolbar color=\"secondary\" class=\"navigation-toolbar\">\n\n  <mat-toolbar-row>\n\n    <span class=\"toolbar-title\"> {{ 'title' | translate }} </span>\n\n    <div fxFlex fxLayout fxLayoutAlign=\"flex-end\">\n\n      <ul fxLayout fxLayoutGap=\"20px\" class=\"navigation-items\">\n\n\n        <li>\n          <button mat-icon-button [matMenuTriggerFor]=\"auth\" #tooltip=\"matTooltip\" [matTooltip]=\"userEmail\">\n            <mat-icon *ngIf=\"!userEmail\">person_outline</mat-icon>\n            <img ngxGravatar *ngIf=\"userEmail\" [email]=\"userEmail\" size=\"24\">\n          </button>\n          <mat-menu #auth=\"matMenu\">\n            <button mat-menu-item>\n              <mat-icon>person</mat-icon>\n              <span>{{ 'PROFILE' | translate }}</span>\n            </button>\n            <button mat-menu-item (click)=\"logout()\">\n              <mat-icon>exit_to_app</mat-icon>\n              <span>{{ 'LOGOUT' | translate }}</span>\n            </button>\n          </mat-menu>\n        </li>\n\n        <li>\n          <button mat-icon-button [matMenuTriggerFor]=\"switchLanguage\">\n            <mat-icon>language</mat-icon>\n          </button>\n          <mat-menu #switchLanguage=\"matMenu\">\n            <button mat-menu-item (click)=\"setLang('fr')\">\n              <span>FR</span>\n            </button>\n            <button mat-menu-item (click)=\"setLang('en')\">\n              <span>EN</span>\n            </button>\n          </mat-menu>\n        </li>\n\n      </ul>\n\n    </div>\n  </mat-toolbar-row>\n\n</mat-toolbar>\n");
 
 /***/ }),
 
@@ -427,9 +453,11 @@ __webpack_require__.r(__webpack_exports__);
 /* harmony import */ var _components_logout_logout_component__WEBPACK_IMPORTED_MODULE_7__ = __webpack_require__(/*! ./components/logout/logout.component */ "./src/app/components/logout/logout.component.ts");
 /* harmony import */ var _components_error_pages_server_error_server_error_component__WEBPACK_IMPORTED_MODULE_8__ = __webpack_require__(/*! ./components/error-pages/server-error/server-error.component */ "./src/app/components/error-pages/server-error/server-error.component.ts");
 /* harmony import */ var _components_error_pages_not_found_not_found_component__WEBPACK_IMPORTED_MODULE_9__ = __webpack_require__(/*! ./components/error-pages/not-found/not-found.component */ "./src/app/components/error-pages/not-found/not-found.component.ts");
-/* harmony import */ var _components_chats_chats_component__WEBPACK_IMPORTED_MODULE_10__ = __webpack_require__(/*! ./components/chats/chats.component */ "./src/app/components/chats/chats.component.ts");
-/* harmony import */ var _components_dashboard_dashboard_component__WEBPACK_IMPORTED_MODULE_11__ = __webpack_require__(/*! ./components/dashboard/dashboard.component */ "./src/app/components/dashboard/dashboard.component.ts");
-/* harmony import */ var _guards__WEBPACK_IMPORTED_MODULE_12__ = __webpack_require__(/*! ./guards */ "./src/app/guards/index.ts");
+/* harmony import */ var _guards__WEBPACK_IMPORTED_MODULE_10__ = __webpack_require__(/*! ./guards */ "./src/app/guards/index.ts");
+/* harmony import */ var _components_dashboard_user_profile_user_profile_component__WEBPACK_IMPORTED_MODULE_11__ = __webpack_require__(/*! ./components/dashboard/user-profile/user-profile.component */ "./src/app/components/dashboard/user-profile/user-profile.component.ts");
+/* harmony import */ var _components_dashboard_dashboard_component__WEBPACK_IMPORTED_MODULE_12__ = __webpack_require__(/*! ./components/dashboard/dashboard.component */ "./src/app/components/dashboard/dashboard.component.ts");
+/* harmony import */ var _components_dashboard_chats_chats_component__WEBPACK_IMPORTED_MODULE_13__ = __webpack_require__(/*! ./components/dashboard/chats/chats.component */ "./src/app/components/dashboard/chats/chats.component.ts");
+
 
 
 
@@ -452,15 +480,26 @@ const routes = [
     { path: 'sign-out', component: _components_logout_logout_component__WEBPACK_IMPORTED_MODULE_7__["LogoutComponent"] },
     { path: '500', component: _components_error_pages_server_error_server_error_component__WEBPACK_IMPORTED_MODULE_8__["ServerErrorComponent"] },
     { path: '404', component: _components_error_pages_not_found_not_found_component__WEBPACK_IMPORTED_MODULE_9__["NotFoundComponent"] },
-    { path: 'dashboard', component: _components_dashboard_dashboard_component__WEBPACK_IMPORTED_MODULE_11__["DashboardComponent"], canActivate: [_guards__WEBPACK_IMPORTED_MODULE_12__["IsAuthenticatedGuard"]] },
-    { path: 'chats', component: _components_chats_chats_component__WEBPACK_IMPORTED_MODULE_10__["ChatsComponent"], canActivate: [_guards__WEBPACK_IMPORTED_MODULE_12__["IsAuthenticatedGuard"]] },
+    {
+        path: 'dashboard', component: _components_dashboard_dashboard_component__WEBPACK_IMPORTED_MODULE_12__["DashboardComponent"], children: [
+            {
+                path: 'user-profile', component: _components_dashboard_user_profile_user_profile_component__WEBPACK_IMPORTED_MODULE_11__["UserProfileComponent"], canActivate: [_guards__WEBPACK_IMPORTED_MODULE_10__["IsAuthenticatedGuard"]]
+            },
+            {
+                path: 'chats', component: _components_dashboard_chats_chats_component__WEBPACK_IMPORTED_MODULE_13__["ChatsComponent"], canActivate: [_guards__WEBPACK_IMPORTED_MODULE_10__["IsAuthenticatedGuard"]]
+            },
+            {
+                path: '', redirectTo: 'user-profile', pathMatch: 'full'
+            },
+        ]
+    },
     { path: '**', redirectTo: '/404', pathMatch: 'full' },
 ];
 let AppRoutingModule = class AppRoutingModule {
 };
 AppRoutingModule = tslib__WEBPACK_IMPORTED_MODULE_0__["__decorate"]([
     Object(_angular_core__WEBPACK_IMPORTED_MODULE_1__["NgModule"])({
-        imports: [_angular_router__WEBPACK_IMPORTED_MODULE_2__["RouterModule"].forRoot(routes, { useHash: true })],
+        imports: [_angular_router__WEBPACK_IMPORTED_MODULE_2__["RouterModule"].forRoot(routes, { useHash: true, enableTracing: false })],
         exports: [_angular_router__WEBPACK_IMPORTED_MODULE_2__["RouterModule"]]
     })
 ], AppRoutingModule);
@@ -552,17 +591,23 @@ __webpack_require__.r(__webpack_exports__);
 /* harmony import */ var _components_error_pages_not_found_not_found_component__WEBPACK_IMPORTED_MODULE_13__ = __webpack_require__(/*! ./components/error-pages/not-found/not-found.component */ "./src/app/components/error-pages/not-found/not-found.component.ts");
 /* harmony import */ var _components_error_pages_server_error_server_error_component__WEBPACK_IMPORTED_MODULE_14__ = __webpack_require__(/*! ./components/error-pages/server-error/server-error.component */ "./src/app/components/error-pages/server-error/server-error.component.ts");
 /* harmony import */ var _components_dashboard_dashboard_component__WEBPACK_IMPORTED_MODULE_15__ = __webpack_require__(/*! ./components/dashboard/dashboard.component */ "./src/app/components/dashboard/dashboard.component.ts");
-/* harmony import */ var _components_chats_chats_component__WEBPACK_IMPORTED_MODULE_16__ = __webpack_require__(/*! ./components/chats/chats.component */ "./src/app/components/chats/chats.component.ts");
-/* harmony import */ var _shared_material_module__WEBPACK_IMPORTED_MODULE_17__ = __webpack_require__(/*! ./shared/material.module */ "./src/app/shared/material.module.ts");
-/* harmony import */ var ngx_gravatar__WEBPACK_IMPORTED_MODULE_18__ = __webpack_require__(/*! ngx-gravatar */ "./node_modules/ngx-gravatar/fesm2015/ngx-gravatar.js");
-/* harmony import */ var ngx_cookie_service__WEBPACK_IMPORTED_MODULE_19__ = __webpack_require__(/*! ngx-cookie-service */ "./node_modules/ngx-cookie-service/fesm2015/ngx-cookie-service.js");
-/* harmony import */ var _services_user_user_service__WEBPACK_IMPORTED_MODULE_20__ = __webpack_require__(/*! ./services/user/user.service */ "./src/app/services/user/user.service.ts");
-/* harmony import */ var _services_auth_auth_service__WEBPACK_IMPORTED_MODULE_21__ = __webpack_require__(/*! ./services/auth/auth.service */ "./src/app/services/auth/auth.service.ts");
-/* harmony import */ var _services_user_gender_gender_service__WEBPACK_IMPORTED_MODULE_22__ = __webpack_require__(/*! ./services/user/gender/gender.service */ "./src/app/services/user/gender/gender.service.ts");
-/* harmony import */ var _services_dashboard_dashboard_service__WEBPACK_IMPORTED_MODULE_23__ = __webpack_require__(/*! ./services/dashboard/dashboard.service */ "./src/app/services/dashboard/dashboard.service.ts");
-/* harmony import */ var _services_translate_translate_service__WEBPACK_IMPORTED_MODULE_24__ = __webpack_require__(/*! ./services/translate/translate.service */ "./src/app/services/translate/translate.service.ts");
-/* harmony import */ var _pipes_translate_translate_pipe__WEBPACK_IMPORTED_MODULE_25__ = __webpack_require__(/*! ./pipes/translate/translate.pipe */ "./src/app/pipes/translate/translate.pipe.ts");
-/* harmony import */ var _services_auth_token_interceptor__WEBPACK_IMPORTED_MODULE_26__ = __webpack_require__(/*! ./services/auth/token.interceptor */ "./src/app/services/auth/token.interceptor.ts");
+/* harmony import */ var _components_dashboard_chats_chats_component__WEBPACK_IMPORTED_MODULE_16__ = __webpack_require__(/*! ./components/dashboard/chats/chats.component */ "./src/app/components/dashboard/chats/chats.component.ts");
+/* harmony import */ var _components_dashboard_user_profile_user_profile_component__WEBPACK_IMPORTED_MODULE_17__ = __webpack_require__(/*! ./components/dashboard/user-profile/user-profile.component */ "./src/app/components/dashboard/user-profile/user-profile.component.ts");
+/* harmony import */ var _shared_material_module__WEBPACK_IMPORTED_MODULE_18__ = __webpack_require__(/*! ./shared/material.module */ "./src/app/shared/material.module.ts");
+/* harmony import */ var ngx_gravatar__WEBPACK_IMPORTED_MODULE_19__ = __webpack_require__(/*! ngx-gravatar */ "./node_modules/ngx-gravatar/fesm2015/ngx-gravatar.js");
+/* harmony import */ var ngx_cookie_service__WEBPACK_IMPORTED_MODULE_20__ = __webpack_require__(/*! ngx-cookie-service */ "./node_modules/ngx-cookie-service/fesm2015/ngx-cookie-service.js");
+/* harmony import */ var _angular_flex_layout__WEBPACK_IMPORTED_MODULE_21__ = __webpack_require__(/*! @angular/flex-layout */ "./node_modules/@angular/flex-layout/esm2015/flex-layout.js");
+/* harmony import */ var _services_user_user_service__WEBPACK_IMPORTED_MODULE_22__ = __webpack_require__(/*! ./services/user/user.service */ "./src/app/services/user/user.service.ts");
+/* harmony import */ var _services_auth_auth_service__WEBPACK_IMPORTED_MODULE_23__ = __webpack_require__(/*! ./services/auth/auth.service */ "./src/app/services/auth/auth.service.ts");
+/* harmony import */ var _services_user_gender_gender_service__WEBPACK_IMPORTED_MODULE_24__ = __webpack_require__(/*! ./services/user/gender/gender.service */ "./src/app/services/user/gender/gender.service.ts");
+/* harmony import */ var _services_dashboard_dashboard_service__WEBPACK_IMPORTED_MODULE_25__ = __webpack_require__(/*! ./services/dashboard/dashboard.service */ "./src/app/services/dashboard/dashboard.service.ts");
+/* harmony import */ var _services_translate_translate_service__WEBPACK_IMPORTED_MODULE_26__ = __webpack_require__(/*! ./services/translate/translate.service */ "./src/app/services/translate/translate.service.ts");
+/* harmony import */ var _pipes_translate_translate_pipe__WEBPACK_IMPORTED_MODULE_27__ = __webpack_require__(/*! ./pipes/translate/translate.pipe */ "./src/app/pipes/translate/translate.pipe.ts");
+/* harmony import */ var _services_auth_token_interceptor__WEBPACK_IMPORTED_MODULE_28__ = __webpack_require__(/*! ./services/auth/token.interceptor */ "./src/app/services/auth/token.interceptor.ts");
+/* harmony import */ var _components_navigation_bar_navigation_bar_component__WEBPACK_IMPORTED_MODULE_29__ = __webpack_require__(/*! ./components/navigation-bar/navigation-bar.component */ "./src/app/components/navigation-bar/navigation-bar.component.ts");
+
+
+
 
 
 
@@ -607,36 +652,39 @@ AppModule = tslib__WEBPACK_IMPORTED_MODULE_0__["__decorate"]([
             _components_error_pages_not_found_not_found_component__WEBPACK_IMPORTED_MODULE_13__["NotFoundComponent"],
             _components_error_pages_server_error_server_error_component__WEBPACK_IMPORTED_MODULE_14__["ServerErrorComponent"],
             _components_dashboard_dashboard_component__WEBPACK_IMPORTED_MODULE_15__["DashboardComponent"],
-            _components_chats_chats_component__WEBPACK_IMPORTED_MODULE_16__["ChatsComponent"],
-            _pipes_translate_translate_pipe__WEBPACK_IMPORTED_MODULE_25__["TranslatePipe"],
+            _components_dashboard_chats_chats_component__WEBPACK_IMPORTED_MODULE_16__["ChatsComponent"],
+            _components_dashboard_user_profile_user_profile_component__WEBPACK_IMPORTED_MODULE_17__["UserProfileComponent"],
+            _pipes_translate_translate_pipe__WEBPACK_IMPORTED_MODULE_27__["TranslatePipe"],
+            _components_navigation_bar_navigation_bar_component__WEBPACK_IMPORTED_MODULE_29__["NavigationBarComponent"],
         ],
         imports: [
             _angular_platform_browser__WEBPACK_IMPORTED_MODULE_1__["BrowserModule"],
             _app_routing_module__WEBPACK_IMPORTED_MODULE_4__["AppRoutingModule"],
             _angular_platform_browser_animations__WEBPACK_IMPORTED_MODULE_6__["BrowserAnimationsModule"],
-            _shared_material_module__WEBPACK_IMPORTED_MODULE_17__["MaterialModule"],
-            ngx_gravatar__WEBPACK_IMPORTED_MODULE_18__["GravatarModule"],
+            _shared_material_module__WEBPACK_IMPORTED_MODULE_18__["MaterialModule"],
+            ngx_gravatar__WEBPACK_IMPORTED_MODULE_19__["GravatarModule"],
             _angular_forms__WEBPACK_IMPORTED_MODULE_3__["FormsModule"],
             _angular_forms__WEBPACK_IMPORTED_MODULE_3__["ReactiveFormsModule"].withConfig({ warnOnNgModelWithFormControl: 'never' }),
             _angular_common_http__WEBPACK_IMPORTED_MODULE_7__["HttpClientModule"],
+            _angular_flex_layout__WEBPACK_IMPORTED_MODULE_21__["FlexLayoutModule"],
         ],
         providers: [
-            ngx_cookie_service__WEBPACK_IMPORTED_MODULE_19__["CookieService"],
-            _services_user_user_service__WEBPACK_IMPORTED_MODULE_20__["UserService"],
-            _services_auth_auth_service__WEBPACK_IMPORTED_MODULE_21__["AuthService"],
-            _services_user_gender_gender_service__WEBPACK_IMPORTED_MODULE_22__["GenderService"],
-            _services_dashboard_dashboard_service__WEBPACK_IMPORTED_MODULE_23__["DashboardService"], {
+            ngx_cookie_service__WEBPACK_IMPORTED_MODULE_20__["CookieService"],
+            _services_user_user_service__WEBPACK_IMPORTED_MODULE_22__["UserService"],
+            _services_auth_auth_service__WEBPACK_IMPORTED_MODULE_23__["AuthService"],
+            _services_user_gender_gender_service__WEBPACK_IMPORTED_MODULE_24__["GenderService"],
+            _services_dashboard_dashboard_service__WEBPACK_IMPORTED_MODULE_25__["DashboardService"], {
                 provide: _angular_common_http__WEBPACK_IMPORTED_MODULE_7__["HTTP_INTERCEPTORS"],
-                useClass: _services_auth_token_interceptor__WEBPACK_IMPORTED_MODULE_26__["TokenInterceptor"],
+                useClass: _services_auth_token_interceptor__WEBPACK_IMPORTED_MODULE_28__["TokenInterceptor"],
                 multi: true
             },
-            _services_translate_translate_service__WEBPACK_IMPORTED_MODULE_24__["TranslateService"], {
+            _services_translate_translate_service__WEBPACK_IMPORTED_MODULE_26__["TranslateService"], {
                 provide: _angular_core__WEBPACK_IMPORTED_MODULE_2__["APP_INITIALIZER"],
                 useFactory: setupTranslateFactory,
-                deps: [_services_translate_translate_service__WEBPACK_IMPORTED_MODULE_24__["TranslateService"]],
+                deps: [_services_translate_translate_service__WEBPACK_IMPORTED_MODULE_26__["TranslateService"]],
                 multi: true
             },
-            _services_auth_token_interceptor__WEBPACK_IMPORTED_MODULE_26__["TokenInterceptor"],
+            _services_auth_token_interceptor__WEBPACK_IMPORTED_MODULE_28__["TokenInterceptor"],
         ],
         bootstrap: [_app_component__WEBPACK_IMPORTED_MODULE_5__["AppComponent"]]
     })
@@ -646,23 +694,23 @@ AppModule = tslib__WEBPACK_IMPORTED_MODULE_0__["__decorate"]([
 
 /***/ }),
 
-/***/ "./src/app/components/chats/chats.component.scss":
-/*!*******************************************************!*\
-  !*** ./src/app/components/chats/chats.component.scss ***!
-  \*******************************************************/
+/***/ "./src/app/components/dashboard/chats/chats.component.scss":
+/*!*****************************************************************!*\
+  !*** ./src/app/components/dashboard/chats/chats.component.scss ***!
+  \*****************************************************************/
 /*! exports provided: default */
 /***/ (function(module, __webpack_exports__, __webpack_require__) {
 
 "use strict";
 __webpack_require__.r(__webpack_exports__);
-/* harmony default export */ __webpack_exports__["default"] = ("\n/*# sourceMappingURL=data:application/json;base64,eyJ2ZXJzaW9uIjozLCJzb3VyY2VzIjpbXSwibmFtZXMiOltdLCJtYXBwaW5ncyI6IiIsImZpbGUiOiJzcmMvYXBwL2NvbXBvbmVudHMvY2hhdHMvY2hhdHMuY29tcG9uZW50LnNjc3MifQ== */");
+/* harmony default export */ __webpack_exports__["default"] = ("\n/*# sourceMappingURL=data:application/json;base64,eyJ2ZXJzaW9uIjozLCJzb3VyY2VzIjpbXSwibmFtZXMiOltdLCJtYXBwaW5ncyI6IiIsImZpbGUiOiJzcmMvYXBwL2NvbXBvbmVudHMvZGFzaGJvYXJkL2NoYXRzL2NoYXRzLmNvbXBvbmVudC5zY3NzIn0= */");
 
 /***/ }),
 
-/***/ "./src/app/components/chats/chats.component.ts":
-/*!*****************************************************!*\
-  !*** ./src/app/components/chats/chats.component.ts ***!
-  \*****************************************************/
+/***/ "./src/app/components/dashboard/chats/chats.component.ts":
+/*!***************************************************************!*\
+  !*** ./src/app/components/dashboard/chats/chats.component.ts ***!
+  \***************************************************************/
 /*! exports provided: ChatsComponent */
 /***/ (function(module, __webpack_exports__, __webpack_require__) {
 
@@ -681,8 +729,8 @@ let ChatsComponent = class ChatsComponent {
 ChatsComponent = tslib__WEBPACK_IMPORTED_MODULE_0__["__decorate"]([
     Object(_angular_core__WEBPACK_IMPORTED_MODULE_1__["Component"])({
         selector: 'app-chats',
-        template: tslib__WEBPACK_IMPORTED_MODULE_0__["__importDefault"](__webpack_require__(/*! raw-loader!./chats.component.html */ "./node_modules/raw-loader/dist/cjs.js!./src/app/components/chats/chats.component.html")).default,
-        styles: [tslib__WEBPACK_IMPORTED_MODULE_0__["__importDefault"](__webpack_require__(/*! ./chats.component.scss */ "./src/app/components/chats/chats.component.scss")).default]
+        template: tslib__WEBPACK_IMPORTED_MODULE_0__["__importDefault"](__webpack_require__(/*! raw-loader!./chats.component.html */ "./node_modules/raw-loader/dist/cjs.js!./src/app/components/dashboard/chats/chats.component.html")).default,
+        styles: [tslib__WEBPACK_IMPORTED_MODULE_0__["__importDefault"](__webpack_require__(/*! ./chats.component.scss */ "./src/app/components/dashboard/chats/chats.component.scss")).default]
     })
 ], ChatsComponent);
 
@@ -729,6 +777,50 @@ DashboardComponent = tslib__WEBPACK_IMPORTED_MODULE_0__["__decorate"]([
         styles: [tslib__WEBPACK_IMPORTED_MODULE_0__["__importDefault"](__webpack_require__(/*! ./dashboard.component.scss */ "./src/app/components/dashboard/dashboard.component.scss")).default]
     })
 ], DashboardComponent);
+
+
+
+/***/ }),
+
+/***/ "./src/app/components/dashboard/user-profile/user-profile.component.scss":
+/*!*******************************************************************************!*\
+  !*** ./src/app/components/dashboard/user-profile/user-profile.component.scss ***!
+  \*******************************************************************************/
+/*! exports provided: default */
+/***/ (function(module, __webpack_exports__, __webpack_require__) {
+
+"use strict";
+__webpack_require__.r(__webpack_exports__);
+/* harmony default export */ __webpack_exports__["default"] = ("\n/*# sourceMappingURL=data:application/json;base64,eyJ2ZXJzaW9uIjozLCJzb3VyY2VzIjpbXSwibmFtZXMiOltdLCJtYXBwaW5ncyI6IiIsImZpbGUiOiJzcmMvYXBwL2NvbXBvbmVudHMvZGFzaGJvYXJkL3VzZXItcHJvZmlsZS91c2VyLXByb2ZpbGUuY29tcG9uZW50LnNjc3MifQ== */");
+
+/***/ }),
+
+/***/ "./src/app/components/dashboard/user-profile/user-profile.component.ts":
+/*!*****************************************************************************!*\
+  !*** ./src/app/components/dashboard/user-profile/user-profile.component.ts ***!
+  \*****************************************************************************/
+/*! exports provided: UserProfileComponent */
+/***/ (function(module, __webpack_exports__, __webpack_require__) {
+
+"use strict";
+__webpack_require__.r(__webpack_exports__);
+/* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "UserProfileComponent", function() { return UserProfileComponent; });
+/* harmony import */ var tslib__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! tslib */ "./node_modules/tslib/tslib.es6.js");
+/* harmony import */ var _angular_core__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! @angular/core */ "./node_modules/@angular/core/fesm2015/core.js");
+
+
+let UserProfileComponent = class UserProfileComponent {
+    constructor() { }
+    ngOnInit() {
+    }
+};
+UserProfileComponent = tslib__WEBPACK_IMPORTED_MODULE_0__["__decorate"]([
+    Object(_angular_core__WEBPACK_IMPORTED_MODULE_1__["Component"])({
+        selector: 'app-user-profile',
+        template: tslib__WEBPACK_IMPORTED_MODULE_0__["__importDefault"](__webpack_require__(/*! raw-loader!./user-profile.component.html */ "./node_modules/raw-loader/dist/cjs.js!./src/app/components/dashboard/user-profile/user-profile.component.html")).default,
+        styles: [tslib__WEBPACK_IMPORTED_MODULE_0__["__importDefault"](__webpack_require__(/*! ./user-profile.component.scss */ "./src/app/components/dashboard/user-profile/user-profile.component.scss")).default]
+    })
+], UserProfileComponent);
 
 
 
@@ -1047,6 +1139,96 @@ LogoutComponent = tslib__WEBPACK_IMPORTED_MODULE_0__["__decorate"]([
         styles: [tslib__WEBPACK_IMPORTED_MODULE_0__["__importDefault"](__webpack_require__(/*! ./logout.component.scss */ "./src/app/components/logout/logout.component.scss")).default]
     })
 ], LogoutComponent);
+
+
+
+/***/ }),
+
+/***/ "./src/app/components/navigation-bar/navigation-bar.component.scss":
+/*!*************************************************************************!*\
+  !*** ./src/app/components/navigation-bar/navigation-bar.component.scss ***!
+  \*************************************************************************/
+/*! exports provided: default */
+/***/ (function(module, __webpack_exports__, __webpack_require__) {
+
+"use strict";
+__webpack_require__.r(__webpack_exports__);
+/* harmony default export */ __webpack_exports__["default"] = (".toolbar-title {\n  margin: 0 16px 0 16px;\n}\n\n.navigation-items {\n  list-style: none;\n  padding: 0;\n  margin: 0;\n  cursor: pointer;\n}\n\n.navigation-toolbar {\n  position: fixed;\n  left: 0;\n  right: 0;\n  top: 0;\n  z-index: 3;\n}\n/*# sourceMappingURL=data:application/json;base64,eyJ2ZXJzaW9uIjozLCJzb3VyY2VzIjpbIi9Vc2Vycy9kZWxpdGFtYWthbmRhL1Byb2plY3RzL2RhdGluZy9tb2JpbGUvc3JjL2FwcC9jb21wb25lbnRzL25hdmlnYXRpb24tYmFyL25hdmlnYXRpb24tYmFyLmNvbXBvbmVudC5zY3NzIiwic3JjL2FwcC9jb21wb25lbnRzL25hdmlnYXRpb24tYmFyL25hdmlnYXRpb24tYmFyLmNvbXBvbmVudC5zY3NzIl0sIm5hbWVzIjpbXSwibWFwcGluZ3MiOiJBQUVBO0VBQ0UscUJBQUE7QUNERjs7QURJQTtFQUNFLGdCQUFBO0VBQ0EsVUFBQTtFQUNBLFNBQUE7RUFDQSxlQUFBO0FDREY7O0FESUE7RUFDSSxlQUFBO0VBQ0EsT0FBQTtFQUNBLFFBQUE7RUFDQSxNQUFBO0VBQ0EsVUFBQTtBQ0RKIiwiZmlsZSI6InNyYy9hcHAvY29tcG9uZW50cy9uYXZpZ2F0aW9uLWJhci9uYXZpZ2F0aW9uLWJhci5jb21wb25lbnQuc2NzcyIsInNvdXJjZXNDb250ZW50IjpbIiR0b29sYmFyLXRpdGxlLXBhZGRpbmc6IDE2cHggIWRlZmF1bHQ7XG5cbi50b29sYmFyLXRpdGxlIHtcbiAgbWFyZ2luOiAwICR0b29sYmFyLXRpdGxlLXBhZGRpbmcgMCAkdG9vbGJhci10aXRsZS1wYWRkaW5nO1xufVxuXG4ubmF2aWdhdGlvbi1pdGVtcyB7XG4gIGxpc3Qtc3R5bGU6IG5vbmU7XG4gIHBhZGRpbmc6IDA7XG4gIG1hcmdpbjogMDtcbiAgY3Vyc29yOiBwb2ludGVyO1xufVxuXG4ubmF2aWdhdGlvbi10b29sYmFyIHtcbiAgICBwb3NpdGlvbjogZml4ZWQ7XG4gICAgbGVmdDogMDtcbiAgICByaWdodDogMDtcbiAgICB0b3A6IDA7XG4gICAgei1pbmRleDogMztcbn1cbiIsIi50b29sYmFyLXRpdGxlIHtcbiAgbWFyZ2luOiAwIDE2cHggMCAxNnB4O1xufVxuXG4ubmF2aWdhdGlvbi1pdGVtcyB7XG4gIGxpc3Qtc3R5bGU6IG5vbmU7XG4gIHBhZGRpbmc6IDA7XG4gIG1hcmdpbjogMDtcbiAgY3Vyc29yOiBwb2ludGVyO1xufVxuXG4ubmF2aWdhdGlvbi10b29sYmFyIHtcbiAgcG9zaXRpb246IGZpeGVkO1xuICBsZWZ0OiAwO1xuICByaWdodDogMDtcbiAgdG9wOiAwO1xuICB6LWluZGV4OiAzO1xufSJdfQ== */");
+
+/***/ }),
+
+/***/ "./src/app/components/navigation-bar/navigation-bar.component.ts":
+/*!***********************************************************************!*\
+  !*** ./src/app/components/navigation-bar/navigation-bar.component.ts ***!
+  \***********************************************************************/
+/*! exports provided: NavigationBarComponent */
+/***/ (function(module, __webpack_exports__, __webpack_require__) {
+
+"use strict";
+__webpack_require__.r(__webpack_exports__);
+/* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "NavigationBarComponent", function() { return NavigationBarComponent; });
+/* harmony import */ var tslib__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! tslib */ "./node_modules/tslib/tslib.es6.js");
+/* harmony import */ var _angular_core__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! @angular/core */ "./node_modules/@angular/core/fesm2015/core.js");
+/* harmony import */ var _angular_router__WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__(/*! @angular/router */ "./node_modules/@angular/router/fesm2015/router.js");
+/* harmony import */ var _services_auth_auth_service__WEBPACK_IMPORTED_MODULE_3__ = __webpack_require__(/*! ../../services/auth/auth.service */ "./src/app/services/auth/auth.service.ts");
+/* harmony import */ var _services_translate_translate_service__WEBPACK_IMPORTED_MODULE_4__ = __webpack_require__(/*! ../../services/translate/translate.service */ "./src/app/services/translate/translate.service.ts");
+/* harmony import */ var _services_dashboard_dashboard_service__WEBPACK_IMPORTED_MODULE_5__ = __webpack_require__(/*! ../../services/dashboard/dashboard.service */ "./src/app/services/dashboard/dashboard.service.ts");
+/* harmony import */ var _shared_error_handler_service__WEBPACK_IMPORTED_MODULE_6__ = __webpack_require__(/*! ../../shared/error-handler.service */ "./src/app/shared/error-handler.service.ts");
+
+
+
+
+
+
+
+let NavigationBarComponent = class NavigationBarComponent {
+    constructor(authService, dashboardService, router, translate, errorService) {
+        this.authService = authService;
+        this.dashboardService = dashboardService;
+        this.router = router;
+        this.translate = translate;
+        this.errorService = errorService;
+    }
+    get userEmail() {
+        if (this.userData && this.userData.email) {
+            return this.userData.email;
+        }
+        return null;
+    }
+    ngOnInit() {
+        this.listAccountDetailSub = this.dashboardService.detailUser().subscribe(data => {
+            this.userData = data;
+        }, (error) => {
+            this.errorService.handleError(error);
+        });
+    }
+    logout() {
+        this.authService.performLogout("logout message");
+        this.router.navigate(['/sign-out']);
+    }
+    setLang(lang) {
+        this.translate.use(lang);
+    }
+    ngOnDestroy() {
+        if (this.listAccountDetailSub) {
+            this.listAccountDetailSub.unsubscribe();
+        }
+    }
+};
+NavigationBarComponent.ctorParameters = () => [
+    { type: _services_auth_auth_service__WEBPACK_IMPORTED_MODULE_3__["AuthService"] },
+    { type: _services_dashboard_dashboard_service__WEBPACK_IMPORTED_MODULE_5__["DashboardService"] },
+    { type: _angular_router__WEBPACK_IMPORTED_MODULE_2__["Router"] },
+    { type: _services_translate_translate_service__WEBPACK_IMPORTED_MODULE_4__["TranslateService"] },
+    { type: _shared_error_handler_service__WEBPACK_IMPORTED_MODULE_6__["ErrorHandlerService"] }
+];
+NavigationBarComponent = tslib__WEBPACK_IMPORTED_MODULE_0__["__decorate"]([
+    Object(_angular_core__WEBPACK_IMPORTED_MODULE_1__["Component"])({
+        selector: 'app-navigation-bar',
+        template: tslib__WEBPACK_IMPORTED_MODULE_0__["__importDefault"](__webpack_require__(/*! raw-loader!./navigation-bar.component.html */ "./node_modules/raw-loader/dist/cjs.js!./src/app/components/navigation-bar/navigation-bar.component.html")).default,
+        styles: [tslib__WEBPACK_IMPORTED_MODULE_0__["__importDefault"](__webpack_require__(/*! ./navigation-bar.component.scss */ "./src/app/components/navigation-bar/navigation-bar.component.scss")).default]
+    })
+], NavigationBarComponent);
 
 
 
@@ -1742,6 +1924,67 @@ UserService = tslib__WEBPACK_IMPORTED_MODULE_0__["__decorate"]([
         providedIn: 'root'
     })
 ], UserService);
+
+
+
+/***/ }),
+
+/***/ "./src/app/shared/error-handler.service.ts":
+/*!*************************************************!*\
+  !*** ./src/app/shared/error-handler.service.ts ***!
+  \*************************************************/
+/*! exports provided: ErrorHandlerService */
+/***/ (function(module, __webpack_exports__, __webpack_require__) {
+
+"use strict";
+__webpack_require__.r(__webpack_exports__);
+/* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "ErrorHandlerService", function() { return ErrorHandlerService; });
+/* harmony import */ var tslib__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! tslib */ "./node_modules/tslib/tslib.es6.js");
+/* harmony import */ var _angular_core__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! @angular/core */ "./node_modules/@angular/core/fesm2015/core.js");
+/* harmony import */ var _angular_router__WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__(/*! @angular/router */ "./node_modules/@angular/router/fesm2015/router.js");
+
+
+
+let ErrorHandlerService = class ErrorHandlerService {
+    constructor(router) {
+        this.router = router;
+        this.errorMessage = '';
+        this.handleError = (error) => {
+            if (error.status === 500) {
+                this.handle500Error(error);
+            }
+            else if (error.status === 404) {
+                this.handle404Error(error);
+            }
+            else {
+                this.handleOtherError(error);
+            }
+        };
+        this.handle500Error = (error) => {
+            this.createErrorMessage(error);
+            this.router.navigate(['/500']);
+        };
+        this.handle404Error = (error) => {
+            this.createErrorMessage(error);
+            this.router.navigate(['/404']);
+        };
+        this.handleOtherError = (error) => {
+            this.createErrorMessage(error);
+            //TODO: this will be fixed later;
+        };
+    }
+    createErrorMessage(error) {
+        this.errorMessage = error.error ? error.error : error.statusText;
+    }
+};
+ErrorHandlerService.ctorParameters = () => [
+    { type: _angular_router__WEBPACK_IMPORTED_MODULE_2__["Router"] }
+];
+ErrorHandlerService = tslib__WEBPACK_IMPORTED_MODULE_0__["__decorate"]([
+    Object(_angular_core__WEBPACK_IMPORTED_MODULE_1__["Injectable"])({
+        providedIn: 'root'
+    })
+], ErrorHandlerService);
 
 
 
