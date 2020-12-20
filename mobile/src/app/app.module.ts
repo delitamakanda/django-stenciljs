@@ -14,11 +14,13 @@ import { LogoutComponent } from './components/logout/logout.component';
 import { NotFoundComponent } from './components/error-pages/not-found/not-found.component';
 import { ServerErrorComponent } from './components/error-pages/server-error/server-error.component';
 import { DashboardComponent } from './components/dashboard/dashboard.component';
-import { ChatsComponent } from './components/chats/chats.component';
+import { ChatsComponent } from './components/dashboard/chats/chats.component';
+import { UserProfileComponent } from './components/dashboard/user-profile/user-profile.component';
 
 import { MaterialModule } from './shared/material.module';
 import { GravatarModule } from 'ngx-gravatar';
 import { CookieService } from 'ngx-cookie-service';
+import { FlexLayoutModule } from '@angular/flex-layout';
 
 import { UserService } from './services/user/user.service';
 import { AuthService } from './services/auth/auth.service';
@@ -28,6 +30,7 @@ import { TranslateService } from './services/translate/translate.service';
 import { TranslatePipe } from './pipes/translate/translate.pipe';
 
 import { TokenInterceptor } from './services/auth/token.interceptor';
+import { NavigationBarComponent } from './components/navigation-bar/navigation-bar.component';
 
 export function setupTranslateFactory(service: TranslateService): Function {
   return () => service.use('fr');
@@ -45,7 +48,9 @@ export function setupTranslateFactory(service: TranslateService): Function {
     ServerErrorComponent,
     DashboardComponent,
     ChatsComponent,
+    UserProfileComponent,
     TranslatePipe,
+    NavigationBarComponent,
   ],
   imports: [
     BrowserModule,
@@ -56,6 +61,7 @@ export function setupTranslateFactory(service: TranslateService): Function {
     FormsModule,
     ReactiveFormsModule.withConfig({ warnOnNgModelWithFormControl: 'never' }),
     HttpClientModule,
+    FlexLayoutModule,
   ],
   providers: [
     CookieService,

@@ -1,0 +1,48 @@
+<mat-toolbar color="secondary" class="navigation-toolbar">
+
+  <mat-toolbar-row>
+
+    <span class="toolbar-title"> {{ 'title' | translate }} </span>
+
+    <div fxFlex fxLayout fxLayoutAlign="flex-end">
+
+      <ul fxLayout fxLayoutGap="20px" class="navigation-items">
+
+
+        <li>
+          <button mat-icon-button [matMenuTriggerFor]="auth" #tooltip="matTooltip" [matTooltip]="userEmail">
+            <mat-icon *ngIf="!userEmail">person_outline</mat-icon>
+            <img ngxGravatar *ngIf="userEmail" [email]="userEmail" size="24">
+          </button>
+          <mat-menu #auth="matMenu">
+            <button mat-menu-item>
+              <mat-icon>person</mat-icon>
+              <span>{{ 'PROFILE' | translate }}</span>
+            </button>
+            <button mat-menu-item (click)="logout()">
+              <mat-icon>exit_to_app</mat-icon>
+              <span>{{ 'LOGOUT' | translate }}</span>
+            </button>
+          </mat-menu>
+        </li>
+
+        <li>
+          <button mat-icon-button [matMenuTriggerFor]="switchLanguage">
+            <mat-icon>language</mat-icon>
+          </button>
+          <mat-menu #switchLanguage="matMenu">
+            <button mat-menu-item (click)="setLang('fr')">
+              <span>FR</span>
+            </button>
+            <button mat-menu-item (click)="setLang('en')">
+              <span>EN</span>
+            </button>
+          </mat-menu>
+        </li>
+
+      </ul>
+
+    </div>
+  </mat-toolbar-row>
+
+</mat-toolbar>

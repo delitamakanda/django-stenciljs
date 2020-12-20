@@ -1,3 +1,5 @@
+import { Gender } from "./gender";
+
 export class User {
     id: number;
     username: string;
@@ -5,5 +7,10 @@ export class User {
     uri: string;
     token?: string;
     expires?: string;
-    constructor() {}
+    email?: string;
+    gender?: Gender;
+    is_active?: boolean;
+    is_staff?: boolean;
+    popularity?: number;
+    constructor() { }
 }
