@@ -58,7 +58,20 @@ __webpack_require__.r(__webpack_exports__);
 
 "use strict";
 __webpack_require__.r(__webpack_exports__);
-/* harmony default export */ __webpack_exports__["default"] = ("<app-navigation-bar></app-navigation-bar>\n<router-outlet></router-outlet>\n");
+/* harmony default export */ __webpack_exports__["default"] = ("<app-navigation-bar></app-navigation-bar>\n<div class=\"main-dashboard-container\">\n    <mat-button-toggle-group name=\"segments\" aria-label=\"segments\">\n        <mat-button-toggle value=\"profile\" routerLink=\"/dashboard/user-profile\">{{ 'PROFILE' | translate }}</mat-button-toggle>\n        <mat-button-toggle value=\"chats\" routerLink=\"/dashboard/chats\">{{ 'CHATS' | translate }}</mat-button-toggle>\n    </mat-button-toggle-group>\n    <router-outlet></router-outlet>\n</div>");
+
+/***/ }),
+
+/***/ "./node_modules/raw-loader/dist/cjs.js!./src/app/components/dashboard/user-profile/new-photo/new-photo.component.html":
+/*!****************************************************************************************************************************!*\
+  !*** ./node_modules/raw-loader/dist/cjs.js!./src/app/components/dashboard/user-profile/new-photo/new-photo.component.html ***!
+  \****************************************************************************************************************************/
+/*! exports provided: default */
+/***/ (function(module, __webpack_exports__, __webpack_require__) {
+
+"use strict";
+__webpack_require__.r(__webpack_exports__);
+/* harmony default export */ __webpack_exports__["default"] = ("<h2>{{ 'updatedProfileSettings' | translate }}</h2>\n<form [formGroup]=\"profilForm\" (ngSubmit)='handleSubmit()' enctype=\"multipart/form-data\">\n    <div *ngIf='userPhotoErrors'>{{ userPhotoErrors }}</div>\n    <mat-form-field appearance=\"fill\">\n        <input type=\"text\" matInput placeholder=\"{{ 'labelLink' | translate }}\" formControlName=\"linkField\" />\n    </mat-form-field>\n    <input type=\"file\" id=\"userFile\" (change)=\"onSelectFile($event)\" #fileInput style=\"display: none;\">\n    <mat-form-field>\n        <input matInput formControlName=\"fileField\" placeholder=\"{{ 'labelFile' | translate }}\" />\n    </mat-form-field>\n    <div *ngIf=\"fileInformation\">\n        <p>{{fileInformation.filename}}</p>\n        <p>{{fileInformation.size}}</p>\n    </div>\n    <button mat-raised-button type=\"button\" (click)=\"selectFile()\">{{ 'labelSelect' | translate }}</button>\n    <mat-form-field>\n        <textarea matInput placeholder=\"{{ 'labelDetails' | translate }}\" formControlName=\"detailsField\"></textarea>\n    </mat-form-field>\n    <mat-card-actions>\n        <button type=\"submit\" mat-raised-button color=\"primary\" [disabled]=\"profilForm.invalid\">{{ 'labelValidate' | translate }}</button>\n        <button type=\"button\" mat-raised-button color=\"warn\" (click)=\"revert()\">{{ 'resetLabel' | translate }}</button>\n    </mat-card-actions>\n</form>\n<!-- \n    <mat-card class=\"card-image\">\n        <mat-card-header>\n            <div mat-card-avatar>\n                <img ngxGravatar *ngIf=\"results.email\" [email]=\"results.email\">\n            </div>\n            <mat-card-title>{{ results.displayName }}</mat-card-title>\n            <mat-card-subtitle>{{ 'labelPopularity' | translate }} : {{ results.popularity }}</mat-card-subtitle>\n        </mat-card-header>\n    </mat-card>\n\n    <div *ngIf=\"results2\">\n        <mat-card *ngFor=\"let res of results2\" class=\"card-image\">\n            <img mat-card-image *ngIf=\"res.file\" [src]=\"res.file\" [alt]=\"res.details\">\n            <img mat-card-image *ngIf=\"res.link && res.link != 'null'\" [src]=\"res.link\" [alt]=\"res.details\">\n            <mat-card-content>\n                <p>\n                  {{ res.details }}\n                </p>\n            </mat-card-content>\n            <mat-card-actions>\n            <button mat-button (click)=\"likePhoto(res.id)\"><mat-icon>favorite</mat-icon></button>\n            <button mat-button (click)=\"deletePhoto(res.id)\"><mat-icon>delete</mat-icon></button>\n          </mat-card-actions>\n        </mat-card>\n    </div>\n</div>\n-->\n\n<button mat-raised-button (click)=\"closeModal()\">{{ 'closeModal' | translate }}</button>");
 
 /***/ }),
 
@@ -71,7 +84,7 @@ __webpack_require__.r(__webpack_exports__);
 
 "use strict";
 __webpack_require__.r(__webpack_exports__);
-/* harmony default export */ __webpack_exports__["default"] = ("<p>user-profile works!</p>\n");
+/* harmony default export */ __webpack_exports__["default"] = ("<button mat-raised-button mat-fab (click)=\"openModal()\"><mat-icon>add_task</mat-icon></button>\n<mat-card *ngFor=\"let res of results\" class=\"card-image\">\n    <img mat-card-image *ngIf=\"res.file\" [src]=\"res.file\" [alt]=\"res.details\">\n    <img mat-card-image *ngIf=\"res.link && res.link != 'null'\" [src]=\"res.link | safe\" [alt]=\"res.details\">\n    <mat-card-content>\n        <p>\n            {{ res.details }}\n        </p>\n    </mat-card-content>\n    <mat-card-actions>\n    <button mat-button (click)=\"likePhoto(res.id)\"><mat-icon>favorite</mat-icon></button>\n    <button mat-button (click)=\"deletePhoto(res.id)\"><mat-icon>delete</mat-icon></button>\n    </mat-card-actions>\n</mat-card>");
 
 /***/ }),
 
@@ -605,6 +618,10 @@ __webpack_require__.r(__webpack_exports__);
 /* harmony import */ var _pipes_translate_translate_pipe__WEBPACK_IMPORTED_MODULE_27__ = __webpack_require__(/*! ./pipes/translate/translate.pipe */ "./src/app/pipes/translate/translate.pipe.ts");
 /* harmony import */ var _services_auth_token_interceptor__WEBPACK_IMPORTED_MODULE_28__ = __webpack_require__(/*! ./services/auth/token.interceptor */ "./src/app/services/auth/token.interceptor.ts");
 /* harmony import */ var _components_navigation_bar_navigation_bar_component__WEBPACK_IMPORTED_MODULE_29__ = __webpack_require__(/*! ./components/navigation-bar/navigation-bar.component */ "./src/app/components/navigation-bar/navigation-bar.component.ts");
+/* harmony import */ var _components_dashboard_user_profile_new_photo_new_photo_component__WEBPACK_IMPORTED_MODULE_30__ = __webpack_require__(/*! ./components/dashboard/user-profile/new-photo/new-photo.component */ "./src/app/components/dashboard/user-profile/new-photo/new-photo.component.ts");
+/* harmony import */ var _pipes_safe_safe_pipe__WEBPACK_IMPORTED_MODULE_31__ = __webpack_require__(/*! ./pipes/safe/safe.pipe */ "./src/app/pipes/safe/safe.pipe.ts");
+
+
 
 
 
@@ -656,6 +673,8 @@ AppModule = tslib__WEBPACK_IMPORTED_MODULE_0__["__decorate"]([
             _components_dashboard_user_profile_user_profile_component__WEBPACK_IMPORTED_MODULE_17__["UserProfileComponent"],
             _pipes_translate_translate_pipe__WEBPACK_IMPORTED_MODULE_27__["TranslatePipe"],
             _components_navigation_bar_navigation_bar_component__WEBPACK_IMPORTED_MODULE_29__["NavigationBarComponent"],
+            _components_dashboard_user_profile_new_photo_new_photo_component__WEBPACK_IMPORTED_MODULE_30__["NewPhotoComponent"],
+            _pipes_safe_safe_pipe__WEBPACK_IMPORTED_MODULE_31__["SafePipe"],
         ],
         imports: [
             _angular_platform_browser__WEBPACK_IMPORTED_MODULE_1__["BrowserModule"],
@@ -686,7 +705,10 @@ AppModule = tslib__WEBPACK_IMPORTED_MODULE_0__["__decorate"]([
             },
             _services_auth_token_interceptor__WEBPACK_IMPORTED_MODULE_28__["TokenInterceptor"],
         ],
-        bootstrap: [_app_component__WEBPACK_IMPORTED_MODULE_5__["AppComponent"]]
+        bootstrap: [_app_component__WEBPACK_IMPORTED_MODULE_5__["AppComponent"]],
+        entryComponents: [
+            _components_dashboard_user_profile_new_photo_new_photo_component__WEBPACK_IMPORTED_MODULE_30__["NewPhotoComponent"]
+        ]
     })
 ], AppModule);
 
@@ -747,7 +769,7 @@ ChatsComponent = tslib__WEBPACK_IMPORTED_MODULE_0__["__decorate"]([
 
 "use strict";
 __webpack_require__.r(__webpack_exports__);
-/* harmony default export */ __webpack_exports__["default"] = ("\n/*# sourceMappingURL=data:application/json;base64,eyJ2ZXJzaW9uIjozLCJzb3VyY2VzIjpbXSwibmFtZXMiOltdLCJtYXBwaW5ncyI6IiIsImZpbGUiOiJzcmMvYXBwL2NvbXBvbmVudHMvZGFzaGJvYXJkL2Rhc2hib2FyZC5jb21wb25lbnQuc2NzcyJ9 */");
+/* harmony default export */ __webpack_exports__["default"] = (".main-dashboard-container {\n  padding: 64px 16px 0 16px;\n  display: flex;\n  flex-direction: column;\n  align-items: center;\n}\n/*# sourceMappingURL=data:application/json;base64,eyJ2ZXJzaW9uIjozLCJzb3VyY2VzIjpbIi9Vc2Vycy9kZWxpdGFtYWthbmRhL1Byb2plY3RzL2RhdGluZy9tb2JpbGUvc3JjL2FwcC9jb21wb25lbnRzL2Rhc2hib2FyZC9kYXNoYm9hcmQuY29tcG9uZW50LnNjc3MiLCJzcmMvYXBwL2NvbXBvbmVudHMvZGFzaGJvYXJkL2Rhc2hib2FyZC5jb21wb25lbnQuc2NzcyJdLCJuYW1lcyI6W10sIm1hcHBpbmdzIjoiQUFBQTtFQUNJLHlCQUFBO0VBQ0EsYUFBQTtFQUNBLHNCQUFBO0VBQ0EsbUJBQUE7QUNDSiIsImZpbGUiOiJzcmMvYXBwL2NvbXBvbmVudHMvZGFzaGJvYXJkL2Rhc2hib2FyZC5jb21wb25lbnQuc2NzcyIsInNvdXJjZXNDb250ZW50IjpbIi5tYWluLWRhc2hib2FyZC1jb250YWluZXIge1xuICAgIHBhZGRpbmc6IDY0cHggMTZweCAwIDE2cHg7XG4gICAgZGlzcGxheTogZmxleDtcbiAgICBmbGV4LWRpcmVjdGlvbjogY29sdW1uO1xuICAgIGFsaWduLWl0ZW1zOiBjZW50ZXI7XG59IiwiLm1haW4tZGFzaGJvYXJkLWNvbnRhaW5lciB7XG4gIHBhZGRpbmc6IDY0cHggMTZweCAwIDE2cHg7XG4gIGRpc3BsYXk6IGZsZXg7XG4gIGZsZXgtZGlyZWN0aW9uOiBjb2x1bW47XG4gIGFsaWduLWl0ZW1zOiBjZW50ZXI7XG59Il19 */");
 
 /***/ }),
 
@@ -782,6 +804,124 @@ DashboardComponent = tslib__WEBPACK_IMPORTED_MODULE_0__["__decorate"]([
 
 /***/ }),
 
+/***/ "./src/app/components/dashboard/user-profile/new-photo/new-photo.component.scss":
+/*!**************************************************************************************!*\
+  !*** ./src/app/components/dashboard/user-profile/new-photo/new-photo.component.scss ***!
+  \**************************************************************************************/
+/*! exports provided: default */
+/***/ (function(module, __webpack_exports__, __webpack_require__) {
+
+"use strict";
+__webpack_require__.r(__webpack_exports__);
+/* harmony default export */ __webpack_exports__["default"] = ("\n/*# sourceMappingURL=data:application/json;base64,eyJ2ZXJzaW9uIjozLCJzb3VyY2VzIjpbXSwibmFtZXMiOltdLCJtYXBwaW5ncyI6IiIsImZpbGUiOiJzcmMvYXBwL2NvbXBvbmVudHMvZGFzaGJvYXJkL3VzZXItcHJvZmlsZS9uZXctcGhvdG8vbmV3LXBob3RvLmNvbXBvbmVudC5zY3NzIn0= */");
+
+/***/ }),
+
+/***/ "./src/app/components/dashboard/user-profile/new-photo/new-photo.component.ts":
+/*!************************************************************************************!*\
+  !*** ./src/app/components/dashboard/user-profile/new-photo/new-photo.component.ts ***!
+  \************************************************************************************/
+/*! exports provided: NewPhotoComponent */
+/***/ (function(module, __webpack_exports__, __webpack_require__) {
+
+"use strict";
+__webpack_require__.r(__webpack_exports__);
+/* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "NewPhotoComponent", function() { return NewPhotoComponent; });
+/* harmony import */ var tslib__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! tslib */ "./node_modules/tslib/tslib.es6.js");
+/* harmony import */ var _angular_core__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! @angular/core */ "./node_modules/@angular/core/fesm2015/core.js");
+/* harmony import */ var _angular_forms__WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__(/*! @angular/forms */ "./node_modules/@angular/forms/fesm2015/forms.js");
+/* harmony import */ var _shared_error_handler_service__WEBPACK_IMPORTED_MODULE_3__ = __webpack_require__(/*! ../../../../shared/error-handler.service */ "./src/app/shared/error-handler.service.ts");
+/* harmony import */ var _services_dashboard_dashboard_service__WEBPACK_IMPORTED_MODULE_4__ = __webpack_require__(/*! ../../../../services/dashboard/dashboard.service */ "./src/app/services/dashboard/dashboard.service.ts");
+/* harmony import */ var _angular_material_dialog__WEBPACK_IMPORTED_MODULE_5__ = __webpack_require__(/*! @angular/material/dialog */ "./node_modules/@angular/material/esm2015/dialog.js");
+
+
+
+
+
+
+let NewPhotoComponent = class NewPhotoComponent {
+    constructor(dashboardService, fb, errorService, dialogRef) {
+        this.dashboardService = dashboardService;
+        this.fb = fb;
+        this.errorService = errorService;
+        this.dialogRef = dialogRef;
+    }
+    isErrorState(control, form) {
+        const isSubmitted = form && form.submitted;
+        return !!(control && control.invalid && (control.dirty || control.touched || isSubmitted));
+    }
+    ngOnInit() {
+        this.profilForm = this.fb.group({
+            linkField: [''],
+            fileField: [''],
+            detailsField: ['']
+        });
+    }
+    ngOnDestroy() {
+        if (this.postPhotoUserSub) {
+            this.postPhotoUserSub.unsubscribe();
+        }
+    }
+    postPhoto(data) {
+        this.postPhotoUserSub = this.dashboardService.postUserPhoto(data).subscribe(data => {
+            this.fileInformation = data;
+            this.updated = false;
+        }, error => {
+            this.userPhotoErrors = error['error']['detail'];
+            this.errorService.handleError(error);
+        });
+    }
+    handleSubmit() {
+        let formData = new FormData();
+        formData.append('link', this.profilForm.get('linkField').value);
+        if (this.file) {
+            formData.append('file', this.file, this.file.name);
+        }
+        else {
+            formData.append('file', this.profilForm.get('fileField').value);
+        }
+        formData.append('details', this.profilForm.get('detailsField').value);
+        this.postPhoto(formData);
+        this.closeModal();
+    }
+    revert() {
+        this.profilForm.reset();
+    }
+    onSelectFile(event) {
+        if (event.target.files && event.target.files.length > 0) {
+            this.file = event.target.files[0];
+            this.profilForm.get('fileField').setValue(this.file.name);
+            this.fileInformation = null;
+        }
+    }
+    selectFile() {
+        this.fileInput.nativeElement.click();
+    }
+    closeModal() {
+        this.dialogRef.close();
+    }
+};
+NewPhotoComponent.ctorParameters = () => [
+    { type: _services_dashboard_dashboard_service__WEBPACK_IMPORTED_MODULE_4__["DashboardService"] },
+    { type: _angular_forms__WEBPACK_IMPORTED_MODULE_2__["FormBuilder"] },
+    { type: _shared_error_handler_service__WEBPACK_IMPORTED_MODULE_3__["ErrorHandlerService"] },
+    { type: _angular_material_dialog__WEBPACK_IMPORTED_MODULE_5__["MatDialogRef"] }
+];
+tslib__WEBPACK_IMPORTED_MODULE_0__["__decorate"]([
+    Object(_angular_core__WEBPACK_IMPORTED_MODULE_1__["ViewChild"])('fileInput', { static: true })
+], NewPhotoComponent.prototype, "fileInput", void 0);
+NewPhotoComponent = tslib__WEBPACK_IMPORTED_MODULE_0__["__decorate"]([
+    Object(_angular_core__WEBPACK_IMPORTED_MODULE_1__["Component"])({
+        selector: 'app-new-photo',
+        template: tslib__WEBPACK_IMPORTED_MODULE_0__["__importDefault"](__webpack_require__(/*! raw-loader!./new-photo.component.html */ "./node_modules/raw-loader/dist/cjs.js!./src/app/components/dashboard/user-profile/new-photo/new-photo.component.html")).default,
+        styles: [tslib__WEBPACK_IMPORTED_MODULE_0__["__importDefault"](__webpack_require__(/*! ./new-photo.component.scss */ "./src/app/components/dashboard/user-profile/new-photo/new-photo.component.scss")).default]
+    })
+], NewPhotoComponent);
+
+
+
+/***/ }),
+
 /***/ "./src/app/components/dashboard/user-profile/user-profile.component.scss":
 /*!*******************************************************************************!*\
   !*** ./src/app/components/dashboard/user-profile/user-profile.component.scss ***!
@@ -791,7 +931,7 @@ DashboardComponent = tslib__WEBPACK_IMPORTED_MODULE_0__["__decorate"]([
 
 "use strict";
 __webpack_require__.r(__webpack_exports__);
-/* harmony default export */ __webpack_exports__["default"] = ("\n/*# sourceMappingURL=data:application/json;base64,eyJ2ZXJzaW9uIjozLCJzb3VyY2VzIjpbXSwibmFtZXMiOltdLCJtYXBwaW5ncyI6IiIsImZpbGUiOiJzcmMvYXBwL2NvbXBvbmVudHMvZGFzaGJvYXJkL3VzZXItcHJvZmlsZS91c2VyLXByb2ZpbGUuY29tcG9uZW50LnNjc3MifQ== */");
+/* harmony default export */ __webpack_exports__["default"] = (".card-image {\n  margin-top: 1em;\n}\n.card-image:first-child {\n  margin-top: 0;\n}\n/*# sourceMappingURL=data:application/json;base64,eyJ2ZXJzaW9uIjozLCJzb3VyY2VzIjpbIi9Vc2Vycy9kZWxpdGFtYWthbmRhL1Byb2plY3RzL2RhdGluZy9tb2JpbGUvc3JjL2FwcC9jb21wb25lbnRzL2Rhc2hib2FyZC91c2VyLXByb2ZpbGUvdXNlci1wcm9maWxlLmNvbXBvbmVudC5zY3NzIiwic3JjL2FwcC9jb21wb25lbnRzL2Rhc2hib2FyZC91c2VyLXByb2ZpbGUvdXNlci1wcm9maWxlLmNvbXBvbmVudC5zY3NzIl0sIm5hbWVzIjpbXSwibWFwcGluZ3MiOiJBQUFBO0VBQ0ksZUFBQTtBQ0NKO0FEQUk7RUFDSSxhQUFBO0FDRVIiLCJmaWxlIjoic3JjL2FwcC9jb21wb25lbnRzL2Rhc2hib2FyZC91c2VyLXByb2ZpbGUvdXNlci1wcm9maWxlLmNvbXBvbmVudC5zY3NzIiwic291cmNlc0NvbnRlbnQiOlsiLmNhcmQtaW1hZ2Uge1xuICAgIG1hcmdpbi10b3A6IDFlbTtcbiAgICAmOmZpcnN0LWNoaWxkIHtcbiAgICAgICAgbWFyZ2luLXRvcDogMDtcbiAgICB9XG59IiwiLmNhcmQtaW1hZ2Uge1xuICBtYXJnaW4tdG9wOiAxZW07XG59XG4uY2FyZC1pbWFnZTpmaXJzdC1jaGlsZCB7XG4gIG1hcmdpbi10b3A6IDA7XG59Il19 */");
 
 /***/ }),
 
@@ -807,13 +947,60 @@ __webpack_require__.r(__webpack_exports__);
 /* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "UserProfileComponent", function() { return UserProfileComponent; });
 /* harmony import */ var tslib__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! tslib */ "./node_modules/tslib/tslib.es6.js");
 /* harmony import */ var _angular_core__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! @angular/core */ "./node_modules/@angular/core/fesm2015/core.js");
+/* harmony import */ var _shared_error_handler_service__WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__(/*! ../../../shared/error-handler.service */ "./src/app/shared/error-handler.service.ts");
+/* harmony import */ var _services_dashboard_dashboard_service__WEBPACK_IMPORTED_MODULE_3__ = __webpack_require__(/*! ../../../services/dashboard/dashboard.service */ "./src/app/services/dashboard/dashboard.service.ts");
+/* harmony import */ var _angular_material_dialog__WEBPACK_IMPORTED_MODULE_4__ = __webpack_require__(/*! @angular/material/dialog */ "./node_modules/@angular/material/esm2015/dialog.js");
+/* harmony import */ var _new_photo_new_photo_component__WEBPACK_IMPORTED_MODULE_5__ = __webpack_require__(/*! ./new-photo/new-photo.component */ "./src/app/components/dashboard/user-profile/new-photo/new-photo.component.ts");
+
+
+
+
 
 
 let UserProfileComponent = class UserProfileComponent {
-    constructor() { }
+    constructor(dashboardService, errorService, matDialog) {
+        this.dashboardService = dashboardService;
+        this.errorService = errorService;
+        this.matDialog = matDialog;
+        this.results = [];
+    }
     ngOnInit() {
+        this.getPhotos();
+    }
+    getPhotos() {
+        this.listAccountDetailPhotoSub = this.dashboardService.detailUserPhoto().subscribe(data => {
+            this.results = data;
+        }, error => {
+            this.errorService.handleError(error);
+        });
+    }
+    ngOnDestroy() {
+        if (this.listAccountDetailPhotoSub) {
+            this.listAccountDetailPhotoSub.unsubscribe();
+        }
+    }
+    likePhoto(id) {
+        console.log(id);
+    }
+    deletePhoto(id) {
+        return tslib__WEBPACK_IMPORTED_MODULE_0__["__awaiter"](this, void 0, void 0, function* () {
+            yield this.dashboardService.deleteUserPhoto(id).toPromise();
+            this.getPhotos();
+        });
+    }
+    openModal() {
+        const dialogConfig = new _angular_material_dialog__WEBPACK_IMPORTED_MODULE_4__["MatDialogConfig"]();
+        dialogConfig.disableClose = true;
+        dialogConfig.id = "modal-component";
+        dialogConfig.width = "300px";
+        const modalDialog = this.matDialog.open(_new_photo_new_photo_component__WEBPACK_IMPORTED_MODULE_5__["NewPhotoComponent"], dialogConfig);
     }
 };
+UserProfileComponent.ctorParameters = () => [
+    { type: _services_dashboard_dashboard_service__WEBPACK_IMPORTED_MODULE_3__["DashboardService"] },
+    { type: _shared_error_handler_service__WEBPACK_IMPORTED_MODULE_2__["ErrorHandlerService"] },
+    { type: _angular_material_dialog__WEBPACK_IMPORTED_MODULE_4__["MatDialog"] }
+];
 UserProfileComponent = tslib__WEBPACK_IMPORTED_MODULE_0__["__decorate"]([
     Object(_angular_core__WEBPACK_IMPORTED_MODULE_1__["Component"])({
         selector: 'app-user-profile',
@@ -1444,6 +1631,43 @@ IsAuthenticatedGuard = tslib__WEBPACK_IMPORTED_MODULE_0__["__decorate"]([
         providedIn: 'root'
     })
 ], IsAuthenticatedGuard);
+
+
+
+/***/ }),
+
+/***/ "./src/app/pipes/safe/safe.pipe.ts":
+/*!*****************************************!*\
+  !*** ./src/app/pipes/safe/safe.pipe.ts ***!
+  \*****************************************/
+/*! exports provided: SafePipe */
+/***/ (function(module, __webpack_exports__, __webpack_require__) {
+
+"use strict";
+__webpack_require__.r(__webpack_exports__);
+/* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "SafePipe", function() { return SafePipe; });
+/* harmony import */ var tslib__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! tslib */ "./node_modules/tslib/tslib.es6.js");
+/* harmony import */ var _angular_core__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! @angular/core */ "./node_modules/@angular/core/fesm2015/core.js");
+/* harmony import */ var _angular_platform_browser__WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__(/*! @angular/platform-browser */ "./node_modules/@angular/platform-browser/fesm2015/platform-browser.js");
+
+
+
+let SafePipe = class SafePipe {
+    constructor(domSanitizer) {
+        this.domSanitizer = domSanitizer;
+    }
+    transform(url) {
+        return this.domSanitizer.bypassSecurityTrustResourceUrl(url);
+    }
+};
+SafePipe.ctorParameters = () => [
+    { type: _angular_platform_browser__WEBPACK_IMPORTED_MODULE_2__["DomSanitizer"] }
+];
+SafePipe = tslib__WEBPACK_IMPORTED_MODULE_0__["__decorate"]([
+    Object(_angular_core__WEBPACK_IMPORTED_MODULE_1__["Pipe"])({
+        name: 'safe'
+    })
+], SafePipe);
 
 
 
