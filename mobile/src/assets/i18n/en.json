@@ -5,6 +5,8 @@
   "APPTOOLBARTITLE": "Lov3r",
   "MYWORK": "Work",
   "PROFILE": "Profile",
+  "PHOTOS": "Photos",
+  "CHATS": "Chatbox",
   "CUSTOMERS": "Customers",
   "CONTACTS": "Contacts",
   "LOGOUT": "Logout",
@@ -22,12 +24,13 @@
   "labelPasswordConfirm": "Password Confirmation",
   "labelEmailOrUsername": "E-mail or username",
   "updatedProfileSettings": "Add a photo",
-  "labelLink": "Link (Photo)",
+  "labelLink": "Link (Photo) http://",
   "labelFile": "Download a photo",
   "labelDetails": "Résumé",
   "labelSelect": "Select",
   "labelValidate": "Validate",
   "labelDetailsRequired": "Details is required.",
   "labelPopularity": "Popularity",
-  "labeltokenExists": "You are already logged in! Would you like to "
+  "labeltokenExists": "You are already logged in! Would you like to ",
+  "closeModal": "Close"
 }

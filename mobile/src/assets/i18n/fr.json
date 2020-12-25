@@ -5,6 +5,8 @@
   "APPTOOLBARTITLE": "Lov3r",
   "MYWORK": "travail",
   "PROFILE": "Profil",
+  "PHOTOS": "Photos",
+  "CHATS": "Chatbox",
   "CUSTOMERS": "clients",
   "CONTACTS": "Contacts",
   "LOGOUT": "déconnexion",
@@ -22,12 +24,13 @@
   "labelPasswordConfirm": "Confirmation de mot de passe",
   "labelEmailOrUsername": "E-mail ou peudo",
   "updatedProfileSettings": "Ajouter une photo",
-  "labelLink": "Lien (Photo)",
+  "labelLink": "Lien (Photo) http://",
   "labelFile": "Télécharger une photo",
   "labelDetails": "Résumé",
   "labelSelect": "Selectionner",
   "labelValidate": "Valider",
   "labelDetailsRequired": "Details est requis.",
   "labelPopularity": "Popularité",
-  "labeltokenExists": "Vous êtes déjà connecter!   "
+  "labeltokenExists": "Vous êtes déjà connecter!   ",
+  "closeModal": "Fermer"
 }

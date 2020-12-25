@@ -1,1 +1,14 @@
-<p>user-profile works!</p>
+<button mat-raised-button mat-fab (click)="openModal()"><mat-icon>add_task</mat-icon></button>
+<mat-card *ngFor="let res of results" class="card-image">
+    <img mat-card-image *ngIf="res.file" [src]="res.file" [alt]="res.details">
+    <img mat-card-image *ngIf="res.link && res.link != 'null'" [src]="res.link | safe" [alt]="res.details">
+    <mat-card-content>
+        <p>
+            {{ res.details }}
+        </p>
+    </mat-card-content>
+    <mat-card-actions>
+    <button mat-button (click)="likePhoto(res.id)"><mat-icon>favorite</mat-icon></button>
+    <button mat-button (click)="deletePhoto(res.id)"><mat-icon>delete</mat-icon></button>
+    </mat-card-actions>
+</mat-card>

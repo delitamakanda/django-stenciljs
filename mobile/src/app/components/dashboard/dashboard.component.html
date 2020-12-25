@@ -1,2 +1,8 @@
 <app-navigation-bar></app-navigation-bar>
-<router-outlet></router-outlet>
+<div class="main-dashboard-container">
+    <mat-button-toggle-group name="segments" aria-label="segments">
+        <mat-button-toggle value="profile" routerLink="/dashboard/user-profile">{{ 'PROFILE' | translate }}</mat-button-toggle>
+        <mat-button-toggle value="chats" routerLink="/dashboard/chats">{{ 'CHATS' | translate }}</mat-button-toggle>
+    </mat-button-toggle-group>
+    <router-outlet></router-outlet>
+</div>
