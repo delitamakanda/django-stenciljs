@@ -45,7 +45,20 @@ __webpack_require__.r(__webpack_exports__);
 
 "use strict";
 __webpack_require__.r(__webpack_exports__);
-/* harmony default export */ __webpack_exports__["default"] = ("<p>chats works!</p>\n");
+/* harmony default export */ __webpack_exports__["default"] = ("<button mat-button mat-raised-button (click)=\"openModal()\">{{ 'newConversationLabel' | translate }}</button>\n");
+
+/***/ }),
+
+/***/ "./node_modules/raw-loader/dist/cjs.js!./src/app/components/dashboard/chats/new-conversation/new-conversation.component.html":
+/*!***********************************************************************************************************************************!*\
+  !*** ./node_modules/raw-loader/dist/cjs.js!./src/app/components/dashboard/chats/new-conversation/new-conversation.component.html ***!
+  \***********************************************************************************************************************************/
+/*! exports provided: default */
+/***/ (function(module, __webpack_exports__, __webpack_require__) {
+
+"use strict";
+__webpack_require__.r(__webpack_exports__);
+/* harmony default export */ __webpack_exports__["default"] = ("<form class=\"example-form\">\n  <mat-form-field class=\"example-full-width\">\n    <input type=\"text\" [placeholder]=\"'participantLabel' | translate\" aria-label=\"Number\" matInput [formControl]=\"myControl\" [matAutocomplete]=\"auto\">\n    <mat-autocomplete autoActiveFirstOption #auto=\"matAutocomplete\">\n      <mat-option *ngFor=\"let option of filteredOptions | async\" [value]=\"option\">\n        {{option}}\n      </mat-option>\n    </mat-autocomplete>\n  </mat-form-field>\n  <mat-card-actions>\n    <button type=\"button\" mat-raised-button color=\"primary\" (click)=\"addParticipant()\">{{ 'newConversationLabel' | translate }}</button>\n    </mat-card-actions>\n</form>");
 
 /***/ }),
 
@@ -620,6 +633,8 @@ __webpack_require__.r(__webpack_exports__);
 /* harmony import */ var _components_navigation_bar_navigation_bar_component__WEBPACK_IMPORTED_MODULE_29__ = __webpack_require__(/*! ./components/navigation-bar/navigation-bar.component */ "./src/app/components/navigation-bar/navigation-bar.component.ts");
 /* harmony import */ var _components_dashboard_user_profile_new_photo_new_photo_component__WEBPACK_IMPORTED_MODULE_30__ = __webpack_require__(/*! ./components/dashboard/user-profile/new-photo/new-photo.component */ "./src/app/components/dashboard/user-profile/new-photo/new-photo.component.ts");
 /* harmony import */ var _pipes_safe_safe_pipe__WEBPACK_IMPORTED_MODULE_31__ = __webpack_require__(/*! ./pipes/safe/safe.pipe */ "./src/app/pipes/safe/safe.pipe.ts");
+/* harmony import */ var _components_dashboard_chats_new_conversation_new_conversation_component__WEBPACK_IMPORTED_MODULE_32__ = __webpack_require__(/*! ./components/dashboard/chats/new-conversation/new-conversation.component */ "./src/app/components/dashboard/chats/new-conversation/new-conversation.component.ts");
+
 
 
 
@@ -675,6 +690,7 @@ AppModule = tslib__WEBPACK_IMPORTED_MODULE_0__["__decorate"]([
             _components_navigation_bar_navigation_bar_component__WEBPACK_IMPORTED_MODULE_29__["NavigationBarComponent"],
             _components_dashboard_user_profile_new_photo_new_photo_component__WEBPACK_IMPORTED_MODULE_30__["NewPhotoComponent"],
             _pipes_safe_safe_pipe__WEBPACK_IMPORTED_MODULE_31__["SafePipe"],
+            _components_dashboard_chats_new_conversation_new_conversation_component__WEBPACK_IMPORTED_MODULE_32__["NewConversationComponent"],
         ],
         imports: [
             _angular_platform_browser__WEBPACK_IMPORTED_MODULE_1__["BrowserModule"],
@@ -707,7 +723,8 @@ AppModule = tslib__WEBPACK_IMPORTED_MODULE_0__["__decorate"]([
         ],
         bootstrap: [_app_component__WEBPACK_IMPORTED_MODULE_5__["AppComponent"]],
         entryComponents: [
-            _components_dashboard_user_profile_new_photo_new_photo_component__WEBPACK_IMPORTED_MODULE_30__["NewPhotoComponent"]
+            _components_dashboard_user_profile_new_photo_new_photo_component__WEBPACK_IMPORTED_MODULE_30__["NewPhotoComponent"],
+            _components_dashboard_chats_new_conversation_new_conversation_component__WEBPACK_IMPORTED_MODULE_32__["NewConversationComponent"],
         ]
     })
 ], AppModule);
@@ -741,13 +758,32 @@ __webpack_require__.r(__webpack_exports__);
 /* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "ChatsComponent", function() { return ChatsComponent; });
 /* harmony import */ var tslib__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! tslib */ "./node_modules/tslib/tslib.es6.js");
 /* harmony import */ var _angular_core__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! @angular/core */ "./node_modules/@angular/core/fesm2015/core.js");
+/* harmony import */ var _angular_material__WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__(/*! @angular/material */ "./node_modules/@angular/material/esm2015/material.js");
+/* harmony import */ var _new_conversation_new_conversation_component__WEBPACK_IMPORTED_MODULE_3__ = __webpack_require__(/*! ./new-conversation/new-conversation.component */ "./src/app/components/dashboard/chats/new-conversation/new-conversation.component.ts");
+
+
 
 
 let ChatsComponent = class ChatsComponent {
-    constructor() { }
+    constructor(matDialog) {
+        this.matDialog = matDialog;
+    }
     ngOnInit() {
     }
+    openModal() {
+        const dialogConfig = new _angular_material__WEBPACK_IMPORTED_MODULE_2__["MatDialogConfig"]();
+        dialogConfig.disableClose = true;
+        dialogConfig.id = "new-conversation-component";
+        dialogConfig.width = "450px";
+        const modalDialog = this.matDialog.open(_new_conversation_new_conversation_component__WEBPACK_IMPORTED_MODULE_3__["NewConversationComponent"], dialogConfig);
+        modalDialog.afterClosed().subscribe(response => {
+            console.log(response);
+        });
+    }
 };
+ChatsComponent.ctorParameters = () => [
+    { type: _angular_material__WEBPACK_IMPORTED_MODULE_2__["MatDialog"] }
+];
 ChatsComponent = tslib__WEBPACK_IMPORTED_MODULE_0__["__decorate"]([
     Object(_angular_core__WEBPACK_IMPORTED_MODULE_1__["Component"])({
         selector: 'app-chats',
@@ -755,6 +791,74 @@ ChatsComponent = tslib__WEBPACK_IMPORTED_MODULE_0__["__decorate"]([
         styles: [tslib__WEBPACK_IMPORTED_MODULE_0__["__importDefault"](__webpack_require__(/*! ./chats.component.scss */ "./src/app/components/dashboard/chats/chats.component.scss")).default]
     })
 ], ChatsComponent);
+
+
+
+/***/ }),
+
+/***/ "./src/app/components/dashboard/chats/new-conversation/new-conversation.component.scss":
+/*!*********************************************************************************************!*\
+  !*** ./src/app/components/dashboard/chats/new-conversation/new-conversation.component.scss ***!
+  \*********************************************************************************************/
+/*! exports provided: default */
+/***/ (function(module, __webpack_exports__, __webpack_require__) {
+
+"use strict";
+__webpack_require__.r(__webpack_exports__);
+/* harmony default export */ __webpack_exports__["default"] = (".example-form {\n  min-width: 150px;\n  max-width: 500px;\n  width: 100%;\n}\n\n.example-full-width {\n  width: 100%;\n}\n/*# sourceMappingURL=data:application/json;base64,eyJ2ZXJzaW9uIjozLCJzb3VyY2VzIjpbIi9Vc2Vycy9kZWxpdGFtYWthbmRhL1Byb2plY3RzL2RhdGluZy9tb2JpbGUvc3JjL2FwcC9jb21wb25lbnRzL2Rhc2hib2FyZC9jaGF0cy9uZXctY29udmVyc2F0aW9uL25ldy1jb252ZXJzYXRpb24uY29tcG9uZW50LnNjc3MiLCJzcmMvYXBwL2NvbXBvbmVudHMvZGFzaGJvYXJkL2NoYXRzL25ldy1jb252ZXJzYXRpb24vbmV3LWNvbnZlcnNhdGlvbi5jb21wb25lbnQuc2NzcyJdLCJuYW1lcyI6W10sIm1hcHBpbmdzIjoiQUFBQTtFQUNJLGdCQUFBO0VBQ0EsZ0JBQUE7RUFDQSxXQUFBO0FDQ0o7O0FERUE7RUFDSSxXQUFBO0FDQ0oiLCJmaWxlIjoic3JjL2FwcC9jb21wb25lbnRzL2Rhc2hib2FyZC9jaGF0cy9uZXctY29udmVyc2F0aW9uL25ldy1jb252ZXJzYXRpb24uY29tcG9uZW50LnNjc3MiLCJzb3VyY2VzQ29udGVudCI6WyIuZXhhbXBsZS1mb3JtIHtcbiAgICBtaW4td2lkdGg6IDE1MHB4O1xuICAgIG1heC13aWR0aDogNTAwcHg7XG4gICAgd2lkdGg6IDEwMCU7XG59XG5cbi5leGFtcGxlLWZ1bGwtd2lkdGgge1xuICAgIHdpZHRoOiAxMDAlO1xufVxuIiwiLmV4YW1wbGUtZm9ybSB7XG4gIG1pbi13aWR0aDogMTUwcHg7XG4gIG1heC13aWR0aDogNTAwcHg7XG4gIHdpZHRoOiAxMDAlO1xufVxuXG4uZXhhbXBsZS1mdWxsLXdpZHRoIHtcbiAgd2lkdGg6IDEwMCU7XG59Il19 */");
+
+/***/ }),
+
+/***/ "./src/app/components/dashboard/chats/new-conversation/new-conversation.component.ts":
+/*!*******************************************************************************************!*\
+  !*** ./src/app/components/dashboard/chats/new-conversation/new-conversation.component.ts ***!
+  \*******************************************************************************************/
+/*! exports provided: NewConversationComponent */
+/***/ (function(module, __webpack_exports__, __webpack_require__) {
+
+"use strict";
+__webpack_require__.r(__webpack_exports__);
+/* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "NewConversationComponent", function() { return NewConversationComponent; });
+/* harmony import */ var tslib__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! tslib */ "./node_modules/tslib/tslib.es6.js");
+/* harmony import */ var _angular_core__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! @angular/core */ "./node_modules/@angular/core/fesm2015/core.js");
+/* harmony import */ var _angular_forms__WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__(/*! @angular/forms */ "./node_modules/@angular/forms/fesm2015/forms.js");
+/* harmony import */ var _angular_material__WEBPACK_IMPORTED_MODULE_3__ = __webpack_require__(/*! @angular/material */ "./node_modules/@angular/material/esm2015/material.js");
+/* harmony import */ var rxjs_operators__WEBPACK_IMPORTED_MODULE_4__ = __webpack_require__(/*! rxjs/operators */ "./node_modules/rxjs/_esm2015/operators/index.js");
+
+
+
+
+
+let NewConversationComponent = class NewConversationComponent {
+    constructor(dialogRef) {
+        this.dialogRef = dialogRef;
+        this.myControl = new _angular_forms__WEBPACK_IMPORTED_MODULE_2__["FormControl"]();
+        this.options = ['One', 'Two', 'Three'];
+    }
+    ngOnInit() {
+        this.filteredOptions = this.myControl.valueChanges.pipe(Object(rxjs_operators__WEBPACK_IMPORTED_MODULE_4__["startWith"])(''), Object(rxjs_operators__WEBPACK_IMPORTED_MODULE_4__["map"])(value => this._filter(value)));
+    }
+    _filter(value) {
+        const filterValue = value.toLowerCase();
+        return this.options.filter(option => option.toLowerCase().indexOf(filterValue) === 0);
+    }
+    addParticipant() {
+        this.closeModal();
+    }
+    closeModal() {
+        this.dialogRef.close({ event: 'toto' });
+    }
+};
+NewConversationComponent.ctorParameters = () => [
+    { type: _angular_material__WEBPACK_IMPORTED_MODULE_3__["MatDialogRef"] }
+];
+NewConversationComponent = tslib__WEBPACK_IMPORTED_MODULE_0__["__decorate"]([
+    Object(_angular_core__WEBPACK_IMPORTED_MODULE_1__["Component"])({
+        selector: 'app-new-conversation',
+        template: tslib__WEBPACK_IMPORTED_MODULE_0__["__importDefault"](__webpack_require__(/*! raw-loader!./new-conversation.component.html */ "./node_modules/raw-loader/dist/cjs.js!./src/app/components/dashboard/chats/new-conversation/new-conversation.component.html")).default,
+        styles: [tslib__WEBPACK_IMPORTED_MODULE_0__["__importDefault"](__webpack_require__(/*! ./new-conversation.component.scss */ "./src/app/components/dashboard/chats/new-conversation/new-conversation.component.scss")).default]
+    })
+], NewConversationComponent);
 
 
 
@@ -882,7 +986,7 @@ let NewPhotoComponent = class NewPhotoComponent {
         }
         formData.append('details', this.profilForm.get('detailsField').value);
         this.postPhoto(formData);
-        this.closeModal();
+        this.dialogRef.close({ data: 'ok' });
     }
     revert() {
         this.profilForm.reset();
@@ -994,6 +1098,11 @@ let UserProfileComponent = class UserProfileComponent {
         dialogConfig.id = "modal-component";
         dialogConfig.width = "300px";
         const modalDialog = this.matDialog.open(_new_photo_new_photo_component__WEBPACK_IMPORTED_MODULE_5__["NewPhotoComponent"], dialogConfig);
+        modalDialog.afterClosed().subscribe(response => {
+            if (response.data && response.data === 'ok') {
+                this.getPhotos();
+            }
+        });
     }
 };
 UserProfileComponent.ctorParameters = () => [

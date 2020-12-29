@@ -1,5 +1,5 @@
-Django==1.11.29
-djangorestframework==3.9.1
+Django==3.1.4
+djangorestframework==3.12.2
 django-webpack-loader==0.6.0
 pygments==2.3.1
 markdown==3.0.1
@@ -8,6 +8,10 @@ djangorestframework-jwt==1.11.0
 PyJWT==1.7.1
 coreapi==2.3.3
 pillow==8.0.0
-django-cors-headers==2.5.2
+django-cors-headers==3.6.0
 whitenoise==3.3.1
 django-storages==1.7.1
+channels==3.0.2
+channels-redis==3.2.0 
+pytest-asyncio==0.14.0 
+pytest-django==4.1.0
