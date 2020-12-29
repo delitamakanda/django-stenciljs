@@ -26,7 +26,7 @@ from rest_framework.documentation import include_docs_urls
 urlpatterns = [
     url(r'^admin/', admin.site.urls),
     url(r'^api/docs/', include_docs_urls(title='Lov3r APIs')),
-    url(r'^api/', include('api.urls', namespace='api_dating')),
+    url(r'^api/', include(('api.urls', 'api_dating'), namespace='api_dating')),
     url(r'^$', never_cache(TemplateView.as_view(template_name='frontend/index.html')), name='index'),
 ]
 

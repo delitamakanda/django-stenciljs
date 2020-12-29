@@ -40,6 +40,7 @@ INSTALLED_APPS = [
     'django.contrib.staticfiles',
     'webpack_loader',
     'corsheaders',
+    'channels',
     'rest_framework',
     'rest_framework.authtoken',
     'api.apps.ApiConfig',
@@ -78,6 +79,7 @@ TEMPLATES = [
 ]
 
 WSGI_APPLICATION = 'dating.wsgi.application'
+ASGI_APPLICATION = 'dating.routing.application'
 
 
 # Database
@@ -180,11 +182,11 @@ JWT_AUTH = {
 # corsheaders
 
 CORS_ORIGIN_WHITELIST = (
-    'localhost',
-    'localhost:4200',
-    'localhost:8000',
-    '127.0.0.1',
-    'lov3r.herokuapp.com'
+    'http://localhost',
+    'http://localhost:4200',
+    'http://localhost:8000',
+    'http://127.0.0.1',
+    'https://lov3r.herokuapp.com'
 )
 
 from corsheaders.defaults import default_headers
@@ -193,3 +195,15 @@ CORS_ALLOW_HEADERS = default_headers + ('X-CSRFToken',)
 
 # Mail
 EMAIL_BACKEND = 'django.core.mail.backends.console.EmailBackend'
+
+# Channels
+REDIS_URL = os.getenv('REDIS_URL', 'redis://localhost:6379')
+
+CHANNEL_LAYERS = {
+    'default': {
+        'BACKEND': 'channels_redis.core.RedisChannelLayer',
+        'CONFIG': {
+            'hosts':  [REDIS_URL]
+        }
+    }
+}

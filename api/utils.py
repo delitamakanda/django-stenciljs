@@ -3,6 +3,7 @@ from django.conf import settings
 from django.utils import timezone
 
 from rest_framework_jwt.settings import api_settings
+from rest_framework_jwt.authentication import BaseJSONWebTokenAuthentication
 from rest_framework.reverse import reverse as api_reverse
 
 expire_delta = api_settings.JWT_REFRESH_EXPIRATION_DELTA

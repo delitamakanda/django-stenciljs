@@ -1,4 +1,5 @@
 from django.contrib import admin
+from django.contrib.auth.admin import UserAdmin as DefaultUserAdmin
 
 from api.models import UserAccount
 from api.models import UserPhoto
@@ -16,9 +17,11 @@ from api.models import Message
 from api.models import Grade
 from api.models import BlockUser
 
-# Register your models here.
+@admin.register(UserAccount)
+class UserAdmin(DefaultUserAdmin):
+    pass
 
-admin.site.register(UserAccount)
+# admin.site.register(UserAccount)
 admin.site.register(UserPhoto)
 admin.site.register(Gender)
 admin.site.register(RelationshipType)

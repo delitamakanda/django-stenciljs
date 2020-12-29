@@ -168,7 +168,7 @@ class LoginUserView(APIView):
     '''
     permission_classes = [AnonPermissionOnly]
     def post(self, request, *args, **kwargs):
-        if request.user.is_authenticated():
+        if request.user.is_authenticated:
             return Response({'detail': _('You are already authenticated')}, status=400)
         data = request.data
         username = data.get('username') # username or email address
