@@ -19,4 +19,4 @@ channels==3.0.2
 channels-redis==3.2.0 
 pytest-asyncio==0.14.0 
 pytest-django==4.1.0
-daphne==1.4.2
+daphne==3.0.1
