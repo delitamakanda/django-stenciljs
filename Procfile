@@ -1,1 +1,1 @@
-web: gunicorn dating.wsgi --log-file –
+web: gunicorn dating.asgi --log-file –
