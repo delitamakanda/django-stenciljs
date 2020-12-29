@@ -1,0 +1,13 @@
+<form class="example-form">
+  <mat-form-field class="example-full-width">
+    <input type="text" [placeholder]="'participantLabel' | translate" aria-label="Number" matInput [formControl]="myControl" [matAutocomplete]="auto">
+    <mat-autocomplete autoActiveFirstOption #auto="matAutocomplete">
+      <mat-option *ngFor="let option of filteredOptions | async" [value]="option">
+        {{option}}
+      </mat-option>
+    </mat-autocomplete>
+  </mat-form-field>
+  <mat-card-actions>
+    <button type="button" mat-raised-button color="primary" (click)="addParticipant()">{{ 'newConversationLabel' | translate }}</button>
+    </mat-card-actions>
+</form>

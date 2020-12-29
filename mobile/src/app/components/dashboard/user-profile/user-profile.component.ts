@@ -54,6 +54,12 @@ export class UserProfileComponent implements OnInit, OnDestroy {
     dialogConfig.id = "modal-component";
     dialogConfig.width = "300px";
     const modalDialog = this.matDialog.open(NewPhotoComponent, dialogConfig);
+
+    modalDialog.afterClosed().subscribe(response => {
+      if (response.data && response.data === 'ok') {
+        this.getPhotos()
+      }
+    })
   }
 
 

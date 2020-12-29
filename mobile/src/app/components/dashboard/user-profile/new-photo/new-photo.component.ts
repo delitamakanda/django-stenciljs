@@ -70,7 +70,7 @@ export class NewPhotoComponent implements OnInit, OnDestroy, ErrorStateMatcher {
     formData.append('details', this.profilForm.get('detailsField').value);
 
     this.postPhoto(formData);
-    this.closeModal();
+    this.dialogRef.close({ data: 'ok'});
   }
 
   revert() {

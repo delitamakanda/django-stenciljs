@@ -33,6 +33,7 @@ import { TokenInterceptor } from './services/auth/token.interceptor';
 import { NavigationBarComponent } from './components/navigation-bar/navigation-bar.component';
 import { NewPhotoComponent } from './components/dashboard/user-profile/new-photo/new-photo.component';
 import { SafePipe } from './pipes/safe/safe.pipe';
+import { NewConversationComponent } from './components/dashboard/chats/new-conversation/new-conversation.component';
 
 export function setupTranslateFactory(service: TranslateService): Function {
   return () => service.use('fr');
@@ -55,6 +56,7 @@ export function setupTranslateFactory(service: TranslateService): Function {
     NavigationBarComponent,
     NewPhotoComponent,
     SafePipe,
+    NewConversationComponent,
   ],
   imports: [
     BrowserModule,
@@ -87,7 +89,8 @@ export function setupTranslateFactory(service: TranslateService): Function {
   ],
   bootstrap: [AppComponent],
   entryComponents: [
-    NewPhotoComponent
+    NewPhotoComponent,
+    NewConversationComponent,
   ]
 })
 export class AppModule { }

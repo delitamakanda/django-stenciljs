@@ -32,5 +32,7 @@
   "labelDetailsRequired": "Details is required.",
   "labelPopularity": "Popularity",
   "labeltokenExists": "You are already logged in! Would you like to ",
-  "closeModal": "Close"
+  "closeModal": "Close",
+  "newConversationLabel": "New conversation",
+  "participantLabel": "Choose a participant"
 }
